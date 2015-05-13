@@ -1,3 +1,4 @@
+package de.windows;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.event.KeyAdapter;
@@ -5,6 +6,8 @@ import java.awt.event.KeyEvent;
 
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
+
+import de.manager.FightManager;
 
 public class MapWindow extends JFrame {
 
@@ -78,7 +81,10 @@ public class MapWindow extends JFrame {
 		g.drawImage(Player, x, y, this);
 
 		repaint();
-		isCollide(this.x, this.y);
+		if(isCollide(this.x, this.y))
+		{
+			FightManager.getInstance().Start(null);
+		}
 	}
 
 	public boolean isCollide(int x, int y) {

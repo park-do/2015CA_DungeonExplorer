@@ -1,3 +1,4 @@
+package de.windows;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.GridLayout;
@@ -14,6 +15,7 @@ import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 
 import net.miginfocom.swing.MigLayout;
+import de.manager.WindowManager;
 
 
 public class StartWindow extends JFrame implements ActionListener {
@@ -105,8 +107,8 @@ public class StartWindow extends JFrame implements ActionListener {
 		btnStrat.setFont(new Font("±¼¸²", Font.PLAIN, 30));
 		btnStrat.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				WindowManager.instance.Show(WindowManager.WindowID.MAP);
-				WindowManager.instance.Hide(WindowManager.WindowID.START);
+				WindowManager.getInstance().Show(WindowManager.WindowID.MAP);
+				WindowManager.getInstance().Hide(WindowManager.WindowID.START);
 			}
 		});
 		btnStrat.setBounds(273, 480, 240, 50);

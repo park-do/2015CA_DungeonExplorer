@@ -105,6 +105,8 @@ public class StartWindow extends JFrame implements ActionListener {
 		btnStrat.setFont(new Font("±¼¸²", Font.PLAIN, 30));
 		btnStrat.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				WindowManager.instance.Show(WindowManager.WindowID.MAP);
+				WindowManager.instance.Hide(WindowManager.WindowID.START);
 			}
 		});
 		btnStrat.setBounds(273, 480, 240, 50);

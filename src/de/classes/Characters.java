@@ -1,5 +1,8 @@
 package de.classes;
 
+import de.manager.WindowManager;
+import de.windows.FightWindow;
+
 public class Characters 
 {
 	String name;
@@ -73,6 +76,6 @@ public class Characters
 	
 	void PrintMessage(String msg)
 	{
-		System.out.println(msg);
+		((FightWindow)WindowManager.getInstance().getFrame(WindowManager.WindowID.FIGHT)).AddMessage(msg);
 	}
 }

@@ -1,6 +1,8 @@
 package de.windows;
 
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -12,12 +14,12 @@ import net.miginfocom.swing.MigLayout;
 import de.classes.Characters;
 import de.manager.FightManager;
 
-public class FightWindow extends JFrame {
+import javax.swing.JButton;
+import javax.swing.JScrollPane;
+
+public class FightWindow extends JFrame implements ActionListener{
 
 	private JPanel contentPane;
-	
-
-	JTextArea textArea;
 	JLabel enemyNameText;
 	JLabel enemyHPText;
 
@@ -26,6 +28,10 @@ public class FightWindow extends JFrame {
 
 
 	private JLabel playerHPText;
+
+
+	private JButton btnAttack;
+	private JTextArea textArea;
 
 	/**
 	 * Create the frame.
@@ -83,8 +89,16 @@ public class FightWindow extends JFrame {
 		playerHPText = new JLabel("10/80");
 		playerInfoPanel.add(playerHPText);
 		
+		btnAttack = new JButton("АјАн!!!!");
+		btnAttack.addActionListener(this);
+		
+		JScrollPane scrollPane = new JScrollPane();
+		contentPane.add(scrollPane, "cell 0 2,grow");
+		
 		textArea = new JTextArea();
-		contentPane.add(textArea, "cell 0 2,grow");
+		scrollPane.setViewportView(textArea);
+		contentPane.add(btnAttack, "cell 0 3");
+		
 		
 	}
 	
@@ -107,5 +121,17 @@ public class FightWindow extends JFrame {
 	public String getHPString(int HP, int damaged)
 	{
 		return (HP-damaged)+" / "+HP;
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		if(e.getSource()==btnAttack)
+		{
+			Characters player = FightManager.getInstance().getPlayer();
+			Characters enemy = FightManager.getInstance().getEnemy(); 
+			player.Attack(enemy);
+			enemy.Attack(player);
+			refresh();
+		}
 	}
 }

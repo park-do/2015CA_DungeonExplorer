@@ -2,6 +2,7 @@ package de.manager;
 
 import de.classes.Characters;
 import de.windows.FightWindow;
+import de.windows.MapWindow;
 
 public class FightManager 
 {
@@ -50,6 +51,7 @@ public class FightManager
 	{
 		WindowManager.getInstance().Hide(WindowManager.WindowID.FIGHT);
 		WindowManager.getInstance().Show(WindowManager.WindowID.MAP);
+		//((MapWindow)WindowManager.getInstance().getFrame(WindowManager.WindowID.MAP)).Win();
 	}
 	
 }

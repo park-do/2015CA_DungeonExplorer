@@ -54,21 +54,21 @@ public class FightWindow extends JFrame implements ActionListener{
 		panel.setLayout(new GridLayout(0, 2, 0, 0));
 		
 		JLabel enemyNameLabel = new JLabel("Name : ");
-		enemyNameLabel.setFont(new Font("±¼¸²", Font.PLAIN, 30));
+		enemyNameLabel.setFont(new Font("±¼¸²", Font.PLAIN, 20));
 		enemyNameLabel.setHorizontalAlignment(SwingConstants.RIGHT);
 		panel.add(enemyNameLabel);
 		
 		enemyNameText = new JLabel("Orc");
-		enemyNameText.setFont(new Font("±¼¸²", Font.PLAIN, 30));
+		enemyNameText.setFont(new Font("±¼¸²", Font.PLAIN, 20));
 		panel.add(enemyNameText);
 		
 		JLabel enemyHPLabel = new JLabel("HP : ");
-		enemyHPLabel.setFont(new Font("±¼¸²", Font.PLAIN, 30));
+		enemyHPLabel.setFont(new Font("±¼¸²", Font.PLAIN, 20));
 		enemyHPLabel.setHorizontalAlignment(SwingConstants.RIGHT);
 		panel.add(enemyHPLabel);
 		
 		enemyHPText = new JLabel("10/80");
-		enemyHPText.setFont(new Font("±¼¸²", Font.PLAIN, 30));
+		enemyHPText.setFont(new Font("±¼¸²", Font.PLAIN, 20));
 		panel.add(enemyHPText);
 		
 		JPanel playerPanel = new JPanel();
@@ -81,25 +81,25 @@ public class FightWindow extends JFrame implements ActionListener{
 		playerInfoPanel.setLayout(new GridLayout(0, 2, 0, 0));
 		
 		JLabel label = new JLabel("Name : ");
-		label.setFont(new Font("±¼¸²", Font.PLAIN, 30));
+		label.setFont(new Font("±¼¸²", Font.PLAIN, 20));
 		label.setHorizontalAlignment(SwingConstants.RIGHT);
 		playerInfoPanel.add(label);
 		
 		playerNameText = new JLabel("Orc");
-		playerNameText.setFont(new Font("±¼¸²", Font.PLAIN, 30));
+		playerNameText.setFont(new Font("±¼¸²", Font.PLAIN, 20));
 		playerInfoPanel.add(playerNameText);
 		
 		JLabel label_2 = new JLabel("HP : ");
-		label_2.setFont(new Font("±¼¸²", Font.PLAIN, 30));
+		label_2.setFont(new Font("±¼¸²", Font.PLAIN, 20));
 		label_2.setHorizontalAlignment(SwingConstants.RIGHT);
 		playerInfoPanel.add(label_2);
 		
 		playerHPText = new JLabel("10/80");
-		playerHPText.setFont(new Font("±¼¸²", Font.PLAIN, 30));
+		playerHPText.setFont(new Font("±¼¸²", Font.PLAIN, 20));
 		playerInfoPanel.add(playerHPText);
 		
 		btnAttack = new JButton("°ø°Ý!!!!");
-		btnAttack.setFont(new Font("±¼¸²", Font.PLAIN, 30));
+		btnAttack.setFont(new Font("±¼¸²", Font.PLAIN, 20));
 		btnAttack.addActionListener(this);
 		
 		JScrollPane scrollPane = new JScrollPane();

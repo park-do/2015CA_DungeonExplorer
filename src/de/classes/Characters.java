@@ -1,6 +1,9 @@
 package de.classes;
 
+import java.util.ArrayList;
+
 import de.manager.WindowManager;
+import de.skills.Skill;
 import de.windows.FightWindow;
 
 public class Characters 
@@ -10,6 +13,8 @@ public class Characters
 	int damagedhp;
 	int attack;
 	int guard;
+	
+	ArrayList<Skill> skillList = new ArrayList<Skill>();
 	
 	public String getName() {
 		return name;
@@ -62,6 +67,11 @@ public class Characters
 		this.hp = hp;
 		this.attack = attack;
 		this.guard = guard;
+	}
+	
+	public void AddSkill(Skill skill)
+	{
+		skillList.add(skill);
 	}
 	
 	public void Attack(Characters target)

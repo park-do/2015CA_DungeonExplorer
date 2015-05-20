@@ -31,6 +31,8 @@ public class FightManager
 	{
 		if(enemy!=null)
 			this.enemy = enemy;
+		else
+			this.enemy = EnemyFactory.getInstance().getEnemy(this.enemy.getName());
 		
 		WindowManager.getInstance().Hide(WindowManager.WindowID.MAP);
 		WindowManager.getInstance().Show(WindowManager.WindowID.FIGHT);

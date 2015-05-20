@@ -20,6 +20,10 @@ public class KeyInputManager implements KeyListener {
 		public void toggle(boolean isPressed) {
 			pressed = isPressed;
 		}
+		
+		public void force(){
+			pressed = false;
+		}
 	}
 
 	public Key up = new Key();

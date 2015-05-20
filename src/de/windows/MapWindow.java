@@ -15,8 +15,9 @@ public class MapWindow extends JFrame implements Runnable {
 	public boolean running = false;
 	public int tickCount = 0;
 	long lastTime;
-
+	
 	public static KeyInputManager keyipm;
+
 	int x, y;
 	int xMon, yMon;
 
@@ -55,6 +56,10 @@ public class MapWindow extends JFrame implements Runnable {
 		int n = y - yMon;
 		if (-25 < m && m < 25 && -25 < n && n < 25) {
 			System.out.println(true + " : " + m + "," + n);
+			keyipm.up.force();
+			keyipm.down.force();
+			keyipm.left.force();
+			keyipm.right.force();
 			return true;
 		} else
 			System.out.println(false + " : " + m + "," + n);
@@ -62,7 +67,7 @@ public class MapWindow extends JFrame implements Runnable {
 	}
 
 	public int doorCollide(int x, int y) {
-		int m = x+15;
+		int m = x + 15;
 		int n = y;
 		if (10 < m && m < 40 && 0 < n && n < 20) {
 			return 1;
@@ -82,36 +87,34 @@ public class MapWindow extends JFrame implements Runnable {
 
 		return 0;
 	}
-	
+
 	public int gateCollide(int x, int y) {
-		int m = x+15;
+		int m = x + 15;
 		int n = y;
-		if (where==1 && 450 < m && m < 500 && 0 < n && n < 50) {
+		if (where == 1 && 450 < m && m < 500 && 0 < n && n < 50) {
 			return 0;
 		}
-		if (where==2 && 100 < m && m < 150 && 100 < n && n < 150) {
+		if (where == 2 && 100 < m && m < 150 && 100 < n && n < 150) {
 			return 0;
 		}
-		if (where==3 && 400 < m && m < 450 && 350 < n && n < 400) {
+		if (where == 3 && 400 < m && m < 450 && 350 < n && n < 400) {
 			return 0;
 		}
-		if (where==4 && 450 < m && m < 500 && 0 < n && n < 50) {
+		if (where == 4 && 450 < m && m < 500 && 0 < n && n < 50) {
 			return 0;
 		}
 
 		return where;
 	}
-	
+
 	public boolean shopCollide(int x, int y) {
-		int m = x+15;
+		int m = x + 15;
 		int n = y;
-		if ( 250 < m && m < 300 && 250 < n && n < 280) {
+		if (250 < m && m < 300 && 250 < n && n < 280) {
 			return true;
 		}
 		return false;
 	}
-	
-	
 
 	@Override
 	public void run() {
@@ -172,6 +175,7 @@ public class MapWindow extends JFrame implements Runnable {
 		if (keyipm.up.isPressed()) {
 			y -= 1;
 		}
+
 	}
 
 	public void paint(Graphics g) {
@@ -182,6 +186,20 @@ public class MapWindow extends JFrame implements Runnable {
 	}
 
 	public void paintComponent(Graphics g) {
+
+		if (x > 490) {
+			x = 490;
+		}
+		if (y > 490) {
+			y = 490;
+		}
+		if (x < 0) {
+			x = 0;
+		}
+		if (y < 0) {
+			y = 0;
+		}
+
 		switch (where) {
 		case 0: {
 			g.drawImage(Town, 0, 28, this);
@@ -203,7 +221,7 @@ public class MapWindow extends JFrame implements Runnable {
 				where = 5;
 			}
 			if (shopCollide(this.x, this.y)) {
-			//	ShopManager.getInstance().Start(null);
+				// ShopManager.getInstance().Start(null);
 			}
 			break;
 		}
@@ -214,6 +232,8 @@ public class MapWindow extends JFrame implements Runnable {
 			repaint();
 			if (monsterCollide(this.x, this.y)) {
 				FightManager.getInstance().Start(null);
+				x = 450;
+				y = 250;
 			}
 			if (gateCollide(this.x, this.y) == 0) {
 				where = 0;
@@ -227,6 +247,8 @@ public class MapWindow extends JFrame implements Runnable {
 			repaint();
 			if (monsterCollide(this.x, this.y)) {
 				FightManager.getInstance().Start(null);
+				x = 450;
+				y = 250;
 			}
 			if (gateCollide(this.x, this.y) == 0) {
 				where = 0;
@@ -240,6 +262,8 @@ public class MapWindow extends JFrame implements Runnable {
 			repaint();
 			if (monsterCollide(this.x, this.y)) {
 				FightManager.getInstance().Start(null);
+				x = 450;
+				y = 250;
 			}
 			if (gateCollide(this.x, this.y) == 0) {
 				where = 0;
@@ -253,6 +277,8 @@ public class MapWindow extends JFrame implements Runnable {
 			repaint();
 			if (monsterCollide(this.x, this.y)) {
 				FightManager.getInstance().Start(null);
+				x = 450;
+				y = 250;
 			}
 			if (gateCollide(this.x, this.y) == 0) {
 				where = 0;
@@ -266,6 +292,8 @@ public class MapWindow extends JFrame implements Runnable {
 			repaint();
 			if (monsterCollide(this.x, this.y)) {
 				FightManager.getInstance().Start(null);
+				x = 450;
+				y = 250;
 			}
 			break;
 		}

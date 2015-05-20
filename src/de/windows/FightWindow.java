@@ -13,9 +13,11 @@ import javax.swing.SwingConstants;
 import net.miginfocom.swing.MigLayout;
 import de.classes.Characters;
 import de.manager.FightManager;
+import de.manager.WindowManager;
 
 import javax.swing.JButton;
 import javax.swing.JScrollPane;
+
 import java.awt.Font;
 
 public class FightWindow extends JFrame implements ActionListener{
@@ -126,6 +128,11 @@ public class FightWindow extends JFrame implements ActionListener{
 		playerHPText.setText(getHPString(player.getHp(),player.getDamagedhp()));		
 		enemyNameText.setText(enemy.getName());
 		enemyHPText.setText(getHPString(enemy.getHp(),enemy.getDamagedhp()));
+		
+		if(enemy.getHp()<=enemy.getDamagedhp())
+		{
+			FightManager.getInstance().Finish();
+		}
 	}
 	
 	public String getHPString(int HP, int damaged)

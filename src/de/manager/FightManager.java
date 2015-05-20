@@ -46,4 +46,10 @@ public class FightManager
 		return player;
 	}
 	
+	public void Finish()
+	{
+		WindowManager.getInstance().Hide(WindowManager.WindowID.FIGHT);
+		WindowManager.getInstance().Show(WindowManager.WindowID.MAP);
+	}
+	
 }

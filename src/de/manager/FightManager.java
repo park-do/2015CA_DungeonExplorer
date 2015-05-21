@@ -19,7 +19,7 @@ public class FightManager
 	
 	FightManager()
 	{
-		enemy = EnemyFactory.getInstance().getEnemy("Orc");
+		enemy = EnemyFactory.getInstance().getEnemy("≥≠¿Ô¿Ã");
 		player = new Characters("Player", 100, 12, 3);
 	}
 	

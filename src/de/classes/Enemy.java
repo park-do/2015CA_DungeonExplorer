@@ -22,7 +22,16 @@ public class Enemy extends Characters
 		super(name, hp, attack, guard);
 		this.exp = exp;
 		this.gold = gold;
-		
+	}
+	
+	public Enemy(String name, int hp, int attack, int guard, int exp, int gold, Skill... skill) {
+		super(name, hp, attack, guard);
+		this.exp = exp;
+		this.gold = gold;
+		for(int i=0;i<skill.length;i++)
+		{
+			AddSkill(skill[i]);
+		}
 	}
 	
 	

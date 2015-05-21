@@ -36,7 +36,7 @@ public class StartWindow extends JFrame implements ActionListener {
 	 * Create the frame.
 	 */
 	public StartWindow() {
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		setBounds(100, 100, 600, 600);
 		contentPane = new JPanel();
 		setContentPane(contentPane);

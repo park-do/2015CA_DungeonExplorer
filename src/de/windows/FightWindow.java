@@ -40,7 +40,7 @@ public class FightWindow extends JFrame implements ActionListener{
 	 * Create the frame.
 	 */
 	public FightWindow() {
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		setBounds(100, 100, 500, 500);
 		contentPane = new JPanel();
 		setContentPane(contentPane);

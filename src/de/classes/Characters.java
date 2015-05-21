@@ -11,6 +11,8 @@ public class Characters
 	String name;
 	int hp;
 	int damagedhp;
+	int mp;
+	int usedmp;
 	int attack;
 	int guard;
 	
@@ -24,8 +26,18 @@ public class Characters
 		this.name = name;
 	}
 
-	public int getHp() {
+	public int getMaxHp() {
 		return hp;
+	}
+	
+	public int getNowHP()
+	{
+		return hp-damagedhp;
+	}
+	
+	public void Damaged(int damage)
+	{
+		damagedhp+=damage;
 	}
 
 	public int getDamagedhp() {
@@ -79,7 +91,7 @@ public class Characters
 		int attack = this.attack;
 		attack -= target.guard;
 		if(attack<0)attack = 0;
-		target.damagedhp+=attack;
+		target.Damaged(attack);
 		
 		PrintMessage(name+"이(가) " +target.getName()+"에게 "+attack+"데미지!");
 	}

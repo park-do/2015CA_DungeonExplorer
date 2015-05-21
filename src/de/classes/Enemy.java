@@ -25,6 +25,7 @@ public class Enemy extends Characters
 		
 	}
 	
+	
 	public Enemy clone()
 	{
 		Enemy instance = new Enemy(this.name,this.hp,this.attack,this.guard,this.exp,this.gold);

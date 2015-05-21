@@ -125,11 +125,11 @@ public class FightWindow extends JFrame implements ActionListener{
 		Characters enemy = FightManager.getInstance().getEnemy(); 
 		
 		playerNameText.setText(player.getName());
-		playerHPText.setText(getHPString(player.getHp(),player.getDamagedhp()));		
+		playerHPText.setText(getHPString(player.getMaxHp(),player.getDamagedhp()));		
 		enemyNameText.setText(enemy.getName());
-		enemyHPText.setText(getHPString(enemy.getHp(),enemy.getDamagedhp()));
+		enemyHPText.setText(getHPString(enemy.getMaxHp(),enemy.getDamagedhp()));
 		
-		if(enemy.getHp()<=enemy.getDamagedhp())
+		if(enemy.getMaxHp()<=enemy.getDamagedhp())
 		{
 			FightManager.getInstance().Finish();
 		}

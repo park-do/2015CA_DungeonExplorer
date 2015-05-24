@@ -2,7 +2,7 @@ package de.manager;
 
 import java.util.Hashtable;
 
-import de.classes.Enemy;
+import de.characters.Enemy;
 import de.skills.Skill_AG;
 import de.skills.Skill_AV;
 import de.skills.Skill_BW;

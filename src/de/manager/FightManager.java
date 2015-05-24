@@ -1,6 +1,6 @@
 package de.manager;
 
-import de.classes.Characters;
+import de.characters.Characters;
 import de.windows.FightWindow;
 import de.windows.MapWindow;
 
@@ -20,11 +20,11 @@ public class FightManager
 	FightManager()
 	{
 		enemy = EnemyFactory.getInstance().getEnemy("≥≠¿Ô¿Ã");
-		player = new Characters("Player", 100, 12, 3);
+		playerManager = PlayerManager.getInstance();
 	}
 	
 	Characters enemy;
-	Characters player;
+	PlayerManager playerManager;
 	
 	
 	public void Start( Characters enemy)
@@ -46,7 +46,7 @@ public class FightManager
 	
 	public Characters getPlayer()
 	{
-		return player;
+		return playerManager.getPlayer();
 	}
 	
 	public void Finish()

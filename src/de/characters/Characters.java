@@ -1,4 +1,4 @@
-package de.classes;
+package de.characters;
 
 import java.util.ArrayList;
 
@@ -10,9 +10,17 @@ public class Characters
 {
 	String name;
 	int hp;
-	int damagedhp;
+	int damagedHp;
 	int mp;
-	int usedmp;
+	int usedMp;
+	
+	int meleeAP;
+	int rangedAP;
+	int magicAP;
+	int meleeGP;
+	int rangedGP;
+	int magicGP;
+	
 	int attack;
 	int guard;
 	
@@ -32,20 +40,20 @@ public class Characters
 	
 	public int getNowHP()
 	{
-		return hp-damagedhp;
+		return hp-damagedHp;
 	}
 	
 	public void Damaged(int damage)
 	{
-		damagedhp+=damage;
+		damagedHp+=damage;
 	}
 
 	public int getDamagedhp() {
-		return damagedhp;
+		return damagedHp;
 	}
 
 	public void setDamagedhp(int damagedhp) {
-		this.damagedhp = damagedhp;
+		this.damagedHp = damagedhp;
 	}
 
 	public void setHp(int hp) {
@@ -81,6 +89,23 @@ public class Characters
 		this.guard = guard;
 	}
 	
+	public Characters(String name, int hp, int mp,
+			int meleeAP, int rangedAP, int magicAP, int meleeGP, int rangedGP,
+			int magicGP) {
+		super();
+		this.name = name;
+		this.hp = hp;
+		this.damagedHp = 0;
+		this.mp = mp;
+		this.usedMp = 0;
+		this.meleeAP = meleeAP;
+		this.rangedAP = rangedAP;
+		this.magicAP = magicAP;
+		this.meleeGP = meleeGP;
+		this.rangedGP = rangedGP;
+		this.magicGP = magicGP;
+	}
+
 	public void AddSkill(Skill skill)
 	{
 		skillList.add(skill);

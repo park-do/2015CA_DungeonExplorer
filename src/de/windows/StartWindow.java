@@ -15,6 +15,7 @@ import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 
 import net.miginfocom.swing.MigLayout;
+import de.manager.PlayerManager;
 import de.manager.WindowManager;
 
 
@@ -107,8 +108,21 @@ public class StartWindow extends JFrame implements ActionListener {
 		btnStrat.setFont(new Font("±¼¸²", Font.PLAIN, 30));
 		btnStrat.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				
+				int selected = 0;
+				
+				if(tglbtnClassKnight.isSelected())selected=0;
+				if(tglbtnClassWarrior.isSelected())selected=1;
+				if(tglbtnClassFairy.isSelected())selected=2;
+				if(tglbtnClassWizard.isSelected())selected=3;
+				
+				PlayerManager.getInstance().Init(selected, Name.toString());
+				
+				
 				WindowManager.getInstance().Show(WindowManager.WindowID.MAP);
 				WindowManager.getInstance().Hide(WindowManager.WindowID.START);
+				
+				
 			}
 		});
 		btnStrat.setBounds(273, 480, 240, 50);
@@ -129,6 +143,7 @@ public class StartWindow extends JFrame implements ActionListener {
 			
 			((JToggleButton)e.getSource()).setSelected(true);
 		}
+		
 		
 	}
 }

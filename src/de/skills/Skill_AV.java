@@ -1,6 +1,6 @@
 package de.skills;
 
-import de.classes.Characters;
+import de.characters.Characters;
 import de.manager.WindowManager;
 import de.windows.FightWindow;
 

@@ -11,7 +11,7 @@ import javax.swing.JTextArea;
 import javax.swing.SwingConstants;
 
 import net.miginfocom.swing.MigLayout;
-import de.classes.Characters;
+import de.characters.Characters;
 import de.manager.FightManager;
 import de.manager.WindowManager;
 

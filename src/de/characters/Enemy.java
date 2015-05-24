@@ -1,4 +1,4 @@
-package de.classes;
+package de.characters;
 
 import de.skills.Skill;
 
@@ -18,6 +18,8 @@ public class Enemy extends Characters
 	public void setGold(int gold) {
 		this.gold = gold;
 	}
+	
+	//지울것들=--=-=-=-
 	public Enemy(String name, int hp, int attack, int guard, int exp, int gold) {
 		super(name, hp, attack, guard);
 		this.exp = exp;
@@ -33,11 +35,34 @@ public class Enemy extends Characters
 			AddSkill(skill[i]);
 		}
 	}
+	//=-=-==-==-=-=-여기까지
 	
+	public Enemy(String name, int hp, int mp,
+			int meleeAP, int rangedAP, int magicAP, int meleeGP, int rangedGP,
+			int magicGP, int exp, int gold)
+	{
+		super(name, hp, mp, meleeAP, rangedAP, magicAP,
+				meleeGP, rangedGP, magicGP);
+		this.exp = exp;
+		this.gold = gold;
+	}
+	
+	public Enemy(String name, int hp, int mp,
+			int meleeAP, int rangedAP, int magicAP, int meleeGP, int rangedGP,
+			int magicGP, int exp, int gold , Skill... skill) {
+		super(name, hp, mp, meleeAP, rangedAP, magicAP,
+				meleeGP, rangedGP, magicGP);
+		this.exp = exp;
+		this.gold = gold;
+		for(int i=0;i<skill.length;i++)
+		{
+			AddSkill(skill[i]);
+		}
+	}
 	
 	public Enemy clone()
 	{
-		Enemy instance = new Enemy(this.name,this.hp,this.attack,this.guard,this.exp,this.gold);
+		Enemy instance = new Enemy(name,hp,mp,meleeAP,rangedAP,magicAP,meleeGP,rangedGP,magicGP,exp,gold);
 		for ( Skill skill : skillList) {
 			instance.AddSkill(skill);
 		} 

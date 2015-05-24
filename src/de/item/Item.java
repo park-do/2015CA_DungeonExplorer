@@ -35,6 +35,4 @@ public class Item {
 	public void setClassType(ClassType classType) {
 		this.classType = classType;
 	}
-	
-	
 }

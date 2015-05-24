@@ -73,7 +73,7 @@ public class MapWindow extends JFrame implements Runnable {
 				xMon += 0;
 			}
 			if (x > xMon) {
-			//	xMon += monster_speed;
+				xMon += monster_speed;
 			}
 		}
 		if (distPlayerMonster() < 150 && keyipm.right.isPressed()) {
@@ -84,7 +84,7 @@ public class MapWindow extends JFrame implements Runnable {
 				xMon += 0;
 			}
 			if (x < xMon) {
-			//	xMon -= monster_speed;
+				xMon -= monster_speed;
 			}
 		}
 		if (distPlayerMonster() < 150 && keyipm.down.isPressed()) {
@@ -95,7 +95,7 @@ public class MapWindow extends JFrame implements Runnable {
 				yMon += 0;
 			}
 			if (y > yMon) {
-			//	yMon += monster_speed;
+				yMon += monster_speed;
 			}
 		}
 		if (distPlayerMonster() < 150 && keyipm.up.isPressed()) {
@@ -106,7 +106,7 @@ public class MapWindow extends JFrame implements Runnable {
 				yMon += 0;
 			}
 			if (y < yMon) {
-			//	yMon -= monster_speed;
+				yMon -= monster_speed;
 			}
 		}
 
@@ -236,6 +236,9 @@ public class MapWindow extends JFrame implements Runnable {
 		if (keyipm.up.isPressed()) {
 			y -= player_speed;
 		}
+		if (where == 5) {
+			navigate();
+		}
 
 	}
 
@@ -363,7 +366,6 @@ public class MapWindow extends JFrame implements Runnable {
 			g.drawImage(Monster, xMon, yMon, this);
 			g.drawImage(Player, x, y, this);
 			repaint();
-			navigate();
 			if (monsterCollide(this.x, this.y)) {
 				FightManager.getInstance().Start(null);
 				x = 450;

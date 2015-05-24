@@ -2,6 +2,7 @@ package de.windows;
 
 import java.awt.Graphics;
 import java.awt.Image;
+import java.lang.Math;
 
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
@@ -15,11 +16,14 @@ public class MapWindow extends JFrame implements Runnable {
 	public boolean running = false;
 	public int tickCount = 0;
 	long lastTime;
-	
+
 	public static KeyInputManager keyipm;
 
 	int x, y;
 	int xMon, yMon;
+
+	int player_speed = 2;
+	int monster_speed = 1;
 
 	int xDirection, yDirection;
 
@@ -49,6 +53,63 @@ public class MapWindow extends JFrame implements Runnable {
 		 */
 
 		new Thread(this).start();
+	}
+
+	public int distPlayerMonster() {
+		int m = Math.abs(x - xMon);
+		int n = Math.abs(y - yMon);
+		int p = (int) Math.sqrt(m * m + n * n);
+		System.out.println(p);
+		return p;
+	}
+
+	public void navigate() {
+
+		if (distPlayerMonster() < 150 && keyipm.left.isPressed()) {
+			if (x < xMon) {
+				xMon -= monster_speed;
+			}
+			if (x == xMon) {
+				xMon += 0;
+			}
+			if (x > xMon) {
+			//	xMon += monster_speed;
+			}
+		}
+		if (distPlayerMonster() < 150 && keyipm.right.isPressed()) {
+			if (x > xMon) {
+				xMon += monster_speed;
+			}
+			if (x == xMon) {
+				xMon += 0;
+			}
+			if (x < xMon) {
+			//	xMon -= monster_speed;
+			}
+		}
+		if (distPlayerMonster() < 150 && keyipm.down.isPressed()) {
+			if (y < yMon) {
+				yMon -= monster_speed;
+			}
+			if (y == yMon) {
+				yMon += 0;
+			}
+			if (y > yMon) {
+			//	yMon += monster_speed;
+			}
+		}
+		if (distPlayerMonster() < 150 && keyipm.up.isPressed()) {
+			if (y > yMon) {
+				yMon += monster_speed;
+			}
+			if (y == yMon) {
+				yMon += 0;
+			}
+			if (y < yMon) {
+			//	yMon -= monster_speed;
+			}
+		}
+
 	}
 
 	public boolean monsterCollide(int x, int y) {
@@ -164,16 +225,16 @@ public class MapWindow extends JFrame implements Runnable {
 	public void tick() {
 		tickCount++;
 		if (keyipm.left.isPressed()) {
-			x -= 1;
+			x -= player_speed;
 		}
 		if (keyipm.right.isPressed()) {
-			x += 1;
+			x += player_speed;
 		}
 		if (keyipm.down.isPressed()) {
-			y += 1;
+			y += player_speed;
 		}
 		if (keyipm.up.isPressed()) {
-			y -= 1;
+			y -= player_speed;
 		}
 
 	}
@@ -198,6 +259,18 @@ public class MapWindow extends JFrame implements Runnable {
 		}
 		if (y < 0) {
 			y = 0;
+		}
+		if (xMon > 490) {
+			xMon = 490;
+		}
+		if (yMon > 490) {
+			yMon = 490;
+		}
+		if (xMon < 0) {
+			yMon = 0;
+		}
+		if (yMon < 0) {
+			yMon = 0;
 		}
 
 		switch (where) {
@@ -290,22 +363,25 @@ public class MapWindow extends JFrame implements Runnable {
 			g.drawImage(Monster, xMon, yMon, this);
 			g.drawImage(Player, x, y, this);
 			repaint();
+			navigate();
 			if (monsterCollide(this.x, this.y)) {
 				FightManager.getInstance().Start(null);
 				x = 450;
 				y = 250;
+				xMon = 275;
+				yMon = 225;
 			}
 			break;
 		}
 		default: {
-			g.drawImage(Stone, 0, 0, this);
-			g.drawImage(Monster, xMon, yMon, this);
-			g.drawImage(Player, x, y, this);
-			repaint();
-			if (monsterCollide(this.x, this.y)) {
-				FightManager.getInstance().Start(null);
-			}
-			break;
+			// g.drawImage(Stone, 0, 0, this);
+			// g.drawImage(Monster, xMon, yMon, this);
+			// g.drawImage(Player, x, y, this);
+			// repaint();
+			// if (monsterCollide(this.x, this.y)) {
+			// FightManager.getInstance().Start(null);
+			// }
+			// break;
 		}
 		}
 	}

@@ -28,9 +28,9 @@ public class StartWindow extends JFrame implements ActionListener {
 	
 	JToggleButton tglbtnClassWarrior;
 	
-	JToggleButton tglbtnClassFairy;
+	JToggleButton tglbtnClassElf;
 	
-	JToggleButton tglbtnClassWizard;
+	JToggleButton tglbtnClassMagician;
 	private JLabel lblNewLabel;
 
 	/**
@@ -88,15 +88,15 @@ public class StartWindow extends JFrame implements ActionListener {
 		tglbtnClassWarrior.addActionListener(this);
 		classPanel.add(tglbtnClassWarrior);
 		
-		tglbtnClassFairy = new JToggleButton("Fairy");
-		tglbtnClassFairy.setFont(new Font("±¼¸²", Font.PLAIN, 30));
-		tglbtnClassFairy.addActionListener(this);
-		classPanel.add(tglbtnClassFairy);
+		tglbtnClassElf = new JToggleButton("Elf");
+		tglbtnClassElf.setFont(new Font("±¼¸²", Font.PLAIN, 30));
+		tglbtnClassElf.addActionListener(this);
+		classPanel.add(tglbtnClassElf);
 		
-		tglbtnClassWizard = new JToggleButton("Wizard");
-		tglbtnClassWizard.setFont(new Font("±¼¸²", Font.PLAIN, 30));
-		tglbtnClassWizard.addActionListener(this);
-		classPanel.add(tglbtnClassWizard);
+		tglbtnClassMagician = new JToggleButton("Magician");
+		tglbtnClassMagician.setFont(new Font("±¼¸²", Font.PLAIN, 30));
+		tglbtnClassMagician.addActionListener(this);
+		classPanel.add(tglbtnClassMagician);
 		
 		lblNewLabel = new JLabel("Dungeon Explorer");
 		lblNewLabel.setFont(new Font("±¼¸²", Font.PLAIN, 42));
@@ -138,8 +138,8 @@ public class StartWindow extends JFrame implements ActionListener {
 		{
 			tglbtnClassKnight.setSelected(false);
 			tglbtnClassWarrior.setSelected(false);
-			tglbtnClassFairy.setSelected(false);
-			tglbtnClassWizard.setSelected(false);
+			tglbtnClassElf.setSelected(false);
+			tglbtnClassMagician.setSelected(false);
 			
 			((JToggleButton)e.getSource()).setSelected(true);
 		}

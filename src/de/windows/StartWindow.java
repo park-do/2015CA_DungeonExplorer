@@ -113,8 +113,8 @@ public class StartWindow extends JFrame implements ActionListener {
 				
 				if(tglbtnClassKnight.isSelected())selected=0;
 				if(tglbtnClassWarrior.isSelected())selected=1;
-				if(tglbtnClassFairy.isSelected())selected=2;
-				if(tglbtnClassWizard.isSelected())selected=3;
+				if(tglbtnClassElf.isSelected())selected=2;
+				if(tglbtnClassMagician.isSelected())selected=3;
 				
 				PlayerManager.getInstance().Init(selected, textField.getText());
 				

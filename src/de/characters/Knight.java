@@ -8,12 +8,12 @@ public class Knight extends Player {
 	{
 		//name, damagedHp, mp, meleeAP, rangedAP, magicAP, meleeGP, rangedGP, magicGP, level, requiredExp, exp, hPgrowth, mPgrowth, meleeAPgrowth, rangedAPgrowth, magicAPgrowth, meleeGPgrowth, rangedGPgrowth, magicGPgrowth, equippedItem, bringItem
 		super(name, 
-				150, 50, //초기 HP, MP  
-				10, 0, 0, //초기 근 원 마 공
-				3, 2, 2, //초기 근 원 마 방
-				15, 5, //성장 HP, MP
-				2, 0, 0, //성장 근 원 마 공
-				1, 1, 1); //성장 근 원 마 방
+				800, 200, //초기 HP, MP  
+				30, 0, 0, //초기 공격력 (근거리, 원거리, 마법)
+				10, 5, 5, //초기 방어력 (근거리, 원거리, 마법)
+				80, 20, //성장 HP, MP
+				3, 0, 0, //공격력 성장치 (근거리, 원거리, 마법)
+				2, 1, 1); //방어력 성장치 (근거리, 원가리, 마법)
 	}
 
 }

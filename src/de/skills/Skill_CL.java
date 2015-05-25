@@ -4,7 +4,7 @@ import de.characters.Characters;
 import de.manager.WindowManager;
 import de.windows.FightWindow;
 
-//콜 라이트닝: 상대방에게 ??의 마법 데미지를 준다
+//콜 라이트닝: 상대방에게 높은 마법 데미지를 준다
 public class Skill_CL extends ActiveSkill {
 	
 	public void CallLightening (Characters target) {

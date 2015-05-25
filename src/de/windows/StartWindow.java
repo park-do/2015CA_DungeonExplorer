@@ -116,7 +116,7 @@ public class StartWindow extends JFrame implements ActionListener {
 				if(tglbtnClassFairy.isSelected())selected=2;
 				if(tglbtnClassWizard.isSelected())selected=3;
 				
-				PlayerManager.getInstance().Init(selected, Name.toString());
+				PlayerManager.getInstance().Init(selected, textField.getText());
 				
 				
 				WindowManager.getInstance().Show(WindowManager.WindowID.MAP);

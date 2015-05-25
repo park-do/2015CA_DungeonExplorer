@@ -38,7 +38,7 @@ public class EnemyFactory {
 		enemyMap = new Hashtable<String, Enemy>();
 		Enemy[] enemies = {
 				
-				new Enemy("³­ÀïÀÌ", 80, 10, 2, 100, 10), //°øÅë ·£´ý Ãâ¿¬ ¸÷
+				new Enemy("³­ÀïÀÌ", 80, 0, 10, 0, 0, 2, 2, 2, 100, 10), //°øÅë ·£´ý Ãâ¿¬ ¸÷
 				new Enemy("¿ÀÅ©", 80, 10, 2, 100, 10), //°øÅë ·£´ý Ãâ¿¬ ¸÷
 				new Enemy("³­ÀïÀÌÀü»ç", 80, 10, 2, 100, 10), //°øÅë ·£´ý Ãâ¿¬ ¸÷
 				new Enemy("¿ÀÅ©Àü»ç", 80, 10, 2, 100, 10), //°øÅë ·£´ý Ãâ¿¬ ¸÷

@@ -113,9 +113,21 @@ public class Characters
 	
 	public void Attack(Characters target)
 	{
-		int attack = this.attack;
-		attack -= target.guard;
-		if(attack<0)attack = 0;
+		
+		int melAP = this.meleeAP;
+		int ranAP = this.rangedAP; 
+		int magAP = this.magicAP;
+		
+		melAP -= target.meleeGP;
+		ranAP -= target.rangedGP;
+		magAP -= target.magicGP;
+		
+		if(melAP<0)melAP = 0;
+		if(ranAP<0)ranAP = 0;
+		if(magAP<0)magAP = 0;
+		
+		attack = melAP+ranAP+magAP;
+
 		target.Damaged(attack);
 		
 		PrintMessage(name+"이(가) " +target.getName()+"에게 "+attack+"데미지!");

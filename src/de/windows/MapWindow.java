@@ -243,7 +243,7 @@ public class MapWindow extends JFrame implements Runnable {
 		if (keyipm.inventory.isPressed()) {
 			PlayerManager.getInstance().Start(null);
 			keyipm.inventory.force();
-		}
+		}	
 		if (keyipm.close.isPressed()) {
 			PlayerManager.getInstance().Finish();
 			keyipm.close.force();

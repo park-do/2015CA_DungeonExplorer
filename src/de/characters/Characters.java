@@ -76,6 +76,34 @@ public class Characters
 		this.guard = guard;
 	}
 
+	public int getMeleeAP() {
+		return meleeAP;
+	}
+
+	public int getRangedAP() {
+		return rangedAP;
+	}
+
+	public int getMagicAP() {
+		return magicAP;
+	}
+
+	public int getMeleeGP() {
+		return meleeGP;
+	}
+
+	public int getRangedGP() {
+		return rangedGP;
+	}
+
+	public int getMagicGP() {
+		return magicGP;
+	}
+
+	public ArrayList<Skill> getSkillList() {
+		return skillList;
+	}
+
 	public Characters()
 	{
 		
@@ -114,7 +142,7 @@ public class Characters
 	public void Attack(Characters target)
 	{
 		
-		int melAP = this.meleeAP;
+		int melAP = this.getMeleeAP();
 		int ranAP = this.rangedAP; 
 		int magAP = this.magicAP;
 		

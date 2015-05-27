@@ -26,6 +26,9 @@ public class PlayerManager {
 		case 0:
 			player = new Knight(name);
 		}
+		
+		player.bringItem.add(ItemFactory.getInstance().getItem("°Ë1"));
+		player.bringItem.get(0).useItem(player);
 	}
 
 	public Player getPlayer() {

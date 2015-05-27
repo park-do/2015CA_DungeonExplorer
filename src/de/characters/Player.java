@@ -1,9 +1,9 @@
 package de.characters;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 import de.item.Item;
+import de.item.Weapon;
 
 public class Player extends Characters {
 	int level;
@@ -47,6 +47,23 @@ public class Player extends Characters {
 	}
 	
 	
+	@Override
+	public int getMeleeAP() {
+		// TODO Auto-generated method stub
+		int wma = 0;
+		for(int i=0;i<equippedItem.size();i++)
+		{
+			if(equippedItem.get(i) instanceof Weapon)
+			{
+				wma = ((Weapon)equippedItem.get(i)).getMeleeAP();
+				break;
+			}
+		}
+		
+		return meleeAP + wma;
+	}
+
+
 	public int getLevel() {
 		return level;
 	}

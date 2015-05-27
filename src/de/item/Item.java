@@ -1,5 +1,7 @@
 package de.item;
 
+import de.characters.Characters;
+
 public class Item {
 	
 	public enum ClassType
@@ -13,26 +15,30 @@ public class Item {
 	
 	String name;
 	ClassType classType;
+	int price;
 	
-	public Item(String name, ClassType classType)
+	public Item(String name, ClassType classType, int price)
 	{
 		this.name = name;
 		this.classType = classType;
+		this.price = price;
+	}
+	
+	public void useItem(Characters target)
+	{
+		//override 용 메소드
 	}
 
 	public String getName() {
 		return name;
 	}
-
-	public void setName(String name) {
-		this.name = name;
+	
+	public int getPrice()
+	{
+		return price;
 	}
 
 	public ClassType getClassType() {
 		return classType;
-	}
-
-	public void setClassType(ClassType classType) {
-		this.classType = classType;
 	}
 }

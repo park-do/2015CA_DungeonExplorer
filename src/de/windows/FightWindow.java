@@ -19,6 +19,8 @@ import javax.swing.JButton;
 import javax.swing.JScrollPane;
 
 import java.awt.Font;
+import java.awt.FlowLayout;
+import java.awt.Color;
 
 public class FightWindow extends JFrame implements ActionListener{
 
@@ -43,15 +45,18 @@ public class FightWindow extends JFrame implements ActionListener{
 		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		setBounds(100, 100, 500, 500);
 		contentPane = new JPanel();
+		contentPane.setBackground(new Color(255, 204, 204));
 		setContentPane(contentPane);
-		contentPane.setLayout(new MigLayout("", "[484px,grow]", "[100px,grow][100px,grow][104px,grow][180px]"));
+		contentPane.setLayout(new MigLayout("", "[484px,grow]", "[100px,grow][100px,grow][180px,grow][104px]"));
 		
 		JPanel enemyPanel = new JPanel();
+		enemyPanel.setBackground(new Color(255, 255, 204));
 		contentPane.add(enemyPanel, "cell 0 0,grow");
 		enemyPanel.setLayout(null);
 		
 		JPanel panel = new JPanel();
-		panel.setBounds(0, 0, 183, 88);
+		panel.setBackground(new Color(255, 255, 204));
+		panel.setBounds(0, 0, 214, 88);
 		enemyPanel.add(panel);
 		panel.setLayout(new GridLayout(0, 2, 0, 0));
 		
@@ -74,11 +79,13 @@ public class FightWindow extends JFrame implements ActionListener{
 		panel.add(enemyHPText);
 		
 		JPanel playerPanel = new JPanel();
+		playerPanel.setBackground(new Color(255, 255, 204));
 		contentPane.add(playerPanel, "cell 0 1,grow");
 		playerPanel.setLayout(null);
 		
 		JPanel playerInfoPanel = new JPanel();
-		playerInfoPanel.setBounds(287, 0, 183, 88);
+		playerInfoPanel.setBackground(new Color(255, 255, 204));
+		playerInfoPanel.setBounds(254, 0, 216, 88);
 		playerPanel.add(playerInfoPanel);
 		playerInfoPanel.setLayout(new GridLayout(0, 2, 0, 0));
 		
@@ -100,16 +107,40 @@ public class FightWindow extends JFrame implements ActionListener{
 		playerHPText.setFont(new Font("±¼¸²", Font.PLAIN, 20));
 		playerInfoPanel.add(playerHPText);
 		
-		btnAttack = new JButton("°ø°Ý!!!!");
-		btnAttack.setFont(new Font("±¼¸²", Font.PLAIN, 20));
-		btnAttack.addActionListener(this);
-		
 		JScrollPane scrollPane = new JScrollPane();
 		contentPane.add(scrollPane, "cell 0 2,grow");
 		
 		textArea = new JTextArea();
+		textArea.setEditable(false);
 		scrollPane.setViewportView(textArea);
-		contentPane.add(btnAttack, "cell 0 3");
+		
+		JPanel panel_1 = new JPanel();
+		panel_1.setBackground(new Color(255, 255, 153));
+		FlowLayout flowLayout = (FlowLayout) panel_1.getLayout();
+		flowLayout.setVgap(8);
+		flowLayout.setHgap(0);
+		contentPane.add(panel_1, "cell 0 3,growx,aligny center");
+		
+		btnAttack = new JButton("\uC77C\uBC18 \uACF5\uACA9");
+		btnAttack.setBackground(new Color(204, 255, 102));
+		panel_1.add(btnAttack);
+		btnAttack.setFont(new Font("±¼¸²", Font.PLAIN, 20));
+		
+		JButton btnSkill = new JButton("\uC2A4\uD0AC \uC0AC\uC6A9");
+		btnSkill.setFont(new Font("±¼¸²", Font.PLAIN, 20));
+		btnSkill.setBackground(new Color(204, 255, 102));
+		panel_1.add(btnSkill);
+		
+		JButton btnItem = new JButton("\uC544\uC774\uD15C \uC0AC\uC6A9");
+		btnItem.setFont(new Font("±¼¸²", Font.PLAIN, 20));
+		btnItem.setBackground(new Color(204, 255, 102));
+		panel_1.add(btnItem);
+		
+		JButton btnDodge = new JButton("\uB3C4\uB9DD");
+		btnDodge.setFont(new Font("±¼¸²", Font.PLAIN, 20));
+		btnDodge.setBackground(new Color(204, 255, 102));
+		panel_1.add(btnDodge);
+		btnAttack.addActionListener(this);
 		
 		
 	}

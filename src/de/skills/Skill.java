@@ -1,5 +1,7 @@
 package de.skills;
 
+import de.characters.Characters;
+
 
 public class Skill {
 	
@@ -10,5 +12,8 @@ public class Skill {
 	}
 	
 	
-
+	public void useSkill(Characters target)
+	{
+		
+	}
 }

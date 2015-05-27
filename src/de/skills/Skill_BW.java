@@ -8,7 +8,8 @@ import de.windows.FightWindow;
 public class Skill_BW extends ActiveSkill {
 	
 	
-	public void BlessWeapon(Characters target) {
+	public void useSkill(Characters target)
+	{
 		target.setAttack((int)(target.getAttack()*1.2));
 		PrintMessage("나의 날카로움이 너를 베어내리라! 블레스 웨폰!!");
 	}

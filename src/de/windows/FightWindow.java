@@ -149,6 +149,11 @@ public class FightWindow extends JFrame implements ActionListener{
 	{
 		textArea.setText(textArea.getText()+"\n"+str);
 	}
+	
+	public void Start()
+	{
+		textArea.setText("");
+	}
 
 	public void refresh() 
 	{

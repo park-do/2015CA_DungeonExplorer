@@ -36,6 +36,7 @@ public class FightManager
 		
 		WindowManager.getInstance().Hide(WindowManager.WindowID.MAP);
 		WindowManager.getInstance().Show(WindowManager.WindowID.FIGHT);
+		((FightWindow)WindowManager.getInstance().getFrame(WindowManager.WindowID.FIGHT)).Start();
 		((FightWindow)WindowManager.getInstance().getFrame(WindowManager.WindowID.FIGHT)).refresh();
 	}
 	

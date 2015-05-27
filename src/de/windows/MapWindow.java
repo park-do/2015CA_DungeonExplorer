@@ -9,6 +9,7 @@ import javax.swing.JFrame;
 
 import de.manager.FightManager;
 import de.manager.KeyInputManager;
+import de.manager.PlayerManager;
 
 public class MapWindow extends JFrame implements Runnable {
 
@@ -214,8 +215,8 @@ public class MapWindow extends JFrame implements Runnable {
 
 			if (System.currentTimeMillis() - lastTimer >= 1000) {
 				lastTimer += 1000;
-				System.out
-						.println("" + ticks + " ticks, " + frames + " frames");
+			//	System.out
+			//			.println("" + ticks + " ticks, " + frames + " frames");
 				frames = 0;
 				ticks = 0;
 			}
@@ -238,6 +239,14 @@ public class MapWindow extends JFrame implements Runnable {
 		}
 		if (where == 5) {
 			navigate();
+		}
+		if (keyipm.inventory.isPressed()) {
+			PlayerManager.getInstance().Start(null);
+			keyipm.inventory.force();
+		}
+		if (keyipm.close.isPressed()) {
+			PlayerManager.getInstance().Finish();
+			keyipm.close.force();
 		}
 
 	}

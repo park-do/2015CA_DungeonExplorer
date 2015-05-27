@@ -3,11 +3,16 @@ package de.manager;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
+import de.windows.InventoryWindowT;
 import de.windows.MapWindow;
 
 public class KeyInputManager implements KeyListener {
 	public KeyInputManager(MapWindow mapwindow) {
 		mapwindow.addKeyListener(this);
+	}
+	
+	public KeyInputManager(InventoryWindowT inventoryWindowT) {
+		inventoryWindowT.addKeyListener(this);
 	}
 
 	public class Key {
@@ -20,8 +25,8 @@ public class KeyInputManager implements KeyListener {
 		public void toggle(boolean isPressed) {
 			pressed = isPressed;
 		}
-		
-		public void force(){
+
+		public void force() {
 			pressed = false;
 		}
 	}
@@ -30,7 +35,8 @@ public class KeyInputManager implements KeyListener {
 	public Key down = new Key();
 	public Key left = new Key();
 	public Key right = new Key();
-	public Key entrance = new Key();
+	public Key inventory = new Key();
+	public Key close = new Key();
 
 	@Override
 	public void keyPressed(KeyEvent e) {
@@ -59,8 +65,11 @@ public class KeyInputManager implements KeyListener {
 		if (keyCode == KeyEvent.VK_S || keyCode == KeyEvent.VK_DOWN) {
 			down.toggle(isPressed);
 		}
-		if (keyCode == KeyEvent.VK_ENTER) {
-			entrance.toggle(isPressed);
+		if (keyCode == KeyEvent.VK_I) {
+			inventory.toggle(isPressed);
+		}
+		if (keyCode == KeyEvent.VK_C) {
+			close.toggle(isPressed);
 		}
 
 	}

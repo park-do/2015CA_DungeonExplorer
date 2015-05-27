@@ -4,6 +4,7 @@ import java.util.Hashtable;
 import javax.swing.JFrame;
 
 import de.windows.FightWindow;
+import de.windows.InventoryWindowT;
 import de.windows.MapWindow;
 import de.windows.StartWindow;
 
@@ -44,6 +45,7 @@ public class WindowManager
 		frameContainer.put(WindowID.MAP, new MapWindow());
 		frameContainer.put(WindowID.FIGHT, new FightWindow());
 		//frameContainer.put(WindowID.SHOP, new ShopWindow());
+		frameContainer.put(WindowID.STATUS, new InventoryWindowT());
 	}
 	
 	public JFrame getFrame(WindowID id)

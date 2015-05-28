@@ -16,4 +16,9 @@ public class Skill {
 	{
 		
 	}
+	
+	public void Update()
+	{
+		
+	}
 }

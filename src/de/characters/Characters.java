@@ -182,6 +182,13 @@ public class Characters
 		PrintMessage(name+"이(가) " +target.getName()+"에게 "+totalAttack+"데미지!");
 	}
 	
+	public void Update()
+	{
+		for (Skill skill : skillList) {
+			skill.Update();
+		}
+	}
+	
 	void PrintMessage(String msg)
 	{
 		((FightWindow)WindowManager.getInstance().getFrame(WindowManager.WindowID.FIGHT)).AddMessage(msg);

@@ -184,6 +184,8 @@ public class FightWindow extends JFrame implements ActionListener{
 			Characters enemy = FightManager.getInstance().getEnemy(); 
 			player.Attack(enemy);
 			enemy.Attack(player);
+			player.Update();
+			enemy.Update();
 			refresh();
 		}
 	}

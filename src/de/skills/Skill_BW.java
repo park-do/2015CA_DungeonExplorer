@@ -7,12 +7,24 @@ import de.windows.FightWindow;
 //블레스 웨폰: 5턴간 근거리 공격력이 20% 증가한다
 public class Skill_BW extends ActiveSkill {
 	
+	int count;
 	
-	public void useSkill(Characters user, Characters target)
+	public void useSkill(Characters user)
 	{
-		target.setAttack((int)(target.getAttack()*1.2));
-		PrintMessage("나의 날카로움이 너를 베어내리라! 블레스 웨폰!!");
+		user.multipleMeleeAPRatio(1.2f);
+		PrintMessage("신의 축복이 나의 날카로움을 더하리라! 블레스 웨폰!!");
+		count=5;
 	}
+	
+	public void Update (Characters user)
+	{
+		count--;
+		if (count==0)
+		{
+			user.multipleMeleeAPRatio(1/1.2f);
+		}
+	}
+		
 	
 	void PrintMessage(String msg)
 	{

@@ -185,7 +185,7 @@ public class Characters
 	public void Update()
 	{
 		for (Skill skill : skillList) {
-			skill.Update();
+			skill.Update(this);
 		}
 	}
 	

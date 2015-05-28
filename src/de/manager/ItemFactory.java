@@ -40,7 +40,22 @@ public class ItemFactory {
 	{
 		itemMap = new Hashtable<String, Item>();
 		Item[] items = {
-			new Weapon("검1", ClassType.All, 0, 10, 0, 0),
+			//무기: 이름, 착용직업, 가격, 근공, 원공, 마공
+			new Weapon("진명황의 집행검", ClassType.Knight, 0, 0, 0, 0),
+			new Weapon("드래곤 슬레이어", ClassType.Knight, 0, 0, 0, 0),
+			new Weapon("피의 분노", ClassType.Knight, 0, 0, 0, 0),
+			new Weapon("대검", ClassType.Knight, 0, 0, 0, 0),
+			new Weapon("데스나이트의 검", ClassType.Knight, 0, 0, 0, 0),
+			new Weapon("어둠의 칼날", ClassType.Knight, 0, 0, 0, 0),
+			new Weapon("영웅의 장검", ClassType.Knight, 0, 0, 0, 0),
+			new Weapon("뇌신검", ClassType.Knight, 0, 0, 0, 0),
+			new Weapon("은장검", ClassType.Knight, 0, 0, 0, 0),
+			
+			new Weapon("", ClassType.Warrior, 0, 0, 0, 0),
+			
+			
+			
+			
 			new Weapon("검2", ClassType.All, 0, 20, 0, 0)
 		};
 		

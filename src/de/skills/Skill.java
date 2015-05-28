@@ -17,7 +17,7 @@ public class Skill {
 		
 	}
 	
-	public void Update()
+	public void Update(Characters user)
 	{
 		
 	}

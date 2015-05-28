@@ -55,13 +55,12 @@ public class Armor extends Item {
 				((Armor)item).equipType==this.equipType)
 			{
 				//착용을 해제한다.
-				player.bringItem.add(player.equippedItem.remove(i));
+				player.equippedItem.remove(i);
 				break;
 			}
 		}
 		
 		//그리고 자기 자신을 착용시킨다.
-		player.bringItem.remove(this);
 		player.equippedItem.add(this);	
 		
 	}

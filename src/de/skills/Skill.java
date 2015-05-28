@@ -12,7 +12,7 @@ public class Skill {
 	}
 	
 	
-	public void useSkill(Characters target)
+	public void useSkill(Characters user, Characters target)
 	{
 		
 	}

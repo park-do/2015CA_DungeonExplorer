@@ -10,19 +10,24 @@ public class Characters
 {
 	String name;
 	int hp;
+	float hpRatio = 1;
 	int damagedHp;
 	int mp;
+	float mpRatio = 1;
 	int usedMp;
 	
 	int meleeAP;
+	float meleeAPRatio = 1;
 	int rangedAP;
+	float rangedAPRatio = 1;
 	int magicAP;
+	float magicAPRatio = 1;
 	int meleeGP;
+	float meleeGPRatio = 1;
 	int rangedGP;
+	float rangedGPRatio = 1;
 	int magicGP;
-	
-	int attack;
-	int guard;
+	float magicGPRatio = 1;
 	
 	ArrayList<Skill> skillList = new ArrayList<Skill>();
 	
@@ -35,12 +40,12 @@ public class Characters
 	}
 
 	public int getMaxHp() {
-		return hp;
+		return (int)(hp * hpRatio);
 	}
 	
 	public int getNowHP()
 	{
-		return hp-damagedHp;
+		return getMaxHp()-damagedHp;
 	}
 	
 	public void Damaged(int damage)
@@ -60,44 +65,68 @@ public class Characters
 		this.hp = hp;
 	}
 
-	public int getAttack() {
-		return attack;
-	}
-
-	public void setAttack(int attack) {
-		this.attack = attack;
-	}
-
-	public int getGuard() {
-		return guard;
-	}
-
-	public void setGuard(int guard) {
-		this.guard = guard;
-	}
-
 	public int getMeleeAP() {
-		return meleeAP;
+		return (int)(meleeAP*meleeAPRatio);
 	}
 
 	public int getRangedAP() {
-		return rangedAP;
+		return (int)(rangedAP*rangedAPRatio);
 	}
 
 	public int getMagicAP() {
-		return magicAP;
+		return (int)(magicAP*magicAPRatio);
 	}
 
 	public int getMeleeGP() {
-		return meleeGP;
+		return (int)(meleeGP*meleeGPRatio);
 	}
 
 	public int getRangedGP() {
-		return rangedGP;
+		return (int)(rangedGP*rangedGPRatio);
 	}
 
 	public int getMagicGP() {
-		return magicGP;
+		return (int)(magicGP*magicGPRatio);
+	}
+	
+	public void multipleHPRatio(float ratio)
+	{
+		hpRatio *= ratio;
+	}
+	
+	public void multipleMPatio(float ratio)
+	{
+		mpRatio *= ratio;
+	}
+	
+	public void multipleMeleeAPRatio(float ratio)
+	{
+		meleeAPRatio *= ratio;
+	}
+	
+	public void multipleRangedAPRatio(float ratio)
+	{
+		rangedAPRatio *= ratio;
+	}
+	
+	public void multipleMagicAPRatio(float ratio)
+	{
+		magicAPRatio *= ratio;
+	}
+	
+	public void multipleMeleeGPRatio(float ratio)
+	{
+		meleeGPRatio *= ratio;
+	}
+	
+	public void multipleRangedGPRatio(float ratio)
+	{
+		rangedGPRatio *= ratio;
+	}
+	
+	public void multipleMagicGPRatio(float ratio)
+	{
+		magicGPRatio *= ratio;
 	}
 
 	public ArrayList<Skill> getSkillList() {
@@ -107,14 +136,6 @@ public class Characters
 	public Characters()
 	{
 		
-	}
-	
-	public Characters(String name, int hp, int attack, int guard)
-	{
-		this.name = name;
-		this.hp = hp;
-		this.attack = attack;
-		this.guard = guard;
 	}
 	
 	public Characters(String name, int hp, int mp,
@@ -154,11 +175,11 @@ public class Characters
 		if(ranAP<0)ranAP = 0;
 		if(magAP<0)magAP = 0;
 		
-		attack = melAP+ranAP+magAP;
+		int totalAttack = melAP+ranAP+magAP;
 
-		target.Damaged(attack);
+		target.Damaged(totalAttack);
 		
-		PrintMessage(name+"이(가) " +target.getName()+"에게 "+attack+"데미지!");
+		PrintMessage(name+"이(가) " +target.getName()+"에게 "+totalAttack+"데미지!");
 	}
 	
 	void PrintMessage(String msg)

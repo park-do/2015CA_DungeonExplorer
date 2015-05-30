@@ -4,7 +4,18 @@ import de.characters.Characters;
 import de.manager.WindowManager;
 import de.windows.FightWindow;
 
-//인비저빌러티: 3턴간 상대방의 공격을 받지 않는다. 단 공격 및 스킬 사용은 불가능하다
+//인비저빌러티: 3턴간 무적 상태가 된다.
 public class Skill_IV extends ActiveSkill {
+	
+	public void useSkill(Characters user)
+	{
+		//아직 미구현
+		PrintMessage("마법의 권능을 보여주마! 인비지빌러티!!");
+	}
+	
+	void PrintMessage(String msg)
+	{
+		((FightWindow)WindowManager.getInstance().getFrame(WindowManager.WindowID.FIGHT)).AddMessage(msg);
+	}
 
 }

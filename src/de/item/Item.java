@@ -12,9 +12,10 @@ public class Item {
 		Magician,
 		All
 	}
-	
+		
 	String name;
 	ClassType classType;
+	
 	int price;
 	
 	public Item(String name, ClassType classType, int price)
@@ -22,6 +23,7 @@ public class Item {
 		this.name = name;
 		this.classType = classType;
 		this.price = price;
+		
 	}
 	
 	public void useItem(Characters target)

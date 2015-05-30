@@ -9,6 +9,7 @@ public class Weapon extends Item {
 	int meleeAP;
 	int rangedAP;
 	int magicAP;
+	
 	public Weapon(String name, ClassType classType, int price, int meleeAP,
 			int rangedAP, int magicAP) {
 		super(name, classType, price);

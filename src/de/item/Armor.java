@@ -5,7 +5,7 @@ import de.characters.Player;
 
 public class Armor extends Item {
 
-	enum EquipType
+	public enum EquipType
 	{
 		Helmet,
 		Chest,
@@ -13,9 +13,9 @@ public class Armor extends Item {
 		Shoes,
 		Shield
 	}
-	
-	
+		
 	EquipType equipType;
+	
 	int meleeGP;
 	int rangedGP;
 	int magicGP;

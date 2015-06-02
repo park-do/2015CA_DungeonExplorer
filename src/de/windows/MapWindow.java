@@ -28,8 +28,6 @@ public class MapWindow extends JFrame implements Runnable {
 	int player_speed = 2;
 	int monster_speed = 1;
 
-	int xDirection, yDirection;
-
 	public int where;
 
 	private Image dbImage;
@@ -62,7 +60,6 @@ public class MapWindow extends JFrame implements Runnable {
 		int m = Math.abs(x - xMon);
 		int n = Math.abs(y - yMon);
 		int p = (int) Math.sqrt(m * m + n * n);
-		System.out.println(p);
 		return p;
 	}
 
@@ -246,10 +243,6 @@ public class MapWindow extends JFrame implements Runnable {
 			PlayerManager.getInstance().Start(null);
 			keyipm.inventory.force();
 		}	
-		if (keyipm.close.isPressed()) {
-			PlayerManager.getInstance().Finish();
-			keyipm.close.force();
-		}
 
 	}
 

@@ -1,11 +1,18 @@
 package de.windows;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import java.beans.PropertyChangeEvent;
 
 import de.manager.PlayerManager;
+import de.manager.WindowManager;
+import de.manager.WindowManager.WindowID;
 
-public class InventoryWindowT extends javax.swing.JFrame implements KeyListener{
+public class InventoryWindowT extends javax.swing.JFrame implements MouseListener{
 
 
 	
@@ -122,75 +129,35 @@ public class InventoryWindowT extends javax.swing.JFrame implements KeyListener{
         jLabel15.setText("11");
         jLabel15.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jLabel15.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
-        jLabel15.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
-            public void propertyChange(java.beans.PropertyChangeEvent evt) {
-                jLabel15PropertyChange(evt);
-            }
-        });
+
 
         jLabel16.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         jLabel16.setText("Warrior");
-        jLabel16.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
-            public void propertyChange(java.beans.PropertyChangeEvent evt) {
-                jLabel16PropertyChange(evt);
-            }
-        });
+
 
         jLabel17.setText("1100");
-        jLabel17.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
-            public void propertyChange(java.beans.PropertyChangeEvent evt) {
-                jLabel17PropertyChange(evt);
-            }
-        });
+
 
         jLabel18.setText("1000");
-        jLabel18.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
-            public void propertyChange(java.beans.PropertyChangeEvent evt) {
-                jLabel18PropertyChange(evt);
-            }
-        });
+
 
         jLabel19.setText("100");
-        jLabel19.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
-            public void propertyChange(java.beans.PropertyChangeEvent evt) {
-                jLabel19PropertyChange(evt);
-            }
-        });
+
 
         jLabel20.setText("100");
-        jLabel20.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
-            public void propertyChange(java.beans.PropertyChangeEvent evt) {
-                jLabel20PropertyChange(evt);
-            }
-        });
+
 
         jLabel21.setText("100");
-        jLabel21.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
-            public void propertyChange(java.beans.PropertyChangeEvent evt) {
-                jLabel21PropertyChange(evt);
-            }
-        });
+
 
         jLabel22.setText("100");
-        jLabel22.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
-            public void propertyChange(java.beans.PropertyChangeEvent evt) {
-                jLabel22PropertyChange(evt);
-            }
-        });
+
 
         jLabel23.setText("100");
-        jLabel23.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
-            public void propertyChange(java.beans.PropertyChangeEvent evt) {
-                jLabel23PropertyChange(evt);
-            }
-        });
+
 
         jLabel24.setText("100");
-        jLabel24.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
-            public void propertyChange(java.beans.PropertyChangeEvent evt) {
-                jLabel24PropertyChange(evt);
-            }
-        });
+
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -290,11 +257,6 @@ public class InventoryWindowT extends javax.swing.JFrame implements KeyListener{
         jPanel2.setBackground(new java.awt.Color(0, 0, 0));
 
         jToggleButton1.setText("Item01");
-        jToggleButton1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jToggleButton1MouseClicked(evt);
-            }
-        });
         jToggleButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jToggleButton1ActionPerformed(evt);
@@ -534,77 +496,48 @@ public class InventoryWindowT extends javax.swing.JFrame implements KeyListener{
         jLabel34.setText("Magical Guard");
 
         jLabel35.setText("Wand of the Necromancer");
-        jLabel35.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
-            public void propertyChange(java.beans.PropertyChangeEvent evt) {
-                jLabel35PropertyChange(evt);
-            }
-        });
+//        jLabel35.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+//            public void propertyChange(ActionEvent evt) {
+//                jLabel35PropertyChange(evt);
+//            }
+//
+//			@Override
+//			public void propertyChange(PropertyChangeEvent arg0) {
+//				jLabel35PropertyChange(arg0);
+//				
+//			}
+//        });
 
+        
         jLabel36.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         jLabel36.setText("Warrior");
         jLabel36.setToolTipText("");
-        jLabel36.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
-            public void propertyChange(java.beans.PropertyChangeEvent evt) {
-                jLabel36PropertyChange(evt);
-            }
-        });
 
+        
         jLabel37.setText("Supplies/Weapon..");
-        jLabel37.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
-            public void propertyChange(java.beans.PropertyChangeEvent evt) {
-                jLabel37PropertyChange(evt);
-            }
-        });
+
 
         jLabel38.setText("HP + 30%");
-        jLabel38.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
-            public void propertyChange(java.beans.PropertyChangeEvent evt) {
-                jLabel38PropertyChange(evt);
-            }
-        });
+
 
         jLabel39.setText("100");
         jLabel39.setToolTipText("");
-        jLabel39.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
-            public void propertyChange(java.beans.PropertyChangeEvent evt) {
-                jLabel39PropertyChange(evt);
-            }
-        });
+
 
         jLabel40.setText("100");
-        jLabel40.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
-            public void propertyChange(java.beans.PropertyChangeEvent evt) {
-                jLabel40PropertyChange(evt);
-            }
-        });
 
+        
         jLabel41.setText("100");
-        jLabel41.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
-            public void propertyChange(java.beans.PropertyChangeEvent evt) {
-                jLabel41PropertyChange(evt);
-            }
-        });
 
+        
         jLabel42.setText("100");
-        jLabel42.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
-            public void propertyChange(java.beans.PropertyChangeEvent evt) {
-                jLabel42PropertyChange(evt);
-            }
-        });
+
 
         jLabel43.setText("100");
-        jLabel43.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
-            public void propertyChange(java.beans.PropertyChangeEvent evt) {
-                jLabel43PropertyChange(evt);
-            }
-        });
 
+        
         jLabel44.setText("100");
-        jLabel44.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
-            public void propertyChange(java.beans.PropertyChangeEvent evt) {
-                jLabel44PropertyChange(evt);
-            }
-        });
+
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -712,7 +645,8 @@ public class InventoryWindowT extends javax.swing.JFrame implements KeyListener{
 
         jLabel4.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(0, 102, 204));
-        jLabel4.setText("* Press [[ C ]] button to exit *");
+        jLabel4.setText("* Press [[[[  HERE  ]]]] to exit *");
+        jLabel4.addMouseListener(this);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -761,249 +695,611 @@ public class InventoryWindowT extends javax.swing.JFrame implements KeyListener{
         pack();
     }
 
+    private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {
+    	if(jToggleButton1.isSelected()){
+    		System.out.println("Hello1");
+    		System.out.println("O");
+    		prevSave();
+        	jLabel35PropertyChange(evt);
+        	jLabel36PropertyChange(evt);
+        	jLabel37PropertyChange(evt);
+        	jLabel38PropertyChange(evt);
+        	jLabel39PropertyChange(evt);
+        	jLabel40PropertyChange(evt);
+        	jLabel41PropertyChange(evt);
+        	jLabel42PropertyChange(evt);
+        	jLabel43PropertyChange(evt);
+        	jLabel44PropertyChange(evt);
+    	}else{
+    		System.out.println("Hello1");
+    		System.out.println("X");
+    		restorePrev();
+    	}
+    }
+    
+    private void jToggleButton2ActionPerformed(java.awt.event.ActionEvent evt) {
+    	if(jToggleButton2.isSelected()){
+        	System.out.println("Hello2");
+    		System.out.println("O");
+    		prevSave();
+        	jLabel35PropertyChange(evt);
+        	jLabel36PropertyChange(evt);
+        	jLabel37PropertyChange(evt);
+        	jLabel38PropertyChange(evt);
+        	jLabel39PropertyChange(evt);
+        	jLabel40PropertyChange(evt);
+        	jLabel41PropertyChange(evt);
+        	jLabel42PropertyChange(evt);
+        	jLabel43PropertyChange(evt);
+        	jLabel44PropertyChange(evt);
+    	}else{
+        	System.out.println("Hello2");
+    		System.out.println("X");
+    		restorePrev();
+    	}
+    }
     
     private void jToggleButton3ActionPerformed(java.awt.event.ActionEvent evt) {
-    	
-    }
-
-    private void jToggleButton2ActionPerformed(java.awt.event.ActionEvent evt) {
-
+    	if(jToggleButton3.isSelected()){
+    		System.out.println("Hello3");
+    		System.out.println("O");
+    		prevSave();
+        	jLabel35PropertyChange(evt);
+        	jLabel36PropertyChange(evt);
+        	jLabel37PropertyChange(evt);
+        	jLabel38PropertyChange(evt);
+        	jLabel39PropertyChange(evt);
+        	jLabel40PropertyChange(evt);
+        	jLabel41PropertyChange(evt);
+        	jLabel42PropertyChange(evt);
+        	jLabel43PropertyChange(evt);
+        	jLabel44PropertyChange(evt);
+    	}else{
+    		System.out.println("Hello3");
+    		System.out.println("X");
+    		restorePrev();
+    	}
     }
 
     private void jToggleButton4ActionPerformed(java.awt.event.ActionEvent evt) {
-
+    	if(jToggleButton4.isSelected()){
+    		System.out.println("Hello4");
+    		System.out.println("O");
+    		prevSave();
+        	jLabel35PropertyChange(evt);
+        	jLabel36PropertyChange(evt);
+        	jLabel37PropertyChange(evt);
+        	jLabel38PropertyChange(evt);
+        	jLabel39PropertyChange(evt);
+        	jLabel40PropertyChange(evt);
+        	jLabel41PropertyChange(evt);
+        	jLabel42PropertyChange(evt);
+        	jLabel43PropertyChange(evt);
+        	jLabel44PropertyChange(evt);
+    	}else{
+    		System.out.println("Hello4");
+    		System.out.println("X");
+    		restorePrev();
+    	}
     }
 
     private void jToggleButton5ActionPerformed(java.awt.event.ActionEvent evt) {
-
+    	if(jToggleButton5.isSelected()){
+    		System.out.println("Hello5");
+    		System.out.println("O");
+    		prevSave();
+        	jLabel35PropertyChange(evt);
+        	jLabel36PropertyChange(evt);
+        	jLabel37PropertyChange(evt);
+        	jLabel38PropertyChange(evt);
+        	jLabel39PropertyChange(evt);
+        	jLabel40PropertyChange(evt);
+        	jLabel41PropertyChange(evt);
+        	jLabel42PropertyChange(evt);
+        	jLabel43PropertyChange(evt);
+        	jLabel44PropertyChange(evt);
+    	}else{
+    		System.out.println("Hello5");
+    		System.out.println("X");
+    		restorePrev();
+    	}
     }
 
     private void jToggleButton6ActionPerformed(java.awt.event.ActionEvent evt) {
 
+    	if(jToggleButton6.isSelected()){
+    		System.out.println("Hello6");
+    		System.out.println("O");
+    		prevSave();
+        	jLabel35PropertyChange(evt);
+        	jLabel36PropertyChange(evt);
+        	jLabel37PropertyChange(evt);
+        	jLabel38PropertyChange(evt);
+        	jLabel39PropertyChange(evt);
+        	jLabel40PropertyChange(evt);
+        	jLabel41PropertyChange(evt);
+        	jLabel42PropertyChange(evt);
+        	jLabel43PropertyChange(evt);
+        	jLabel44PropertyChange(evt);
+    	}else{
+    		System.out.println("Hello6");
+    		System.out.println("X");
+    		restorePrev();
+    	}
     }
 
     private void jToggleButton7ActionPerformed(java.awt.event.ActionEvent evt) {
-
+    	System.out.println("Hello7");
+    	if(jToggleButton7.isSelected()){
+    		System.out.println("O");
+    		prevSave();
+        	jLabel35PropertyChange(evt);
+        	jLabel36PropertyChange(evt);
+        	jLabel37PropertyChange(evt);
+        	jLabel38PropertyChange(evt);
+        	jLabel39PropertyChange(evt);
+        	jLabel40PropertyChange(evt);
+        	jLabel41PropertyChange(evt);
+        	jLabel42PropertyChange(evt);
+        	jLabel43PropertyChange(evt);
+        	jLabel44PropertyChange(evt);
+    	}else{
+    		System.out.println("X");
+    		restorePrev();
+    	}
     }
 
     private void jToggleButton8ActionPerformed(java.awt.event.ActionEvent evt) {
-
+    	System.out.println("Hello8");
+    	if(jToggleButton8.isSelected()){
+    		System.out.println("O");
+    		prevSave();
+        	jLabel35PropertyChange(evt);
+        	jLabel36PropertyChange(evt);
+        	jLabel37PropertyChange(evt);
+        	jLabel38PropertyChange(evt);
+        	jLabel39PropertyChange(evt);
+        	jLabel40PropertyChange(evt);
+        	jLabel41PropertyChange(evt);
+        	jLabel42PropertyChange(evt);
+        	jLabel43PropertyChange(evt);
+        	jLabel44PropertyChange(evt);
+    	}else{
+    		System.out.println("X");
+    		restorePrev();
+    	}
     }
 
     private void jToggleButton9ActionPerformed(java.awt.event.ActionEvent evt) {
-
+    	System.out.println("Hello9");
+    	if(jToggleButton9.isSelected()){
+    		System.out.println("O");
+    		prevSave();
+        	jLabel35PropertyChange(evt);
+        	jLabel36PropertyChange(evt);
+        	jLabel37PropertyChange(evt);
+        	jLabel38PropertyChange(evt);
+        	jLabel39PropertyChange(evt);
+        	jLabel40PropertyChange(evt);
+        	jLabel41PropertyChange(evt);
+        	jLabel42PropertyChange(evt);
+        	jLabel43PropertyChange(evt);
+        	jLabel44PropertyChange(evt);
+    	}else{
+    		System.out.println("X");
+    		restorePrev();
+    	}
     }
 
     private void jToggleButton10ActionPerformed(java.awt.event.ActionEvent evt) {
-  
+    	System.out.println("Hello10");
+    	if(jToggleButton10.isSelected()){
+    		System.out.println("O");
+    		prevSave();
+        	jLabel35PropertyChange(evt);
+        	jLabel36PropertyChange(evt);
+        	jLabel37PropertyChange(evt);
+        	jLabel38PropertyChange(evt);
+        	jLabel39PropertyChange(evt);
+        	jLabel40PropertyChange(evt);
+        	jLabel41PropertyChange(evt);
+        	jLabel42PropertyChange(evt);
+        	jLabel43PropertyChange(evt);
+        	jLabel44PropertyChange(evt);
+    	}else{
+    		System.out.println("X");
+    		restorePrev();
+    	}
     }
 
     private void jToggleButton11ActionPerformed(java.awt.event.ActionEvent evt) {
-
+    	System.out.println("Hello11");
+    	if(jToggleButton11.isSelected()){
+    		System.out.println("O");
+    		prevSave();
+        	jLabel35PropertyChange(evt);
+        	jLabel36PropertyChange(evt);
+        	jLabel37PropertyChange(evt);
+        	jLabel38PropertyChange(evt);
+        	jLabel39PropertyChange(evt);
+        	jLabel40PropertyChange(evt);
+        	jLabel41PropertyChange(evt);
+        	jLabel42PropertyChange(evt);
+        	jLabel43PropertyChange(evt);
+        	jLabel44PropertyChange(evt);
+    	}else{
+    		System.out.println("X");
+    		restorePrev();
+    	}
     }
 
     private void jToggleButton12ActionPerformed(java.awt.event.ActionEvent evt) {
-    	
+    	System.out.println("Hello12");
+    	if(jToggleButton12.isSelected()){
+    		System.out.println("O");
+    		prevSave();
+        	jLabel35PropertyChange(evt);
+        	jLabel36PropertyChange(evt);
+        	jLabel37PropertyChange(evt);
+        	jLabel38PropertyChange(evt);
+        	jLabel39PropertyChange(evt);
+        	jLabel40PropertyChange(evt);
+        	jLabel41PropertyChange(evt);
+        	jLabel42PropertyChange(evt);
+        	jLabel43PropertyChange(evt);
+        	jLabel44PropertyChange(evt);
+    	}else{
+    		System.out.println("X");
+    		restorePrev();
+    	}
     }
 
     private void jToggleButton13ActionPerformed(java.awt.event.ActionEvent evt) {
-
+    	System.out.println("Hello13");
+    	if(jToggleButton13.isSelected()){
+    		System.out.println("O");
+    		prevSave();
+        	jLabel35PropertyChange(evt);
+        	jLabel36PropertyChange(evt);
+        	jLabel37PropertyChange(evt);
+        	jLabel38PropertyChange(evt);
+        	jLabel39PropertyChange(evt);
+        	jLabel40PropertyChange(evt);
+        	jLabel41PropertyChange(evt);
+        	jLabel42PropertyChange(evt);
+        	jLabel43PropertyChange(evt);
+        	jLabel44PropertyChange(evt);
+    	}else{
+    		System.out.println("X");
+    		restorePrev();
+    	}
     }
 
     private void jToggleButton14ActionPerformed(java.awt.event.ActionEvent evt) {
-
+    	System.out.println("Hello14");
+    	if(jToggleButton14.isSelected()){
+    		System.out.println("O");
+    		prevSave();
+        	jLabel35PropertyChange(evt);
+        	jLabel36PropertyChange(evt);
+        	jLabel37PropertyChange(evt);
+        	jLabel38PropertyChange(evt);
+        	jLabel39PropertyChange(evt);
+        	jLabel40PropertyChange(evt);
+        	jLabel41PropertyChange(evt);
+        	jLabel42PropertyChange(evt);
+        	jLabel43PropertyChange(evt);
+        	jLabel44PropertyChange(evt);
+    	}else{
+    		System.out.println("X");
+    		restorePrev();
+    	}
     }
 
     private void jToggleButton15ActionPerformed(java.awt.event.ActionEvent evt) {
-
+    	System.out.println("Hello15");
+    	if(jToggleButton15.isSelected()){
+    		System.out.println("O");
+    		prevSave();
+        	jLabel35PropertyChange(evt);
+        	jLabel36PropertyChange(evt);
+        	jLabel37PropertyChange(evt);
+        	jLabel38PropertyChange(evt);
+        	jLabel39PropertyChange(evt);
+        	jLabel40PropertyChange(evt);
+        	jLabel41PropertyChange(evt);
+        	jLabel42PropertyChange(evt);
+        	jLabel43PropertyChange(evt);
+        	jLabel44PropertyChange(evt);
+    	}else{
+    		System.out.println("X");
+    		restorePrev();
+    	}
     }
 
     private void jToggleButton16ActionPerformed(java.awt.event.ActionEvent evt) {
-    	
+    	System.out.println("Hello16");
+    	if(jToggleButton16.isSelected()){
+    		System.out.println("O");
+    		prevSave();
+        	jLabel35PropertyChange(evt);
+        	jLabel36PropertyChange(evt);
+        	jLabel37PropertyChange(evt);
+        	jLabel38PropertyChange(evt);
+        	jLabel39PropertyChange(evt);
+        	jLabel40PropertyChange(evt);
+        	jLabel41PropertyChange(evt);
+        	jLabel42PropertyChange(evt);
+        	jLabel43PropertyChange(evt);
+        	jLabel44PropertyChange(evt);
+    	}else{
+    		System.out.println("X");
+    		restorePrev();
+    	}
     }
 
     private void jToggleButton17ActionPerformed(java.awt.event.ActionEvent evt) {
-    	
+    	System.out.println("Hello17");
+    	if(jToggleButton17.isSelected()){
+    		System.out.println("O");
+    		prevSave();
+        	jLabel35PropertyChange(evt);
+        	jLabel36PropertyChange(evt);
+        	jLabel37PropertyChange(evt);
+        	jLabel38PropertyChange(evt);
+        	jLabel39PropertyChange(evt);
+        	jLabel40PropertyChange(evt);
+        	jLabel41PropertyChange(evt);
+        	jLabel42PropertyChange(evt);
+        	jLabel43PropertyChange(evt);
+        	jLabel44PropertyChange(evt);
+    	}else{
+    		System.out.println("X");
+    		restorePrev();
+    	}
     }
 
     private void jToggleButton18ActionPerformed(java.awt.event.ActionEvent evt) {
-    	
+    	System.out.println("Hello18");
+    	if(jToggleButton18.isSelected()){
+    		System.out.println("O");
+    		prevSave();
+        	jLabel35PropertyChange(evt);
+        	jLabel36PropertyChange(evt);
+        	jLabel37PropertyChange(evt);
+        	jLabel38PropertyChange(evt);
+        	jLabel39PropertyChange(evt);
+        	jLabel40PropertyChange(evt);
+        	jLabel41PropertyChange(evt);
+        	jLabel42PropertyChange(evt);
+        	jLabel43PropertyChange(evt);
+        	jLabel44PropertyChange(evt);
+    	}else{
+    		System.out.println("X");
+    		restorePrev();
+    	}
     }
 
-    private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {
-    	
-    }
-
-    private void jLabel15PropertyChange(java.beans.PropertyChangeEvent evt) {
+    private void jLabel15PropertyChange(ActionEvent evt) {
         //Level
     }
 
-    private void jLabel16PropertyChange(java.beans.PropertyChangeEvent evt) {
+    private void jLabel16PropertyChange(ActionEvent evt) {
         //Class
     }
 
-    private void jLabel17PropertyChange(java.beans.PropertyChangeEvent evt) {
+    private void jLabel17PropertyChange(ActionEvent evt) {
         //HP
     }
 
-    private void jLabel18PropertyChange(java.beans.PropertyChangeEvent evt) {
+    private void jLabel18PropertyChange(ActionEvent evt) {
         //MP
     }
 
-    private void jLabel19PropertyChange(java.beans.PropertyChangeEvent evt) {
+    private void jLabel19PropertyChange(ActionEvent evt) {
         //short attack
     }
 
-    private void jLabel20PropertyChange(java.beans.PropertyChangeEvent evt) {
+    private void jLabel20PropertyChange(ActionEvent evt) {
         //long attack
     }
 
-    private void jLabel21PropertyChange(java.beans.PropertyChangeEvent evt) {
+    private void jLabel21PropertyChange(ActionEvent evt) {
        // magical attack
     }
 
-    private void jLabel22PropertyChange(java.beans.PropertyChangeEvent evt) {
+    private void jLabel22PropertyChange(ActionEvent evt) {
         //short guard
     }
 
-    private void jLabel23PropertyChange(java.beans.PropertyChangeEvent evt) {
+    private void jLabel23PropertyChange(ActionEvent evt) {
         //long guard
     }
 
-    private void jLabel24PropertyChange(java.beans.PropertyChangeEvent evt) {
+    private void jLabel24PropertyChange(ActionEvent evt) {
         //magical guard
     }
 
-    private void jLabel35PropertyChange(java.beans.PropertyChangeEvent evt) {
+    
+    public String jLabel35prev;
+    public String jLabel36prev;
+    public String jLabel37prev;
+    public String jLabel38prev;
+    public String jLabel39prev;
+    public String jLabel40prev;
+    public String jLabel41prev;
+    public String jLabel42prev;
+    public String jLabel43prev;
+    public String jLabel44prev;
+    
+    public void prevSave(){
+    	jLabel35prev = jLabel35.getText();
+    	jLabel36prev = jLabel36.getText();
+    	jLabel37prev = jLabel37.getText();
+    	jLabel38prev = jLabel38.getText();
+    	jLabel39prev = jLabel39.getText();
+    	jLabel40prev = jLabel40.getText();
+    	jLabel41prev = jLabel41.getText();
+    	jLabel42prev = jLabel42.getText();
+    	jLabel43prev = jLabel43.getText();
+    	jLabel44prev = jLabel44.getText();
+    }
+    
+    public void restorePrev(){
+    	jLabel35.setText(jLabel35prev);
+    	jLabel36.setText(jLabel36prev);
+    	jLabel37.setText(jLabel37prev);
+    	jLabel38.setText(jLabel38prev);
+    	jLabel39.setText(jLabel39prev);
+    	jLabel40.setText(jLabel40prev);
+    	jLabel41.setText(jLabel41prev);
+    	jLabel42.setText(jLabel42prev);
+    	jLabel43.setText(jLabel43prev);
+    	jLabel44.setText(jLabel44prev);
+    }
+    
+    private void jLabel35PropertyChange(ActionEvent evt) {
         // Item name
+    	jLabel35.setText("Item name change");
     }
 
-    private void jLabel36PropertyChange(java.beans.PropertyChangeEvent evt) {
+    private void jLabel36PropertyChange(ActionEvent evt) {
         //class(job)
+    	jLabel36.setText("class(job) change");
     }
 
-    private void jLabel37PropertyChange(java.beans.PropertyChangeEvent evt) {
+    private void jLabel37PropertyChange(ActionEvent evt) {
         //class type
+    	jLabel37.setText("class type change");
     }
 
-    private void jLabel38PropertyChange(java.beans.PropertyChangeEvent evt) {
+    private void jLabel38PropertyChange(ActionEvent evt) {
         //detail
+    	jLabel38.setText("detail change");
     }
 
-    private void jLabel39PropertyChange(java.beans.PropertyChangeEvent evt) {
+    private void jLabel39PropertyChange(ActionEvent evt) {
         //short attack
+    	jLabel39.setText("short attack change");
     }
 
-    private void jLabel40PropertyChange(java.beans.PropertyChangeEvent evt) {
+    private void jLabel40PropertyChange(ActionEvent evt) {
         //long attack
+    	jLabel40.setText("long attack change");
     }
 
-    private void jLabel41PropertyChange(java.beans.PropertyChangeEvent evt) {
+    private void jLabel41PropertyChange(ActionEvent evt) {
         //magical attack
+    	jLabel41.setText("magical attack change");
     }
 
-    private void jLabel42PropertyChange(java.beans.PropertyChangeEvent evt) {
+    private void jLabel42PropertyChange(ActionEvent evt) {
         //short defence
+    	jLabel42.setText("short defence change");
     }
 
-    private void jLabel43PropertyChange(java.beans.PropertyChangeEvent evt) {
+    private void jLabel43PropertyChange(ActionEvent evt) {
         //long defence
+    	jLabel43.setText("long defence change");
     }
 
-    private void jLabel44PropertyChange(java.beans.PropertyChangeEvent evt) {
+    private void jLabel44PropertyChange(ActionEvent evt) {
         //magical defence
-    }
-
-    private void jToggleButton1MouseClicked(java.awt.event.MouseEvent evt) {
-   
+    	jLabel44.setText("magical defence change");
     }
 
     
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel17;
-    private javax.swing.JLabel jLabel18;
-    private javax.swing.JLabel jLabel19;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel20;
-    private javax.swing.JLabel jLabel21;
-    private javax.swing.JLabel jLabel22;
-    private javax.swing.JLabel jLabel23;
-    private javax.swing.JLabel jLabel24;
-    private javax.swing.JLabel jLabel25;
-    private javax.swing.JLabel jLabel26;
-    private javax.swing.JLabel jLabel27;
-    private javax.swing.JLabel jLabel28;
-    private javax.swing.JLabel jLabel29;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel30;
-    private javax.swing.JLabel jLabel31;
-    private javax.swing.JLabel jLabel32;
-    private javax.swing.JLabel jLabel33;
-    private javax.swing.JLabel jLabel34;
-    private javax.swing.JLabel jLabel35;
-    private javax.swing.JLabel jLabel36;
-    private javax.swing.JLabel jLabel37;
-    private javax.swing.JLabel jLabel38;
-    private javax.swing.JLabel jLabel39;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel40;
-    private javax.swing.JLabel jLabel41;
-    private javax.swing.JLabel jLabel42;
-    private javax.swing.JLabel jLabel43;
-    private javax.swing.JLabel jLabel44;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JToggleButton jToggleButton1;
-    private javax.swing.JToggleButton jToggleButton10;
-    private javax.swing.JToggleButton jToggleButton11;
-    private javax.swing.JToggleButton jToggleButton12;
-    private javax.swing.JToggleButton jToggleButton13;
-    private javax.swing.JToggleButton jToggleButton14;
-    private javax.swing.JToggleButton jToggleButton15;
-    private javax.swing.JToggleButton jToggleButton16;
-    private javax.swing.JToggleButton jToggleButton17;
-    private javax.swing.JToggleButton jToggleButton18;
-    private javax.swing.JToggleButton jToggleButton2;
-    private javax.swing.JToggleButton jToggleButton3;
-    private javax.swing.JToggleButton jToggleButton4;
-    private javax.swing.JToggleButton jToggleButton5;
-    private javax.swing.JToggleButton jToggleButton6;
-    private javax.swing.JToggleButton jToggleButton7;
-    private javax.swing.JToggleButton jToggleButton8;
-    private javax.swing.JToggleButton jToggleButton9;
+    public javax.swing.JLabel jLabel1;
+    public javax.swing.JLabel jLabel10;
+    public javax.swing.JLabel jLabel11;
+    public javax.swing.JLabel jLabel12;
+    public javax.swing.JLabel jLabel13;
+    public javax.swing.JLabel jLabel14;
+    public javax.swing.JLabel jLabel15;
+    public javax.swing.JLabel jLabel16;
+    public javax.swing.JLabel jLabel17;
+    public javax.swing.JLabel jLabel18;
+    public javax.swing.JLabel jLabel19;
+    public javax.swing.JLabel jLabel2;
+    public javax.swing.JLabel jLabel20;
+    public javax.swing.JLabel jLabel21;
+    public javax.swing.JLabel jLabel22;
+    public javax.swing.JLabel jLabel23;
+    public javax.swing.JLabel jLabel24;
+    public javax.swing.JLabel jLabel25;
+    public javax.swing.JLabel jLabel26;
+    public javax.swing.JLabel jLabel27;
+    public javax.swing.JLabel jLabel28;
+    public javax.swing.JLabel jLabel29;
+    public javax.swing.JLabel jLabel3;
+    public javax.swing.JLabel jLabel30;
+    public javax.swing.JLabel jLabel31;
+    public javax.swing.JLabel jLabel32;
+    public javax.swing.JLabel jLabel33;
+    public javax.swing.JLabel jLabel34;
+    public javax.swing.JLabel jLabel35;
+    public javax.swing.JLabel jLabel36;
+    public javax.swing.JLabel jLabel37;
+    public javax.swing.JLabel jLabel38;
+    public javax.swing.JLabel jLabel39;
+    public javax.swing.JLabel jLabel4;
+    public javax.swing.JLabel jLabel40;
+    public javax.swing.JLabel jLabel41;
+    public javax.swing.JLabel jLabel42;
+    public javax.swing.JLabel jLabel43;
+    public javax.swing.JLabel jLabel44;
+    public javax.swing.JLabel jLabel5;
+    public javax.swing.JLabel jLabel6;
+    public javax.swing.JLabel jLabel7;
+    public javax.swing.JLabel jLabel8;
+    public javax.swing.JLabel jLabel9;
+    public javax.swing.JPanel jPanel1;
+    public javax.swing.JPanel jPanel2;
+    public javax.swing.JPanel jPanel3;
+    public javax.swing.JToggleButton jToggleButton1;
+    public javax.swing.JToggleButton jToggleButton10;
+    public javax.swing.JToggleButton jToggleButton11;
+    public javax.swing.JToggleButton jToggleButton12;
+    public javax.swing.JToggleButton jToggleButton13;
+    public javax.swing.JToggleButton jToggleButton14;
+    public javax.swing.JToggleButton jToggleButton15;
+    public javax.swing.JToggleButton jToggleButton16;
+    public javax.swing.JToggleButton jToggleButton17;
+    public javax.swing.JToggleButton jToggleButton18;
+    public javax.swing.JToggleButton jToggleButton2;
+    public javax.swing.JToggleButton jToggleButton3;
+    public javax.swing.JToggleButton jToggleButton4;
+    public javax.swing.JToggleButton jToggleButton5;
+    public javax.swing.JToggleButton jToggleButton6;
+    public javax.swing.JToggleButton jToggleButton7;
+    public javax.swing.JToggleButton jToggleButton8;
+    public javax.swing.JToggleButton jToggleButton9;
     
 	@Override
-	public void keyPressed(KeyEvent e) {
-		if(e.getKeyCode()==KeyEvent.VK_C){
-			System.out.println("is it working?");
-		}
+	public void mouseClicked(MouseEvent arg0) {
+		WindowManager.getInstance().Hide(WindowID.STATUS);
+		WindowManager.getInstance().Show(WindowID.MAP);
 	}
 
 	@Override
-	public void keyReleased(KeyEvent e) {
-		// TODO Auto-generated method stub
+	public void mouseEntered(MouseEvent arg0) {
 		
 	}
 
 	@Override
-	public void keyTyped(KeyEvent e) {
-		// TODO Auto-generated method stub
+	public void mouseExited(MouseEvent arg0) {
 		
 	}
-    
+
+	@Override
+	public void mousePressed(MouseEvent arg0) {
+		
+	}
+
+	@Override
+	public void mouseReleased(MouseEvent arg0) {
+		
+	}
     
     
 }

@@ -36,7 +36,6 @@ public class KeyInputManager implements KeyListener {
 	public Key left = new Key();
 	public Key right = new Key();
 	public Key inventory = new Key();
-	public Key close = new Key();
 
 	@Override
 	public void keyPressed(KeyEvent e) {
@@ -67,9 +66,6 @@ public class KeyInputManager implements KeyListener {
 		}
 		if (keyCode == KeyEvent.VK_I) {
 			inventory.toggle(isPressed);
-		}
-		if (keyCode == KeyEvent.VK_C) {
-			close.toggle(isPressed);
 		}
 
 	}

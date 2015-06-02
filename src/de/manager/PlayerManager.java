@@ -1,8 +1,10 @@
 package de.manager;
 
-import de.characters.Characters;
+import de.characters.Elf;
 import de.characters.Knight;
+import de.characters.Magician;
 import de.characters.Player;
+import de.characters.Warrior;
 
 public class PlayerManager {
 
@@ -25,6 +27,16 @@ public class PlayerManager {
 		switch (selectClass) {
 		case 0:
 			player = new Knight(name);
+			break;
+		case 1:
+			player = new Warrior(name);
+			break;
+		case 2:
+			player = new Elf(name);
+			break;
+		case 3:
+			player = new Magician(name);
+			break;
 		}
 	}
 

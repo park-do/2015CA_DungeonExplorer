@@ -1,5 +1,7 @@
 package de.characters;
 
+import de.item.Item.ClassType;
+
 
 public class Magician extends Player {
 
@@ -14,6 +16,8 @@ public class Magician extends Player {
 				50, 50, //성장 HP, MP
 				0, 0, 7, //공격력 성장치 (근거리, 원거리, 마법)
 				1, 1, 3); //방어력 성장치 (근거리, 원가리, 마법)
+		
+		classType = ClassType.Magician;
 	}
 
 }

@@ -47,10 +47,18 @@ public class Item {
 	
 	public String toString()
 	{
-		String result = getName();
+		String result = "<html><b>"+getName()+"</b>";
+		result += "<br>가격 : "+getPrice();
+		result += "<br>직업 : "+getClassType().toString();
+		result += "</html>";
+		return result;
+	}
+	
+	public String toStringWithoutLastHTML()
+	{
+		String result = "<html><b>"+getName()+"</b>";
 		result += "<br>가격 : "+getPrice();
 		result += "<br>직업 : "+getClassType().toString();
 		return result;
 	}
-	
 }

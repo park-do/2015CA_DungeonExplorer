@@ -67,12 +67,12 @@ public class Armor extends Item {
 	
 	public String toString()
 	{
-		String result = super.toString();
+		String result = super.toStringWithoutLastHTML();
 		result += "<br>착용 부위 : " + getEquipType().toString();
 		if(getMeleeGP()>0)result += "<br>근접 방어 : " + getMeleeGP();
 		if(getRangedGP()>0)result += "<br>원거리 방어 : " + getRangedGP();
 		if(getMagicGP()>0)result += "<br>마법 방어 : " + getMagicGP();
-		
+		result+="</html>";
 		return result;
 	}
 }

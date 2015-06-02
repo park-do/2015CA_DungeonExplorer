@@ -1,5 +1,7 @@
 package de.characters;
 
+import de.item.Item.ClassType;
+
 
 public class Elf extends Player {
 
@@ -14,6 +16,8 @@ public class Elf extends Player {
 				70, 35, //성장 HP, MP
 				0, 6, 0, //공격력 성장치 (근거리, 원거리, 마법)
 				1, 2, 2); //방어력 성장치 (근거리, 원가리, 마법)
+		
+		classType = ClassType.Elf;
 	}
 
 }

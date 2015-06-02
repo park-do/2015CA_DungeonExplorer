@@ -4,11 +4,19 @@ import java.util.ArrayList;
 
 import de.item.Item;
 import de.item.Weapon;
+import de.item.Item.ClassType;
 
 public class Player extends Characters {
+	
+	final int[] requiredExps = {
+		5,10,15,20,30,40,50,60,70,80,90
+	};
+	
+	ClassType classType;
+	
 	int level;
-	int requiredExp;
 	int Exp;
+	int Gold;
 	int HPgrowth;
 	int MPgrowth;
 	int meleeAPgrowth;
@@ -32,8 +40,8 @@ public class Player extends Characters {
 		super(name, hp, mp, meleeAP, rangedAP, magicAP, meleeGP, rangedGP,
 				magicGP);
 		this.level = 1;
-		this.requiredExp = 10;
 		Exp = 0;
+		Gold = 0;
 		HPgrowth = hPgrowth;
 		MPgrowth = mPgrowth;
 		this.meleeAPgrowth = meleeAPgrowth;
@@ -69,12 +77,6 @@ public class Player extends Characters {
 	}
 	public void setLevel(int level) {
 		this.level = level;
-	}
-	public int getRequiredExp() {
-		return requiredExp;
-	}
-	public void setRequiredExp(int requiredExp) {
-		this.requiredExp = requiredExp;
 	}
 	public int getExp() {
 		return Exp;
@@ -141,6 +143,36 @@ public class Player extends Characters {
 	}
 	public void setBringItem(ArrayList<Item> bringItem) {
 		this.bringItem = bringItem;
+	}
+	
+	public void earnGold(int gold)
+	{
+		this.Gold += gold;
+	}
+	
+	public void gainItem(Item item)
+	{
+		bringItem.add(item);
+	}
+
+	public void gainExp(int exp)
+	{
+		this.Exp += exp;
+		if(Exp>=requiredExps[level-1])
+		{
+			levelUp();
+		}
+	}
+	
+	protected void levelUp()
+	{
+		Exp-=requiredExps[level-1];
+		level+=1;
+	}
+	
+	public ClassType getClassType() {
+		// TODO Auto-generated method stub
+		return classType;
 	}
 	
 	

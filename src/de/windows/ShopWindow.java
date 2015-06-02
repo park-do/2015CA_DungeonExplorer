@@ -1,43 +1,41 @@
 package de.windows;
 
-import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.EventQueue;
-
-import javax.swing.JFrame;
-import javax.swing.JList;
-import javax.swing.JPanel;
-import javax.swing.JTabbedPane;
-import javax.swing.ListSelectionModel;
-import javax.swing.border.EmptyBorder;
-import javax.swing.event.ChangeEvent;
-import javax.swing.event.ChangeListener;
-import javax.swing.event.ListSelectionEvent;
-import javax.swing.event.ListSelectionListener;
-import javax.swing.JLabel;
-
 import java.awt.Font;
-
-import javax.swing.SwingConstants;
-
-import java.awt.FlowLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.ComponentAdapter;
+import java.awt.event.ComponentEvent;
 
 import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JList;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTabbedPane;
+import javax.swing.ListSelectionModel;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 
 import de.item.Item;
 import de.manager.ItemFactory;
+import de.manager.PlayerManager;
 
-import java.awt.GridLayout;
-
-import javax.swing.JScrollPane;
-
-public class ShopWindow extends JFrame implements ListSelectionListener {
+public class ShopWindow extends JFrame implements ListSelectionListener, ActionListener {
 
 	JList<String> buyList;
 	
 	private JPanel contentPane;
 	JTabbedPane tabbedPane;
 	JLabel lblItemInfo;
+	JButton btnBuy;
+	private JPanel panel_1;
+	private JLabel lblItemInfo_Sell;
+	private JScrollPane scrollPane_1;
+	private JButton btnSell;
+	private JList<String> sellList;
 
 	/**
 	 * Launch the application.
@@ -93,33 +91,114 @@ public class ShopWindow extends JFrame implements ListSelectionListener {
 		scrollPane.setBounds(157, 10, 238, 284);
 		BuyTab.add(scrollPane);
 		
-		buyList = new JList<String>(ItemFactory.getInstance().getBuyItems());
+		buyList = new JList<String>();
 		scrollPane.setViewportView(buyList);
 		buyList.setToolTipText("");
 		buyList.setFont(new Font("±¼¸²", Font.PLAIN, 20));
 		buyList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		buyList.addListSelectionListener(this);
 		
-		JButton btnBuy = new JButton("\uC120\uD0DD\uD55C \uC544\uC774\uD15C \uC0AC\uAE30");
+		btnBuy = new JButton("\uC120\uD0DD\uD55C \uC544\uC774\uD15C \uC0AC\uAE30");
 		btnBuy.setFont(new Font("±¼¸²", Font.PLAIN, 20));
 		btnBuy.setBounds(157, 304, 238, 28);
+		btnBuy.addActionListener(this);
 		BuyTab.add(btnBuy);
 		
 		JPanel SellTab = new JPanel();
 		tabbedPane.addTab("ÆÈ±â", null, SellTab, null);
+		SellTab.setLayout(null);
+		
+		panel_1 = new JPanel();
+		panel_1.setLayout(null);
+		panel_1.setBackground(new Color(102, 255, 153));
+		panel_1.setBounds(10, 10, 133, 322);
+		SellTab.add(panel_1);
+		
+		lblItemInfo_Sell = new JLabel("");
+		lblItemInfo_Sell.setFont(new Font("±¼¸²", Font.PLAIN, 15));
+		lblItemInfo_Sell.setBounds(0, 0, 133, 322);
+		panel_1.add(lblItemInfo_Sell);
+		
+		scrollPane_1 = new JScrollPane();
+		scrollPane_1.setBounds(155, 10, 238, 284);
+		SellTab.add(scrollPane_1);
+		
+		sellList = new JList<String>();
+		scrollPane_1.setViewportView(sellList);
+		sellList.setToolTipText("");
+		sellList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		sellList.setFont(new Font("±¼¸²", Font.PLAIN, 20));
+		sellList.addListSelectionListener(this);
+		
+		btnSell = new JButton("\uC120\uD0DD\uD55C \uC544\uC774\uD15C \uD314\uAE30");
+		btnSell.setFont(new Font("±¼¸²", Font.PLAIN, 20));
+		btnSell.setBounds(155, 304, 238, 28);
+		btnSell.addActionListener(this);
+		SellTab.add(btnSell);
+		
+		this.addComponentListener ( new ComponentAdapter ()
+	    {
+	        public void componentShown ( ComponentEvent e )
+	        {
+	        	InitLists();
+	        }
+
+	        public void componentHidden ( ComponentEvent e )
+	        {
+	           
+	        }
+	    } );
 	}
 	
-	public void InitBuyTab()
+	public void InitLists()
 	{
-		buyList.removeAll();
+		InitBuyList();
+		InitSellList();
 	}
+	
+	public void InitBuyList()
+	{
+		buyList.setListData(ItemFactory.getInstance().getBuyItems());
+	}
+	
+	public void InitSellList()
+	{
+		sellList.setListData(ItemFactory.getInstance().getSellItems());
+	}
+	
 
 	@Override
 	public void valueChanged(ListSelectionEvent e) {
 		// TODO Auto-generated method stub
-		Item item = ItemFactory.getInstance().getItem(buyList.getSelectedValue());
-		
-		lblItemInfo.setText("<html>"+item.toString()+"</html>");
+		if(e.getSource()==buyList)
+		{
+			Item item = ItemFactory.getInstance().getItem(buyList.getSelectedValue());
+
+			lblItemInfo.setText(item.toString());
+		}
+		else if(e.getSource()==sellList)
+		{
+			Item item = ItemFactory.getInstance().getItem(sellList.getSelectedValue());
+
+			lblItemInfo_Sell.setText(item.toString());
+		}
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+		if(e.getSource()==btnBuy)//»ç±â ¹öÆ° ´­·¶´Ï
+		{
+			Item item = ItemFactory.getInstance().getItem(buyList.getSelectedValue());
+			PlayerManager.getInstance().getPlayer().bringItem.add(item);
+			InitSellList();
+		}
+		else if(e.getSource()==btnSell)//ÆÈ±â ¹öÆ° ´­·¶´Ï
+		{
+			int index = sellList.getSelectedIndex();
+			Item item = ItemFactory.getInstance().getItem(sellList.getSelectedValue());
+			PlayerManager.getInstance().getPlayer().bringItem.remove(index);
+		}
 	}
 
 }

@@ -1,5 +1,7 @@
 package de.characters;
 
+import de.item.Item.ClassType;
+
 
 public class Warrior extends Player {
 
@@ -14,6 +16,8 @@ public class Warrior extends Player {
 				110, 0, //성장 HP, MP
 				5, 0, 0, //공격력 성장치 (근거리, 원거리, 마법)
 				3, 1, 0); //방어력 성장치 (근거리, 원가리, 마법)
+		
+		classType = ClassType.Warrior;
 	}
 
 }

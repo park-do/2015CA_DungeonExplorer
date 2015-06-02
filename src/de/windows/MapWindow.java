@@ -10,6 +10,8 @@ import javax.swing.JFrame;
 import de.manager.FightManager;
 import de.manager.KeyInputManager;
 import de.manager.PlayerManager;
+import de.manager.WindowManager;
+import de.manager.WindowManager.WindowID;
 
 public class MapWindow extends JFrame implements Runnable {
 
@@ -306,7 +308,8 @@ public class MapWindow extends JFrame implements Runnable {
 				where = 5;
 			}
 			if (shopCollide(this.x, this.y)) {
-				// ShopManager.getInstance().Start(null);
+				WindowManager.getInstance().Hide(WindowID.MAP);
+				WindowManager.getInstance().Show(WindowID.SHOP);
 			}
 			break;
 		}

@@ -1,5 +1,6 @@
 package de.manager;
 
+import java.util.ArrayList;
 import java.util.Hashtable;
 
 import de.characters.Enemy;
@@ -36,6 +37,17 @@ public class ItemFactory {
 	private ItemFactory()
 	{
 		Init();
+	}
+	
+	public String[] getBuyItems()
+	{
+		ArrayList<String> items = new ArrayList<String>();
+		String[] keys = (String[]) itemMap.keySet().toArray(new String[itemMap.size()]);
+		for(int i=0;i<keys.length;i++)
+		{
+			items.add(itemMap.get(keys[i]).getName());
+		}
+		return items.toArray(new String[keys.length]);
 	}
 	
 	private void Init()

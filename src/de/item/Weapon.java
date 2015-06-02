@@ -48,4 +48,15 @@ public class Weapon extends Item {
 		player.equippedItem.add(this);	
 		
 	}
+	
+	public String toString()
+	{
+		String result = super.toString();
+		//result += "\n착용 부위 : " + getEquipType().toString();
+		if(getMeleeAP()>0)result += "<br>근접 공격 : " + getMeleeAP();
+		if(getRangedAP()>0)result += "<br>원거리 공격 : " + getRangedAP();
+		if(getMagicAP()>0)result += "<br>마법 공격 : " + getMagicAP();
+		
+		return result;
+	}
 }

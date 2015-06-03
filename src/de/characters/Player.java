@@ -2,9 +2,10 @@ package de.characters;
 
 import java.util.ArrayList;
 
+import de.item.Armor;
 import de.item.Item;
-import de.item.Weapon;
 import de.item.Item.ClassType;
+import de.item.Weapon;
 
 public class Player extends Characters {
 	
@@ -55,21 +56,7 @@ public class Player extends Characters {
 	}
 	
 	
-	@Override
-	public int getMeleeAP() {
-		// TODO Auto-generated method stub
-		int wma = 0;
-		for(int i=0;i<equippedItem.size();i++)
-		{
-			if(equippedItem.get(i) instanceof Weapon)
-			{
-				wma = ((Weapon)equippedItem.get(i)).getMeleeAP();
-				break;
-			}
-		}
-		
-		return meleeAP + wma;
-	}
+	
 
 
 	public int getLevel() {
@@ -141,10 +128,87 @@ public class Player extends Characters {
 	public ArrayList<Item> getBringItem() {
 		return bringItem;
 	}
-	public void setBringItem(ArrayList<Item> bringItem) {
-		this.bringItem = bringItem;
-	}
 	
+	
+	
+	@Override
+	public int getMeleeAP() {
+		int value = 0;
+		for (Item item : equippedItem) {
+			if(item instanceof Weapon)
+			{
+				value += ((Weapon)item).getMeleeAP();
+			}
+		}
+		return super.getMeleeAP() + (int)(value * meleeAPRatio);
+	}
+
+
+	@Override
+	public int getRangedAP() {
+		int value = 0;
+		for (Item item : equippedItem) {
+			if(item instanceof Weapon)
+			{
+				value += ((Weapon)item).getRangedAP();
+			}
+		}
+		return super.getRangedAP() + (int)(value * rangedAPRatio);
+	}
+
+
+	@Override
+	public int getMagicAP() {
+		int value = 0;
+		for (Item item : equippedItem) {
+			if(item instanceof Weapon)
+			{
+				value += ((Weapon)item).getMagicAP();
+			}
+		}
+		return super.getMagicAP() + (int)(value * magicAPRatio);
+	}
+
+
+	@Override
+	public int getMeleeGP() {
+		int value = 0;
+		for (Item item : equippedItem) {
+			if(item instanceof Armor)
+			{
+				value += ((Armor)item).getMeleeGP();
+			}
+		}
+		return super.getMeleeGP() + (int)(value * meleeGPRatio);
+	}
+
+
+	@Override
+	public int getRangedGP() {
+		int value = 0;
+		for (Item item : equippedItem) {
+			if(item instanceof Armor)
+			{
+				value += ((Armor)item).getRangedGP();
+			}
+		}
+		return super.getRangedGP() + (int)(value * rangedGPRatio);
+	}
+
+
+	@Override
+	public int getMagicGP() {
+		int value = 0;
+		for (Item item : equippedItem) {
+			if(item instanceof Armor)
+			{
+				value += ((Armor)item).getMagicGP();
+			}
+		}
+		return super.getMagicGP() + (int)(value * magicGPRatio);
+	}
+
+
 	public void earnGold(int gold)
 	{
 		this.Gold += gold;

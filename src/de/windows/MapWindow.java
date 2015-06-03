@@ -2,7 +2,6 @@ package de.windows;
 
 import java.awt.Graphics;
 import java.awt.Image;
-import java.lang.Math;
 
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;

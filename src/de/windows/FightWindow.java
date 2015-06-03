@@ -1,26 +1,27 @@
 package de.windows;
 
+import java.awt.Color;
+import java.awt.FlowLayout;
+import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.SwingConstants;
 
 import net.miginfocom.swing.MigLayout;
 import de.characters.Characters;
 import de.manager.FightManager;
-import de.manager.WindowManager;
-
-import javax.swing.JButton;
-import javax.swing.JScrollPane;
-
-import java.awt.Font;
-import java.awt.FlowLayout;
-import java.awt.Color;
+import de.manager.PlayerManager;
+import de.skills.Skill;
 
 public class FightWindow extends JFrame implements ActionListener{
 
@@ -37,12 +38,15 @@ public class FightWindow extends JFrame implements ActionListener{
 
 	private JButton btnAttack;
 	private JTextArea textArea;
+	private JButton btnSkill;
+	private JButton btnItem;
+	private JButton btnDodge;
 
 	/**
 	 * Create the frame.
 	 */
 	public FightWindow() {
-		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 500, 500);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(255, 204, 204));
@@ -126,21 +130,25 @@ public class FightWindow extends JFrame implements ActionListener{
 		panel_1.add(btnAttack);
 		btnAttack.setFont(new Font("굴림", Font.PLAIN, 20));
 		
-		JButton btnSkill = new JButton("\uC2A4\uD0AC \uC0AC\uC6A9");
+		btnSkill = new JButton("\uC2A4\uD0AC \uC0AC\uC6A9");
 		btnSkill.setFont(new Font("굴림", Font.PLAIN, 20));
 		btnSkill.setBackground(new Color(204, 255, 102));
 		panel_1.add(btnSkill);
 		
-		JButton btnItem = new JButton("\uC544\uC774\uD15C \uC0AC\uC6A9");
+		btnItem = new JButton("\uC544\uC774\uD15C \uC0AC\uC6A9");
 		btnItem.setFont(new Font("굴림", Font.PLAIN, 20));
 		btnItem.setBackground(new Color(204, 255, 102));
 		panel_1.add(btnItem);
 		
-		JButton btnDodge = new JButton("\uB3C4\uB9DD");
+		btnDodge = new JButton("\uB3C4\uB9DD");
 		btnDodge.setFont(new Font("굴림", Font.PLAIN, 20));
 		btnDodge.setBackground(new Color(204, 255, 102));
 		panel_1.add(btnDodge);
+		
 		btnAttack.addActionListener(this);
+		btnItem.addActionListener(this);
+		btnSkill.addActionListener(this);
+		btnDodge.addActionListener(this);
 		
 		
 	}
@@ -181,6 +189,25 @@ public class FightWindow extends JFrame implements ActionListener{
 		if(e.getSource()==btnAttack)
 		{
 			FightManager.getInstance().BasicAttack(this);
+		}
+		if(e.getSource()==btnSkill)
+		{
+			ArrayList<Skill> skills = PlayerManager.getInstance().getPlayer().getSkillList();
+			String[] selected = new String[skills.size()];
+			for(int i=0;i<skills.size();i++)selected[i] = skills.get(i).toString();
+			if(selected.length>0)
+			{
+				int selectIndex = JOptionPane.showOptionDialog(this, "사용할 스킬을 고르세요", "스킬 선택", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE, null, selected, selected[0]);
+			
+				if(selectIndex>=0)
+				{
+					AddMessage(skills.toString());
+				}
+			}
+			else
+			{
+				JOptionPane.showConfirmDialog(this, "배운 스킬이 없습니다.","스킬 선택",JOptionPane.YES_OPTION);
+			}
 		}
 	}
 }

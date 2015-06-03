@@ -35,10 +35,17 @@ public class FightManager
 		else
 			this.enemy = EnemyFactory.getInstance().getEnemy(this.enemy.getName());
 		
+		
+		
+		
 		WindowManager.getInstance().Hide(WindowManager.WindowID.MAP);
 		WindowManager.getInstance().Show(WindowManager.WindowID.FIGHT);
 		((FightWindow)WindowManager.getInstance().getFrame(WindowManager.WindowID.FIGHT)).Start();
 		((FightWindow)WindowManager.getInstance().getFrame(WindowManager.WindowID.FIGHT)).refresh();
+		
+		
+		playerManager.getPlayer().Start();
+		enemy.Start();
 	}
 	
 	public Characters getEnemy()
@@ -60,16 +67,8 @@ public class FightManager
 		Update(fightWindow);
 	}
 	
-	//½Î¿ò ½ÃÀÛ!
-	public void Start(FightWindow fightWindow)
-	{
-		enemy.Start();
-		playerManager.getPlayer().Start();
-	}
-	
 	public void Update(FightWindow fightWindow)
 	{
-		((Enemy) enemy).RandomAction(playerManager.getPlayer());
 		playerManager.getPlayer().Update();
 		enemy.Update();
 		fightWindow.refresh();

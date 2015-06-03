@@ -1,6 +1,7 @@
 package de.manager;
 
 import de.characters.Characters;
+import de.characters.Enemy;
 import de.windows.FightWindow;
 import de.windows.MapWindow;
 
@@ -48,6 +49,24 @@ public class FightManager
 	public Characters getPlayer()
 	{
 		return playerManager.getPlayer();
+	}
+	
+	public void BasicAttack(FightWindow fightWindow)
+	{ 
+		playerManager.getPlayer().Attack(enemy);
+		((Enemy) enemy).RandomAction(playerManager.getPlayer());
+		playerManager.getPlayer().Update();
+		enemy.Update();
+		Update(fightWindow);
+		fightWindow.refresh();
+	}
+	
+	public void Update(FightWindow fightWindow)
+	{
+		((Enemy) enemy).RandomAction(playerManager.getPlayer());
+		playerManager.getPlayer().Update();
+		enemy.Update();
+		fightWindow.refresh();
 	}
 	
 	public void Finish()

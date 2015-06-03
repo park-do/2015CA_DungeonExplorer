@@ -162,14 +162,14 @@ public class Characters
 	
 	public void Attack(Characters target)
 	{
-		
-		int melAP = this.getMeleeAP();
-		int ranAP = this.rangedAP; 
-		int magAP = this.magicAP;
-		
-		melAP -= target.meleeGP;
-		ranAP -= target.rangedGP;
-		magAP -= target.magicGP;
+		Attack(target,getMeleeAP(),getRangedAP(),getMagicAP());
+	}
+	
+	public void Attack(Characters target, int melAP, int ranAP, int magAP)
+	{	
+		melAP -= target.getMeleeGP();
+		ranAP -= target.getRangedGP();
+		magAP -= target.getMagicGP();
 		
 		if(melAP<0)melAP = 0;
 		if(ranAP<0)ranAP = 0;

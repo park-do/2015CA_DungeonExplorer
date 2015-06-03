@@ -180,13 +180,7 @@ public class FightWindow extends JFrame implements ActionListener{
 	public void actionPerformed(ActionEvent e) {
 		if(e.getSource()==btnAttack)
 		{
-			Characters player = FightManager.getInstance().getPlayer();
-			Characters enemy = FightManager.getInstance().getEnemy(); 
-			player.Attack(enemy);
-			enemy.Attack(player);
-			player.Update();
-			enemy.Update();
-			refresh();
+			FightManager.getInstance().BasicAttack(this);
 		}
 	}
 }

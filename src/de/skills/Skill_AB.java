@@ -4,15 +4,17 @@ import de.characters.Characters;
 import de.manager.WindowManager;
 import de.windows.FightWindow;
 
-//블레스 웨폰: 5턴간 근거리 공격력이 120%로 증가한다
-public class Skill_BW extends ActiveSkill {
+//앱솔루트 배리어: 3턴간 모든 방어력이 300%로 증가한다.
+public class Skill_AB extends ActiveSkill {
 	
 	int count;
 	
 	public void useSkill(Characters user)
 	{
-		user.multipleMeleeAPRatio(1.2f);
-		PrintMessage("신의 축복이 나의 날카로움을 더하리라! 블레스 웨폰!!");
+		user.multipleRangedGPRatio(3.0f);
+		user.multipleMeleeGPRatio(3.0f);
+		user.multipleMagicGPRatio(3.0f);
+		PrintMessage("천상의 보호막! 앱솔루트 배리어!!");
 		count=5;
 	}
 	
@@ -21,15 +23,15 @@ public class Skill_BW extends ActiveSkill {
 		count--;
 		if (count==0)
 		{
-			user.multipleMeleeAPRatio(1/1.2f);
+			user.multipleRangedGPRatio(1/3.0f);
+			user.multipleMeleeGPRatio(1/3.0f);
+			user.multipleMagicGPRatio(1/3.0f);
 		}
 	}
-		
 	
 	void PrintMessage(String msg)
 	{
 		((FightWindow)WindowManager.getInstance().getFrame(WindowManager.WindowID.FIGHT)).AddMessage(msg);
 	}
-
 
 }

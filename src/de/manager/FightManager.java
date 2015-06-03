@@ -60,6 +60,13 @@ public class FightManager
 		Update(fightWindow);
 	}
 	
+	//½Î¿ò ½ÃÀÛ!
+	public void Start(FightWindow fightWindow)
+	{
+		enemy.Start();
+		playerManager.getPlayer().Start();
+	}
+	
 	public void Update(FightWindow fightWindow)
 	{
 		((Enemy) enemy).RandomAction(playerManager.getPlayer());
@@ -70,12 +77,15 @@ public class FightManager
 	
 	public void Finish(boolean win)
 	{
+		Player player = playerManager.getPlayer();
 		if(win)
 		{
-			Player player = playerManager.getPlayer();
 			player.earnGold(enemy.getGold());
 			player.gainItem(enemy.getDropItemRandomly());
 		}
+		
+		player.End();
+		enemy.End();
 		WindowManager.getInstance().Hide(WindowManager.WindowID.FIGHT);
 		WindowManager.getInstance().Show(WindowManager.WindowID.MAP);
 		//((MapWindow)WindowManager.getInstance().getFrame(WindowManager.WindowID.MAP)).Win();

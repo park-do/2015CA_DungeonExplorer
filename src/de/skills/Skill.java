@@ -21,4 +21,9 @@ public class Skill {
 	{
 		
 	}
+	
+	public void EndEffect(Characters user)
+	{
+		
+	}
 }

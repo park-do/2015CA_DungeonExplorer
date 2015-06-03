@@ -3,6 +3,7 @@ package de.characters;
 import java.util.ArrayList;
 
 import de.manager.WindowManager;
+import de.skills.PassiveSkill;
 import de.skills.Skill;
 import de.windows.FightWindow;
 
@@ -182,10 +183,34 @@ public class Characters
 		PrintMessage(name+"이(가) " +target.getName()+"에게 "+totalAttack+"데미지!");
 	}
 	
+	
+	
+	public void Start()
+	{
+		//패시브 스킬들을 적용시킨다.
+		for(Skill skill : skillList)
+		{
+			if(skill instanceof PassiveSkill)
+			{
+				skill.useSkill(this, this);
+			}
+		}
+	}
+	
 	public void Update()
 	{
+		//스킬들을 업데이트 해준다.(버프, 디버프 등)
 		for (Skill skill : skillList) {
 			skill.Update(this);
+		}
+	}
+	
+	public void End()
+	{
+		//스킬들을 끝냄
+		for (Skill skill : skillList)
+		{
+			skill.EndEffect(this);
 		}
 	}
 	

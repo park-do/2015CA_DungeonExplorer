@@ -2,8 +2,8 @@ package de.manager;
 
 import de.characters.Characters;
 import de.characters.Enemy;
+import de.characters.Player;
 import de.windows.FightWindow;
-import de.windows.MapWindow;
 
 public class FightManager 
 {
@@ -24,14 +24,14 @@ public class FightManager
 		playerManager = PlayerManager.getInstance();
 	}
 	
-	Characters enemy;
+	Enemy enemy;
 	PlayerManager playerManager;
 	
 	
 	public void Start( Characters enemy)
 	{
 		if(enemy!=null)
-			this.enemy = enemy;
+			this.enemy = (Enemy)enemy;
 		else
 			this.enemy = EnemyFactory.getInstance().getEnemy(this.enemy.getName());
 		
@@ -58,7 +58,6 @@ public class FightManager
 		playerManager.getPlayer().Update();
 		enemy.Update();
 		Update(fightWindow);
-		fightWindow.refresh();
 	}
 	
 	public void Update(FightWindow fightWindow)
@@ -69,8 +68,14 @@ public class FightManager
 		fightWindow.refresh();
 	}
 	
-	public void Finish()
+	public void Finish(boolean win)
 	{
+		if(win)
+		{
+			Player player = playerManager.getPlayer();
+			player.earnGold(enemy.getGold());
+			player.gainItem(enemy.getDropItemRandomly());
+		}
 		WindowManager.getInstance().Hide(WindowManager.WindowID.FIGHT);
 		WindowManager.getInstance().Show(WindowManager.WindowID.MAP);
 		//((MapWindow)WindowManager.getInstance().getFrame(WindowManager.WindowID.MAP)).Win();

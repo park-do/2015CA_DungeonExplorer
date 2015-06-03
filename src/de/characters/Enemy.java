@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Random;
 
 import de.item.Item;
+import de.manager.ItemFactory;
 import de.skills.ActiveSkill;
 import de.skills.Skill;
 
@@ -57,8 +58,8 @@ public class Enemy extends Characters
 		{
 			if(additional[i] instanceof Skill)
 				AddSkill((Skill)additional[i]);
-			if(additional[i] instanceof Item)
-				dropItems.add((Item)additional[i]);
+			if(additional[i] instanceof String)
+				dropItems.add(ItemFactory.getInstance().getItem((String) additional[i]));
 		}
 		
 	}

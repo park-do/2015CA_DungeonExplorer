@@ -38,7 +38,7 @@ public class EnemyFactory {
 		enemyMap = new Hashtable<String, Enemy>();
 		Enemy[] enemies = {
 				//name,hp,mp,meleeAP,rangedAP,magicAP,meleeGP,rangedGP,magicGP,exp,gold
-				new Enemy("³­ÀïÀÌ", 100, 0, 20, 0, 0, 0, 0, 0, 10, 1), //°øÅë ·£´ý Ãâ¿¬ ¸÷
+				new Enemy("³­ÀïÀÌ", 100, 0, 20, 0, 0, 0, 0, 0, 10, 1,"´ë°Ë"), //°øÅë ·£´ý Ãâ¿¬ ¸÷
 				new Enemy("¿ÀÅ©", 100, 0, 20, 0, 0, 0, 0, 0, 10, 1), //°øÅë ·£´ý Ãâ¿¬ ¸÷
 				new Enemy("³­ÀïÀÌÀü»ç", 120, 0, 25, 0, 0, 0, 0, 0, 20, 2), //°øÅë ·£´ý Ãâ¿¬ ¸÷
 				new Enemy("¿ÀÅ©Àü»ç", 120, 0, 25, 0, 0, 0, 0, 0, 20, 2), //°øÅë ·£´ý Ãâ¿¬ ¸÷

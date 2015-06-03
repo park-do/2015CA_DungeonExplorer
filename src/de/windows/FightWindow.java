@@ -167,7 +167,7 @@ public class FightWindow extends JFrame implements ActionListener{
 		
 		if(enemy.getMaxHp()<=enemy.getDamagedhp())
 		{
-			FightManager.getInstance().Finish();
+			FightManager.getInstance().Finish(true);
 		}
 	}
 	

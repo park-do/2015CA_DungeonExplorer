@@ -241,10 +241,16 @@ public class FightWindow extends JFrame implements ActionListener{
 		enemyHPText.setText(getHPMPString(enemy.getMaxHp(),enemy.getDamagedhp()));
 		enemyMPText.setText(getHPMPString(enemy.getMp(),enemy.getUsedMp()));
 		
+		
+		if(player.getNowHP()<=0)
+		{
+			FightManager.getInstance().Finish(this, false);
+		}
 		if(enemy.getMaxHp()<=enemy.getDamagedhp())
 		{
-			FightManager.getInstance().Finish(true);
+			FightManager.getInstance().Finish(this, true);
 		}
+		
 	}
 	
 	public String getHPMPString(int max, int damaged)
@@ -266,7 +272,7 @@ public class FightWindow extends JFrame implements ActionListener{
 			if(selected.length>0)
 			{
 				int selectIndex = JOptionPane.showOptionDialog(this, "사용할 스킬을 고르세요", "스킬 선택", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE, null, selected, selected[0]);
-			
+				
 				if(selectIndex>=0)
 				{
 					boolean useSuccess = FightManager.getInstance().UseSkill(this, selectIndex);
@@ -280,6 +286,10 @@ public class FightWindow extends JFrame implements ActionListener{
 			{
 				JOptionPane.showConfirmDialog(this, "보유 중인 스킬이 없습니다.","스킬 선택",JOptionPane.CANCEL_OPTION);
 			}
+		}
+		if(e.getSource()==btnDodge)
+		{
+			FightManager.getInstance().Dodge(this);
 		}
 	}
 }

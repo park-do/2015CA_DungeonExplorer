@@ -5,6 +5,8 @@ import de.characters.Knight;
 import de.characters.Magician;
 import de.characters.Player;
 import de.characters.Warrior;
+import de.manager.WindowManager.WindowID;
+import de.windows.InventoryWindowT;
 
 public class PlayerManager {
 
@@ -45,6 +47,7 @@ public class PlayerManager {
 	}
 
 	public void Start(Object object) {
+		((InventoryWindowT)WindowManager.getInstance().getFrame(WindowID.STATUS)).RefreshButtons();
 		WindowManager.getInstance().Hide(WindowManager.WindowID.MAP);
 		WindowManager.getInstance().Show(WindowManager.WindowID.STATUS);
 		

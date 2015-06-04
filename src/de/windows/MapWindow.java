@@ -191,6 +191,10 @@ public class MapWindow extends JFrame implements Runnable {
 		int m = x + 15;
 		int n = y;
 		if (250 < m && m < 300 && 250 < n && n < 280) {
+			keyipm.up.force();
+		    keyipm.down.force();
+		    keyipm.left.force();
+		    keyipm.right.force();
 			return true;
 		}
 		return false;
@@ -272,6 +276,7 @@ public class MapWindow extends JFrame implements Runnable {
 		}
 		if (keyipm.inventory.isPressed()) {
 			PlayerManager.getInstance().Start(null);
+			
 			keyipm.inventory.force();
 		}	
 
@@ -334,6 +339,8 @@ public class MapWindow extends JFrame implements Runnable {
 			if (shopCollide(this.x, this.y)) {
 				WindowManager.getInstance().Hide(WindowID.MAP);
 				WindowManager.getInstance().Show(WindowID.SHOP);
+				x = 450;
+				y = 250;
 			}
 			break;
 		}
@@ -359,8 +366,6 @@ public class MapWindow extends JFrame implements Runnable {
 		}
 		case 5: {
 			g.drawImage(Magma, 0, 28, this);
-			xMon = 275;
-			yMon = 225;
 			break;
 		}
 		}

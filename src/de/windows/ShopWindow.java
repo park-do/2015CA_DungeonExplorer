@@ -15,6 +15,7 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JList;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTabbedPane;
@@ -27,6 +28,8 @@ import de.manager.ItemFactory;
 import de.manager.PlayerManager;
 import de.manager.WindowManager;
 import de.manager.WindowManager.WindowID;
+
+import javax.swing.SwingConstants;
 
 public class ShopWindow extends JFrame implements ListSelectionListener, ActionListener {
 
@@ -85,6 +88,7 @@ public class ShopWindow extends JFrame implements ListSelectionListener, ActionL
 		contentPane.setLayout(null);
 		
 		lblMyGold = new JLabel("My Gold :");
+		lblMyGold.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblMyGold.setFont(new Font("±¼¸²", Font.PLAIN, 20));
 		lblMyGold.setBounds(167, 362, 255, 42);
 		contentPane.add(lblMyGold);
@@ -176,6 +180,7 @@ public class ShopWindow extends JFrame implements ListSelectionListener, ActionL
 	{
 		InitBuyList();
 		InitSellList();
+		RefreshGold();
 	}
 	
 	public void InitBuyList()
@@ -220,10 +225,12 @@ public class ShopWindow extends JFrame implements ListSelectionListener, ActionL
 			{
 				PlayerManager.getInstance().getPlayer().bringItem.add(item);
 				InitSellList();
+				RefreshGold();
+				JOptionPane.showConfirmDialog(this,item.getName()+" »ò½À´Ï´Ù!","»óÁ¡",JOptionPane.CANCEL_OPTION);
 			}
 			else
 			{
-				
+				JOptionPane.showConfirmDialog(this,"µ·ÀÌ ¸ðÀÚ¶ó¿ä","»óÁ¡",JOptionPane.CANCEL_OPTION);
 			}
 		}
 		else if(e.getSource()==btnSell)//ÆÈ±â ¹öÆ° ´­·¶´Ï
@@ -231,7 +238,9 @@ public class ShopWindow extends JFrame implements ListSelectionListener, ActionL
 			int index = sellList.getSelectedIndex();
 			Item item = ItemFactory.getInstance().getItem(sellList.getSelectedValue());
 			PlayerManager.getInstance().getPlayer().bringItem.remove(index);
+			PlayerManager.getInstance().getPlayer().earnGold(item.getPrice());
 			InitSellList();
+			RefreshGold();
 		}
 	}
 }

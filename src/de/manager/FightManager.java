@@ -2,11 +2,15 @@ package de.manager;
 
 import java.util.Random;
 
+import javax.swing.JOptionPane;
+
 import de.characters.Characters;
 import de.characters.Enemy;
 import de.characters.Player;
+import de.item.Item;
 import de.skills.Skill;
 import de.windows.FightWindow;
+import de.windows.MapWindow;
 
 public class FightManager 
 {
@@ -119,20 +123,62 @@ public class FightManager
 		fightWindow.refresh();
 	}
 	
-	public void Finish(boolean win)
+	public void Finish(FightWindow fightWindow, boolean win)
 	{
 		Player player = playerManager.getPlayer();
+		Item item = null;
+		int gold = 0;
+		int exp = 0;
 		if(win)
 		{
-			player.earnGold(enemy.getGold());
-			player.gainItem(enemy.getDropItemRandomly());
+			gold = enemy.getGold();
+			player.earnGold(gold);
+			item = enemy.getDropItemRandomly();
+			player.gainItem(item);
+			int level = player.getLevel();
+			exp = enemy.getExp();
+			player.gainExp(exp);
+			
+			
+			JOptionPane.showConfirmDialog(fightWindow, "ÀüÅõ ½Â¸®!\n"+(level<player.getLevel()?"·¹º§ ¾÷!!\n":"")+(gold>0?gold+"°ñµå È¹µæ!\n":"")+(item!=null?item.getName() + "È¹µæ!":""), "ÀüÅõ ½Â¸®", JOptionPane.CLOSED_OPTION);
+			
+			player.End();
+			enemy.End();
+			WindowManager.getInstance().Hide(WindowManager.WindowID.FIGHT);
+			WindowManager.getInstance().Show(WindowManager.WindowID.MAP);
 		}
+		else
+		{
+			player.spendGold(player.getGold()/2);
+			
+			JOptionPane.showConfirmDialog(fightWindow, "ÆÐ¹è.. °ñµåÀÇ Àý¹ÝÀ» ÀÒ¾ú½À´Ï´Ù.","ÀüÅõ ÆÐ¹è", JOptionPane.CLOSED_OPTION);
+			
+			player.End();
+			enemy.End();
+			WindowManager.getInstance().Hide(WindowManager.WindowID.FIGHT);
+			WindowManager.getInstance().Show(WindowManager.WindowID.MAP);
+			((MapWindow)WindowManager.getInstance().getFrame(WindowManager.WindowID.MAP)).where = 0;
+		}
+		
+		
+		
+		
+		
+		
+		//((MapWindow)WindowManager.getInstance().getFrame(WindowManager.WindowID.MAP)).Win();
+	}
+	
+	public void Dodge(FightWindow fightWindow)
+	{
+		Player player = playerManager.getPlayer();
+		player.spendGold(player.getGold()/3);
+		
+		JOptionPane.showConfirmDialog(fightWindow, "µµ¸ÁÄ¡´Ù°¡ °ñµåÀÇ 1/3À» Èê·È½À´Ï´Ù.","ÀüÅõ¿¡¼­ µµ¸ÁÄ§!", JOptionPane.CLOSED_OPTION);
 		
 		player.End();
 		enemy.End();
 		WindowManager.getInstance().Hide(WindowManager.WindowID.FIGHT);
 		WindowManager.getInstance().Show(WindowManager.WindowID.MAP);
-		//((MapWindow)WindowManager.getInstance().getFrame(WindowManager.WindowID.MAP)).Win();
+		((MapWindow)WindowManager.getInstance().getFrame(WindowManager.WindowID.MAP)).where = 0;
 	}
-	
 }

@@ -243,6 +243,15 @@ public class Player extends Characters {
 	{
 		Exp-=requiredExps[level-1];
 		level+=1;
+		
+		hp+=HPgrowth;
+		mp+=MPgrowth;
+		meleeAP+=meleeAPgrowth;
+		rangedAP+=rangedAPgrowth;
+		magicAP+=magicAPgrowth;
+		meleeGP+=meleeGPgrowth;
+		rangedGP+=rangedGPgrowth;
+		magicGP+=magicGPgrowth;
 	}
 	
 	public ClassType getClassType() {

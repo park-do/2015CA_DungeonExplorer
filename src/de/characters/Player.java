@@ -216,7 +216,8 @@ public class Player extends Characters {
 	
 	public void gainItem(Item item)
 	{
-		bringItem.add(item);
+		if(item!=null)
+			bringItem.add(item);
 	}
 
 	public void gainExp(int exp)

@@ -3,7 +3,6 @@ package de.manager;
 import java.util.Hashtable;
 
 import de.characters.Enemy;
-import de.skills.Skill_AB;
 import de.skills.Skill_AG;
 import de.skills.Skill_AV;
 import de.skills.Skill_BW;
@@ -67,7 +66,7 @@ public class EnemyFactory {
 				new Enemy("타락", 1200, 1200, 0, 0, 200, 20, 20, 30, 2000, 200, new Skill_CT(), "크림슨 랜스", "타락의 오브", "타락 로브"), //던전4 보스몹
 				new Enemy("올딘", 2000, 2000, 0, 0, 250, 20, 20, 50, 2500, 250, new Skill_CL(), "어둠의 칼날", "대마법사의 오브", "올딘의 발자국"), //던전5 보스몹
 				new Enemy("데스나이트", 6000, 1200, 400, 0, 0, 60, 10, 40, 3000, 300, new Skill_CB(), "데스나이트의 검"), //던전6 보스몹
-				new Enemy("타노스", 5000, 5000, 0, 0, 300, 30, 30, 70, 3000, 300, new Skill_AB(), "얼음 여왕의 창", "타노스의 지팡이", "타노스의 심안"), //던전7 보스몹
+				//new Enemy("타노스", 5000, 5000, 0, 0, 300, 30, 30, 70, 3000, 300, new Skill_AB(), "얼음 여왕의 창", "타노스의 지팡이", "타노스의 심안"), //던전7 보스몹
 				new Enemy("미노타우르스", 10000, 0, 400, 0, 0, 80, 40, 20, 4000, 400, new Skill_AG(), "토르의 외침"), //던전8 보스몹
 				new Enemy("진명황단테스", 20000, 100, 500, 0, 0, 80, 100, 120, 10000, 2000, new Skill_CON(), new Skill_CB(), new Skill_AV(), new Skill_AG(), "진명황의 집행검", "악몽의 장궁", "수정 결정체 지팡이", "진명황의 면갑") //던전9 보스몹
 				

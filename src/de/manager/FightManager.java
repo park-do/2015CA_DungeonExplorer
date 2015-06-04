@@ -1,5 +1,7 @@
 package de.manager;
 
+import java.util.Random;
+
 import de.characters.Characters;
 import de.characters.Enemy;
 import de.characters.Player;
@@ -27,13 +29,37 @@ public class FightManager
 	Enemy enemy;
 	PlayerManager playerManager;
 	
+	String[] normalMonsters = 
+		{
+			"³­ÀïÀÌ",
+			"¿ÀÅ©",
+			"³­ÀïÀÌÀü»ç",
+			"¿ÀÅ©Àü»ç",
+			"ÇØ°ñÃ¢º´",
+			"ÇØ°ñ°Ë»ç",
+			"ÇØ°ñ±Ã¼ö",
+			"µ¹°ñ·½",
+			"Æ®·Ñ",
+			"ÇØ°ñ°ËÅõ»ç",
+			"ÇØ°ñ±ÙÀ§º´",
+			"¿À¿ì°Å"
+		};
 	
-	public void Start( Characters enemy)
+	
+	public void Start( String enemyName)
 	{
-		if(enemy!=null)
-			this.enemy = (Enemy)enemy;
-		else
+		if(enemyName==null || enemyName.length()<1)
 			this.enemy = EnemyFactory.getInstance().getEnemy(this.enemy.getName());
+		
+		if(enemyName=="·£´ı¸÷")
+		{
+			Random random = new Random();
+			this.enemy = EnemyFactory.getInstance().getEnemy(normalMonsters[random.nextInt(normalMonsters.length)]);
+		}
+		else
+		{
+			this.enemy = EnemyFactory.getInstance().getEnemy(enemyName);
+		}
 		
 		
 		
@@ -58,17 +84,24 @@ public class FightManager
 		return playerManager.getPlayer();
 	}
 	
+	public void UseSkill(FightWindow fightWindow, int index)
+	{
+		playerManager.getPlayer().getSkillList().get(index).useSkill(playerManager.getPlayer(), enemy);
+		
+		Update(fightWindow);
+	}
+	
 	public void BasicAttack(FightWindow fightWindow)
 	{ 
 		playerManager.getPlayer().Attack(enemy);
-		((Enemy) enemy).RandomAction(playerManager.getPlayer());
-		playerManager.getPlayer().Update();
-		enemy.Update();
+		
 		Update(fightWindow);
 	}
 	
 	public void Update(FightWindow fightWindow)
 	{
+		((Enemy) enemy).RandomAction(playerManager.getPlayer());
+		enemy.Update();
 		playerManager.getPlayer().Update();
 		enemy.Update();
 		fightWindow.refresh();

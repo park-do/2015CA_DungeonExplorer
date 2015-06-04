@@ -29,6 +29,7 @@ public class Enemy extends Characters
 	}
 	public Item getDropItemRandomly()
 	{
+		if(dropItems.size()==0)return null;
 		Random random = new Random();
 		int ri = random.nextInt(dropItems.size());
 		return dropItems.get(ri);

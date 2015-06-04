@@ -3,22 +3,11 @@ package de.manager;
 import java.util.ArrayList;
 import java.util.Hashtable;
 
-import de.characters.Enemy;
 import de.item.Armor;
 import de.item.Armor.EquipType;
 import de.item.Item;
-import de.item.Weapon;
 import de.item.Item.ClassType;
-import de.skills.Skill_AG;
-import de.skills.Skill_AV;
-import de.skills.Skill_BW;
-import de.skills.Skill_CB;
-import de.skills.Skill_CL;
-import de.skills.Skill_CON;
-import de.skills.Skill_CT;
-import de.skills.Skill_AB;
-import de.skills.Skill_SB;
-import de.skills.Skill_ST;
+import de.item.Weapon;
 
 public class ItemFactory {
 	private static ItemFactory instance;

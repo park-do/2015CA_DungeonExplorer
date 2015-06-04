@@ -66,6 +66,15 @@ public class Characters
 		this.hp = hp;
 	}
 
+	public int getMp() {
+		return mp;
+	}
+
+	public void setMp(int mp) {
+		this.mp = mp;
+	}
+
+
 	public int getMeleeAP() {
 		return (int)(meleeAP*meleeAPRatio);
 	}

@@ -31,15 +31,19 @@ public class MapWindow extends JFrame implements Runnable {
 
 	private Image dbImage;
 	private Graphics dbg;
-	Image Player, Monster;
+	Image Player, Monster, NMonster, BMonster;
 	Image Town, Stone, Cemetery, Sky, Desert, Magma;
-	
-	
+
+
 	String[][] monsters =
 		{
 			{"·£´ý¸÷","·£´ý¸÷","·£´ý¸÷","¾ÆÀÌ¾ð °ñ·½","µå·¹ÀÌÅ©"},
+			{"·£´ý¸÷","·£´ý¸÷","·£´ý¸÷","´ÙÅ©¿¤ÇÁ ½ÃÇÁ","¿£µð¾Æ½º"},
+			{"·£´ý¸÷","·£´ý¸÷","·£´ý¸÷","°Å´ë ÇØ°ñ Àú°Ýº´","½É¿¬ÀÇ Ç³·É"},
+			{"·£´ý¸÷","·£´ý¸÷","·£´ý¸÷","¿¡µò","Å¸¶ô"},
+			{"·£´ý¸÷","·£´ý¸÷","·£´ý¸÷","µ¥¸ó","Áø¸íÈ² ´ÜÅ×½º"},
 		};
-	
+
 	int[] monsterIndex = {0,0,0,0,0};
 
 	public MapWindow() {
@@ -69,6 +73,7 @@ public class MapWindow extends JFrame implements Runnable {
 		int p = (int) Math.sqrt(m * m + n * n);
 		return p;
 	}
+
 
 	public void navigate() {
 
@@ -122,6 +127,13 @@ public class MapWindow extends JFrame implements Runnable {
 	public boolean monsterCollide(int x, int y) {
 		int m = x - xMon;
 		int n = y - yMon;
+		int size = 37;
+		if(monsters[where-1].length<=monsterIndex[where-1])return false;
+		//ÀÏ¹Ý¸÷
+		if(monsters[where-1][monsterIndex[where-1]]=="·£´ý¸÷")size = 25;
+		//º¸½º¸÷
+		else if(monsters[where-1].length-1==monsterIndex[where-1])size = 50;
+				
 		if (-25 < m && m < 25 && -25 < n && n < 25) {
 			System.out.println(true + " : " + m + "," + n);
 			keyipm.up.force();
@@ -130,7 +142,7 @@ public class MapWindow extends JFrame implements Runnable {
 			keyipm.right.force();
 			return true;
 		} else
-			System.out.println(false + " : " + m + "," + n);
+			;//System.out.println(false + " : " + m + "," + n);
 		return false;
 	}
 
@@ -221,8 +233,8 @@ public class MapWindow extends JFrame implements Runnable {
 
 			if (System.currentTimeMillis() - lastTimer >= 1000) {
 				lastTimer += 1000;
-			//	System.out
-			//			.println("" + ticks + " ticks, " + frames + " frames");
+				//	System.out
+				//			.println("" + ticks + " ticks, " + frames + " frames");
 				frames = 0;
 				ticks = 0;
 			}
@@ -242,6 +254,18 @@ public class MapWindow extends JFrame implements Runnable {
 		}
 		if (keyipm.up.isPressed()) {
 			y -= player_speed;
+		}
+		if (where == 0)
+		{
+			for(int i=0;i<monsterIndex.length;i++)
+			{
+				monsterIndex[i] = 0;
+			}
+			if(PlayerManager.getInstance().getPlayer()!=null)
+			{
+				PlayerManager.getInstance().getPlayer().setDamagedhp(0);
+				PlayerManager.getInstance().getPlayer().setUsedmp(0);
+			}
 		}
 		if (where == 5) {
 			navigate();
@@ -315,91 +339,71 @@ public class MapWindow extends JFrame implements Runnable {
 		}
 		case 1: {
 			g.drawImage(Stone, 0, 28, this);
-			g.drawImage(Monster, xMon, yMon, this);
-			g.drawImage(Player, x, y, this);
-			repaint();
-			if (monsterCollide(this.x, this.y)) {
-				FightManager.getInstance().Start(monsters[where-1][monsterIndex[where-1]]);
-				System.out.println(monsters[where-1][monsterIndex[where-1]]);
-				monsterIndex[where-1]+=1;
-				x = 450;
-				y = 250;
-			}
-			if (gateCollide(this.x, this.y) == 0) {
-				where = 0;
-			}
+
 			break;
 		}
 		case 2: {
 			g.drawImage(Cemetery, 0, 28, this);
-			g.drawImage(Monster, xMon, yMon, this);
-			g.drawImage(Player, x, y, this);
-			repaint();
-			if (monsterCollide(this.x, this.y)) {
-				FightManager.getInstance().Start(null);
-				x = 450;
-				y = 250;
-			}
-			if (gateCollide(this.x, this.y) == 0) {
-				where = 0;
-			}
+
 			break;
 		}
 		case 3: {
 			g.drawImage(Sky, 0, 28, this);
-			g.drawImage(Monster, xMon, yMon, this);
-			g.drawImage(Player, x, y, this);
-			repaint();
-			if (monsterCollide(this.x, this.y)) {
-				FightManager.getInstance().Start(null);
-				x = 450;
-				y = 250;
-			}
-			if (gateCollide(this.x, this.y) == 0) {
-				where = 0;
-			}
+
 			break;
 		}
 		case 4: {
 			g.drawImage(Desert, 0, 28, this);
-			g.drawImage(Monster, xMon, yMon, this);
-			g.drawImage(Player, x, y, this);
+
+			break;
+		}
+		case 5: {
+			g.drawImage(Magma, 0, 28, this);
+			xMon = 275;
+			yMon = 225;
+			break;
+		}
+		}
+		if(where!=0)
+		{
+			DrawMonsterAndPlayer(g);
 			repaint();
 			if (monsterCollide(this.x, this.y)) {
-				FightManager.getInstance().Start(null);
+				StartFight();				
 				x = 450;
 				y = 250;
 			}
 			if (gateCollide(this.x, this.y) == 0) {
 				where = 0;
 			}
-			break;
 		}
-		case 5: {
-			g.drawImage(Magma, 0, 28, this);
-			g.drawImage(Monster, xMon, yMon, this);
+	}
+
+	private void StartFight() {
+		FightManager.getInstance().Start(monsters[where-1][monsterIndex[where-1]]);
+		System.out.println(monsters[where-1][monsterIndex[where-1]]);
+		monsterIndex[where-1]+=1;
+	}
+
+	private void DrawMonsterAndPlayer(Graphics g) 
+	{
+		Image monster = NMonster;
+		
+		//²£´Ù.
+		if(monsters[where-1].length<=monsterIndex[where-1])
+		{
+			xMon = 100000;
 			g.drawImage(Player, x, y, this);
-			repaint();
-			if (monsterCollide(this.x, this.y)) {
-				FightManager.getInstance().Start(null);
-				x = 450;
-				y = 250;
-				xMon = 275;
-				yMon = 225;
-			}
-			break;
+			return;
 		}
-		default: {
-			// g.drawImage(Stone, 0, 0, this);
-			// g.drawImage(Monster, xMon, yMon, this);
-			// g.drawImage(Player, x, y, this);
-			// repaint();
-			// if (monsterCollide(this.x, this.y)) {
-			// FightManager.getInstance().Start(null);
-			// }
-			// break;
-		}
-		}
+		//ÀÏ¹Ý¸÷
+		else if(monsters[where-1][monsterIndex[where-1]]=="·£´ý¸÷")monster = Monster;
+		//º¸½º¸÷
+		else if(monsters[where-1].length-1==monsterIndex[where-1])monster = BMonster;
+		
+
+		g.drawImage(monster, xMon, yMon, this);
+		g.drawImage(Player, x, y, this);
 	}
 
 	private void init() {
@@ -421,6 +425,12 @@ public class MapWindow extends JFrame implements Runnable {
 		Desert = i6.getImage();
 		ImageIcon i7 = new ImageIcon("resource/Magma.png");
 		Magma = i7.getImage();
+
+
+		ImageIcon i8 = new ImageIcon("resource/NamedMonster.png");
+		NMonster = i8.getImage();
+		ImageIcon i9 = new ImageIcon("resource/BossMonster.png");
+		BMonster = i9.getImage();
 
 	}
 

@@ -214,6 +214,16 @@ public class Player extends Characters {
 		this.Gold += gold;
 	}
 	
+	public void spendGold(int gold)
+	{
+		this.Gold -= gold;
+	}
+	
+	public int getGold()
+	{
+		return Gold;
+	}
+	
 	public void gainItem(Item item)
 	{
 		if(item!=null)
@@ -238,6 +248,15 @@ public class Player extends Characters {
 	public ClassType getClassType() {
 		// TODO Auto-generated method stub
 		return classType;
+	}
+
+
+
+
+
+	public void setUsedmp(int i) {
+		// TODO Auto-generated method stub
+		usedMp = i;
 	}
 	
 	

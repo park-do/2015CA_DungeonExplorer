@@ -42,6 +42,8 @@ public class ShopWindow extends JFrame implements ListSelectionListener, ActionL
 	private JButton btnSell;
 	private JList<String> sellList;
 
+	private JLabel lblMyGold;
+
 	/**
 	 * Launch the application.
 	 */
@@ -81,6 +83,11 @@ public class ShopWindow extends JFrame implements ListSelectionListener, ActionL
 		
 		contentPane.setBounds(0, 0, 434, 411);
 		contentPane.setLayout(null);
+		
+		lblMyGold = new JLabel("My Gold :");
+		lblMyGold.setFont(new Font("±¼¸²", Font.PLAIN, 20));
+		lblMyGold.setBounds(167, 362, 255, 42);
+		contentPane.add(lblMyGold);
 		
 		tabbedPane = new JTabbedPane(JTabbedPane.BOTTOM);
 		tabbedPane.setFont(new Font("±¼¸²", Font.PLAIN, 30));
@@ -181,6 +188,10 @@ public class ShopWindow extends JFrame implements ListSelectionListener, ActionL
 		sellList.setListData(ItemFactory.getInstance().getSellItems());
 	}
 	
+	public void RefreshGold()
+	{
+		lblMyGold.setText("°¡Áø µ· : "+PlayerManager.getInstance().getPlayer().getGold());
+	}
 
 	@Override
 	public void valueChanged(ListSelectionEvent e) {
@@ -205,15 +216,22 @@ public class ShopWindow extends JFrame implements ListSelectionListener, ActionL
 		if(e.getSource()==btnBuy)//»ç±â ¹öÆ° ´­·¶´Ï
 		{
 			Item item = ItemFactory.getInstance().getItem(buyList.getSelectedValue());
-			PlayerManager.getInstance().getPlayer().bringItem.add(item);
-			InitSellList();
+			if(PlayerManager.getInstance().getPlayer().getGold() >= item.getPrice())
+			{
+				PlayerManager.getInstance().getPlayer().bringItem.add(item);
+				InitSellList();
+			}
+			else
+			{
+				
+			}
 		}
 		else if(e.getSource()==btnSell)//ÆÈ±â ¹öÆ° ´­·¶´Ï
 		{
 			int index = sellList.getSelectedIndex();
 			Item item = ItemFactory.getInstance().getItem(sellList.getSelectedValue());
 			PlayerManager.getInstance().getPlayer().bringItem.remove(index);
+			InitSellList();
 		}
 	}
-
 }

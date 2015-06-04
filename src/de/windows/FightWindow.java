@@ -78,34 +78,34 @@ public class FightWindow extends JFrame implements ActionListener{
 		panel.setBackground(new Color(255, 255, 204));
 		panel.setBounds(0, 0, 214, 219);
 		enemyPanel.add(panel);
-		panel.setLayout(new GridLayout(0, 2, 0, 0));
+		panel.setLayout(new MigLayout("", "[57px][157px]", "[73px][73px][73px]"));
 		
 		JLabel enemyNameLabel = new JLabel("Name : ");
 		enemyNameLabel.setFont(new Font("±¼¸²", Font.PLAIN, 20));
 		enemyNameLabel.setHorizontalAlignment(SwingConstants.RIGHT);
-		panel.add(enemyNameLabel);
+		panel.add(enemyNameLabel, "cell 0 0,grow");
 		
 		enemyNameText = new JLabel("Orc");
 		enemyNameText.setFont(new Font("±¼¸²", Font.PLAIN, 20));
-		panel.add(enemyNameText);
+		panel.add(enemyNameText, "cell 1 0,grow");
 		
 		JLabel enemyHPLabel = new JLabel("HP : ");
 		enemyHPLabel.setFont(new Font("±¼¸²", Font.PLAIN, 20));
 		enemyHPLabel.setHorizontalAlignment(SwingConstants.RIGHT);
-		panel.add(enemyHPLabel);
+		panel.add(enemyHPLabel, "cell 0 1,grow");
 		
 		enemyHPText = new JLabel("10/80");
 		enemyHPText.setFont(new Font("±¼¸²", Font.PLAIN, 20));
-		panel.add(enemyHPText);
+		panel.add(enemyHPText, "cell 1 1,grow");
 		
 		lblMp_2 = new JLabel("MP : ");
 		lblMp_2.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblMp_2.setFont(new Font("±¼¸²", Font.PLAIN, 20));
-		panel.add(lblMp_2);
+		panel.add(lblMp_2, "cell 0 2,grow");
 		
 		enemyMPText = new JLabel("10/80");
 		enemyMPText.setFont(new Font("±¼¸²", Font.PLAIN, 20));
-		panel.add(enemyMPText);
+		panel.add(enemyMPText, "cell 1 2,grow");
 		
 		enemyIcon = new JLabel("");
 		enemyIcon.setBounds(233, 15, 214, 203);
@@ -120,34 +120,34 @@ public class FightWindow extends JFrame implements ActionListener{
 		playerInfoPanel.setBackground(new Color(255, 255, 204));
 		playerInfoPanel.setBounds(248, 0, 216, 218);
 		playerPanel.add(playerInfoPanel);
-		playerInfoPanel.setLayout(new GridLayout(0, 2, 0, 0));
+		playerInfoPanel.setLayout(new MigLayout("", "[58px][158px]", "[72px][72px][72px]"));
 		
 		JLabel label = new JLabel("Name : ");
 		label.setFont(new Font("±¼¸²", Font.PLAIN, 20));
 		label.setHorizontalAlignment(SwingConstants.RIGHT);
-		playerInfoPanel.add(label);
+		playerInfoPanel.add(label, "cell 0 0,grow");
 		
 		playerNameText = new JLabel("Orc");
 		playerNameText.setFont(new Font("±¼¸²", Font.PLAIN, 20));
-		playerInfoPanel.add(playerNameText);
+		playerInfoPanel.add(playerNameText, "cell 1 0,grow");
 		
 		JLabel lblMp = new JLabel("HP : ");
 		lblMp.setFont(new Font("±¼¸²", Font.PLAIN, 20));
 		lblMp.setHorizontalAlignment(SwingConstants.RIGHT);
-		playerInfoPanel.add(lblMp);
+		playerInfoPanel.add(lblMp, "cell 0 1,grow");
 		
 		playerHPText = new JLabel("10/80");
 		playerHPText.setFont(new Font("±¼¸²", Font.PLAIN, 20));
-		playerInfoPanel.add(playerHPText);
+		playerInfoPanel.add(playerHPText, "cell 1 1,grow");
 		
 		lblMp_1 = new JLabel("MP : ");
 		lblMp_1.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblMp_1.setFont(new Font("±¼¸²", Font.PLAIN, 20));
-		playerInfoPanel.add(lblMp_1);
+		playerInfoPanel.add(lblMp_1, "cell 0 2,grow");
 		
 		playerMPText = new JLabel("10/80");
 		playerMPText.setFont(new Font("±¼¸²", Font.PLAIN, 20));
-		playerInfoPanel.add(playerMPText);
+		playerInfoPanel.add(playerMPText, "cell 1 2,grow");
 		
 		playerIcon = new JLabel("");
 		playerIcon.setBounds(17, 15, 214, 203);

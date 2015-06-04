@@ -1,7 +1,7 @@
 package de.characters;
 
 import de.item.Item.ClassType;
-import de.skills.Skill_AB;
+import de.skills.Skill_AV;
 import de.skills.Skill_CL;
 import de.skills.Skill_CT;
 import de.skills.Skill_SB;
@@ -41,7 +41,7 @@ public class Magician extends Player {
 		}
 		if(getLevel()==30)
 		{
-			skillList.add(new Skill_AB());
+			skillList.add(new Skill_AV());
 		}
 	}
 

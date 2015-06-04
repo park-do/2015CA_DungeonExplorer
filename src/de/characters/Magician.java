@@ -1,6 +1,10 @@
 package de.characters;
 
 import de.item.Item.ClassType;
+import de.skills.Skill_AB;
+import de.skills.Skill_CL;
+import de.skills.Skill_CT;
+import de.skills.Skill_SB;
 
 
 public class Magician extends Player {
@@ -18,6 +22,27 @@ public class Magician extends Player {
 				1, 1, 3); //방어력 성장치 (근거리, 원가리, 마법)
 		
 		classType = ClassType.Magician;
+	}
+	
+	protected void levelUp()
+	{
+		super.levelUp();
+		if(getLevel()==10)
+		{
+			skillList.add(new Skill_CT());
+		}
+		if(getLevel()==15)
+		{
+			skillList.add(new Skill_CL());
+		}
+		if(getLevel()==20)
+		{
+			skillList.add(new Skill_SB());
+		}
+		if(getLevel()==30)
+		{
+			skillList.add(new Skill_AB());
+		}
 	}
 
 }

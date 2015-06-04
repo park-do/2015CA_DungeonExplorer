@@ -1,6 +1,8 @@
 package de.characters;
 
 import de.item.Item.ClassType;
+import de.skills.Skill_CON;
+import de.skills.Skill_ST;
 
 
 public class Elf extends Player {
@@ -18,6 +20,19 @@ public class Elf extends Player {
 				1, 2, 2); //방어력 성장치 (근거리, 원가리, 마법)
 		
 		classType = ClassType.Elf;
+	}
+	
+	protected void levelUp()
+	{
+		super.levelUp();
+		if(getLevel()==10)
+		{
+			skillList.add(new Skill_ST());
+		}
+		if(getLevel()==30)
+		{
+			skillList.add(new Skill_CON());
+		}
 	}
 
 }

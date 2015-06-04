@@ -2,11 +2,10 @@ package de.manager;
 
 import java.util.Random;
 
-import javax.swing.ImageIcon;
-
 import de.characters.Characters;
 import de.characters.Enemy;
 import de.characters.Player;
+import de.skills.Skill;
 import de.windows.FightWindow;
 
 public class FightManager 
@@ -87,11 +86,22 @@ public class FightManager
 		return playerManager.getPlayer();
 	}
 	
-	public void UseSkill(FightWindow fightWindow, int index)
+	public boolean UseSkill(FightWindow fightWindow, int index)
 	{
-		playerManager.getPlayer().getSkillList().get(index).useSkill(playerManager.getPlayer(), enemy);
+		Skill skill = playerManager.getPlayer().getSkillList().get(index);
+		if(skill.getMP() <= getPlayer().getNowMp())
+		{
+			getPlayer().useMP(skill.getMP());
+			getPlayer().getSkillList().get(index).useSkill(playerManager.getPlayer(), enemy);
+			Update(fightWindow);
+			return true;
+		}
+		else
+		{
+			
+			return false;
+		}
 		
-		Update(fightWindow);
 	}
 	
 	public void BasicAttack(FightWindow fightWindow)

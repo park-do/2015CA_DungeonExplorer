@@ -72,13 +72,15 @@ public class Enemy extends Characters
 		Random random = new Random();
 		
 		//절반의 확률로 스킬 사용을 시도한다.
-		if(random.nextBoolean() && skillList.size()>0)
+		if(random.nextInt(10)<3 && skillList.size()>0)
 		{
 			int skillRNG = random.nextInt(skillList.size());
 			//난수를 생성해 액티브 스킬이면 스킬을 사용하고 메소드를 탈출한다.
-			if(skillList.get(skillRNG) instanceof ActiveSkill)
+			Skill skill = skillList.get(skillRNG);
+			if(skill instanceof ActiveSkill && skill.getMP()>=getNowMp())
 			{
-				skillList.get(skillRNG).useSkill(this,player);
+				skill.useSkill(this,player);
+				this.useMP(skill.getMP());
 				return;
 			}
 		}

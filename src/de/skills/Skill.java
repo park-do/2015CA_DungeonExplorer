@@ -6,10 +6,17 @@ import de.characters.Characters;
 public class Skill {
 	
 	String name;
+	int usingMP;
 
 	public Skill()
 	{
 		name = "";
+		usingMP = 0;
+	}
+	
+	public int getMP()
+	{
+		return usingMP;
 	}
 	
 	

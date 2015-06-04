@@ -53,6 +53,10 @@ public class FightWindow extends JFrame implements ActionListener{
 	private JButton btnDodge;
 	private JLabel enemyIcon;
 	private JLabel playerIcon;
+	private JLabel lblMp_1;
+	private JLabel playerMPText;
+	private JLabel lblMp_2;
+	private JLabel enemyMPText;
 
 	/**
 	 * Create the frame.
@@ -94,6 +98,15 @@ public class FightWindow extends JFrame implements ActionListener{
 		enemyHPText.setFont(new Font("±¼¸²", Font.PLAIN, 20));
 		panel.add(enemyHPText);
 		
+		lblMp_2 = new JLabel("MP : ");
+		lblMp_2.setHorizontalAlignment(SwingConstants.RIGHT);
+		lblMp_2.setFont(new Font("±¼¸²", Font.PLAIN, 20));
+		panel.add(lblMp_2);
+		
+		enemyMPText = new JLabel("10/80");
+		enemyMPText.setFont(new Font("±¼¸²", Font.PLAIN, 20));
+		panel.add(enemyMPText);
+		
 		enemyIcon = new JLabel("");
 		enemyIcon.setBounds(233, 15, 214, 203);
 		enemyPanel.add(enemyIcon);
@@ -118,14 +131,23 @@ public class FightWindow extends JFrame implements ActionListener{
 		playerNameText.setFont(new Font("±¼¸²", Font.PLAIN, 20));
 		playerInfoPanel.add(playerNameText);
 		
-		JLabel label_2 = new JLabel("HP : ");
-		label_2.setFont(new Font("±¼¸²", Font.PLAIN, 20));
-		label_2.setHorizontalAlignment(SwingConstants.RIGHT);
-		playerInfoPanel.add(label_2);
+		JLabel lblMp = new JLabel("HP : ");
+		lblMp.setFont(new Font("±¼¸²", Font.PLAIN, 20));
+		lblMp.setHorizontalAlignment(SwingConstants.RIGHT);
+		playerInfoPanel.add(lblMp);
 		
 		playerHPText = new JLabel("10/80");
 		playerHPText.setFont(new Font("±¼¸²", Font.PLAIN, 20));
 		playerInfoPanel.add(playerHPText);
+		
+		lblMp_1 = new JLabel("MP : ");
+		lblMp_1.setHorizontalAlignment(SwingConstants.RIGHT);
+		lblMp_1.setFont(new Font("±¼¸²", Font.PLAIN, 20));
+		playerInfoPanel.add(lblMp_1);
+		
+		playerMPText = new JLabel("10/80");
+		playerMPText.setFont(new Font("±¼¸²", Font.PLAIN, 20));
+		playerInfoPanel.add(playerMPText);
 		
 		playerIcon = new JLabel("");
 		playerIcon.setBounds(17, 15, 214, 203);
@@ -213,9 +235,11 @@ public class FightWindow extends JFrame implements ActionListener{
 		Characters enemy = FightManager.getInstance().getEnemy(); 
 		
 		playerNameText.setText(player.getName());
-		playerHPText.setText(getHPString(player.getMaxHp(),player.getDamagedhp()));		
+		playerHPText.setText(getHPMPString(player.getMaxHp(),player.getDamagedhp()));
+		playerMPText.setText(getHPMPString(player.getMp(),player.getUsedMp()));
 		enemyNameText.setText(enemy.getName());
-		enemyHPText.setText(getHPString(enemy.getMaxHp(),enemy.getDamagedhp()));
+		enemyHPText.setText(getHPMPString(enemy.getMaxHp(),enemy.getDamagedhp()));
+		enemyMPText.setText(getHPMPString(enemy.getMp(),enemy.getUsedMp()));
 		
 		if(enemy.getMaxHp()<=enemy.getDamagedhp())
 		{
@@ -223,9 +247,9 @@ public class FightWindow extends JFrame implements ActionListener{
 		}
 	}
 	
-	public String getHPString(int HP, int damaged)
+	public String getHPMPString(int max, int damaged)
 	{
-		return (HP-damaged)+" / "+HP;
+		return (max-damaged)+" / "+max;
 	}
 
 	@Override
@@ -245,7 +269,11 @@ public class FightWindow extends JFrame implements ActionListener{
 			
 				if(selectIndex>=0)
 				{
-					FightManager.getInstance().UseSkill(this, selectIndex);
+					boolean useSuccess = FightManager.getInstance().UseSkill(this, selectIndex);
+					if(!useSuccess)
+					{
+						JOptionPane.showConfirmDialog(this, "¸¶³ª°¡ ºÎÁ·ÇÕ´Ï´Ù.","½ºÅ³ ¼±ÅÃ",JOptionPane.CANCEL_OPTION);
+					}
 				}
 			}
 			else

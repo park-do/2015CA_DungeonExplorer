@@ -9,9 +9,10 @@ public class Skill_BW extends ActiveSkill {
 	
 	int count;
 	
-	public String toString()
+	public Skill_BW()
 	{
-		return "블레스 웨폰";
+		name = "블레스 웨폰";
+		usingMP = 10;
 	}
 	
 	public void useSkill(Characters user, Characters target)

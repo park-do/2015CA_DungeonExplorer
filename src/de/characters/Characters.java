@@ -52,6 +52,7 @@ public class Characters
 	public void Damaged(int damage)
 	{
 		damagedHp+=damage;
+		if(damagedHp<0)damagedHp=0;
 	}
 
 	public int getDamagedhp() {
@@ -68,6 +69,12 @@ public class Characters
 
 	public int getMp() {
 		return mp;
+	}
+	public int getNowMp() {
+		return getMp()-getUsedMp();
+	}
+	public int getUsedMp() {
+		return usedMp;
 	}
 
 	public void setMp(int mp) {
@@ -226,5 +233,9 @@ public class Characters
 	void PrintMessage(String msg)
 	{
 		((FightWindow)WindowManager.getInstance().getFrame(WindowManager.WindowID.FIGHT)).AddMessage(msg);
+	}
+
+	public void useMP(int usingMP) {
+		usedMp+=usingMP;
 	}
 }

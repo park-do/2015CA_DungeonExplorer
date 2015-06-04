@@ -4,7 +4,7 @@ import de.characters.Characters;
 import de.manager.WindowManager;
 import de.windows.FightWindow;
 
-//블레스 웨폰: 5턴간 근거리 공격력이 120%로 증가한다
+//블레스 웨폰: 5턴간 근거리 공격력이 120%로 증가한다.
 public class Skill_BW extends ActiveSkill {
 	
 	int count;

@@ -4,7 +4,7 @@ import de.characters.Characters;
 import de.manager.WindowManager;
 import de.windows.FightWindow;
 
-//어벤져: 전투 시작시 최대 체력이 200%로 증가한다
+//어벤져: 전투 시작부터 종료시 까지 최대 체력이 200%로 증가한다.
 public class Skill_AV extends PassiveSkill {
 	
 	public void useSkill(Characters user, Characters target)

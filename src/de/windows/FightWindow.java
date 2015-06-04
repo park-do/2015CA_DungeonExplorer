@@ -207,7 +207,7 @@ public class FightWindow extends JFrame implements ActionListener{
 			}
 			else
 			{
-				JOptionPane.showConfirmDialog(this, "배운 스킬이 없습니다.","스킬 선택",JOptionPane.CANCEL_OPTION);
+				JOptionPane.showConfirmDialog(this, "보유 중인 스킬이 없습니다.","스킬 선택",JOptionPane.CANCEL_OPTION);
 			}
 		}
 	}

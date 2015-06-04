@@ -2,6 +2,8 @@ package de.manager;
 
 import java.util.Random;
 
+import javax.swing.ImageIcon;
+
 import de.characters.Characters;
 import de.characters.Enemy;
 import de.characters.Player;
@@ -34,7 +36,8 @@ public class FightManager
 			"난쟁이",
 			"오크",
 			"난쟁이전사",
-			"오크전사",
+			"오크전사"
+			/*
 			"해골창병",
 			"해골검사",
 			"해골궁수",
@@ -42,7 +45,7 @@ public class FightManager
 			"트롤",
 			"해골검투사",
 			"해골근위병",
-			"오우거"
+			"오우거"*/
 		};
 	
 	

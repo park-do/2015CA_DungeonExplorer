@@ -4,10 +4,16 @@ import java.awt.Color;
 import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.GridLayout;
+import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -19,6 +25,10 @@ import javax.swing.SwingConstants;
 
 import net.miginfocom.swing.MigLayout;
 import de.characters.Characters;
+import de.characters.Elf;
+import de.characters.Magician;
+import de.characters.Player;
+import de.characters.Warrior;
 import de.manager.FightManager;
 import de.manager.PlayerManager;
 import de.skills.Skill;
@@ -41,6 +51,8 @@ public class FightWindow extends JFrame implements ActionListener{
 	private JButton btnSkill;
 	private JButton btnItem;
 	private JButton btnDodge;
+	private JLabel enemyIcon;
+	private JLabel playerIcon;
 
 	/**
 	 * Create the frame.
@@ -82,6 +94,10 @@ public class FightWindow extends JFrame implements ActionListener{
 		enemyHPText.setFont(new Font("±¼¸²", Font.PLAIN, 20));
 		panel.add(enemyHPText);
 		
+		enemyIcon = new JLabel("");
+		enemyIcon.setBounds(233, 15, 214, 203);
+		enemyPanel.add(enemyIcon);
+		
 		JPanel playerPanel = new JPanel();
 		playerPanel.setBackground(new Color(255, 255, 204));
 		contentPane.add(playerPanel, "cell 0 1,grow");
@@ -110,6 +126,10 @@ public class FightWindow extends JFrame implements ActionListener{
 		playerHPText = new JLabel("10/80");
 		playerHPText.setFont(new Font("±¼¸²", Font.PLAIN, 20));
 		playerInfoPanel.add(playerHPText);
+		
+		playerIcon = new JLabel("");
+		playerIcon.setBounds(17, 15, 214, 203);
+		playerPanel.add(playerIcon);
 		
 		JScrollPane scrollPane = new JScrollPane();
 		contentPane.add(scrollPane, "cell 0 2,grow");
@@ -162,6 +182,29 @@ public class FightWindow extends JFrame implements ActionListener{
 	public void Start()
 	{
 		textArea.setText("");
+		
+		Characters enemy = FightManager.getInstance().getEnemy(); 
+		BufferedImage img = null;
+		try {
+		    img = ImageIO.read(new File("resource/Fight/"+enemy.getName()+".jpg"));
+		    
+			this.enemyIcon.setIcon(new ImageIcon(img.getScaledInstance(enemyIcon.getWidth(), enemyIcon.getHeight(),Image.SCALE_SMOOTH)));
+			
+			Player player = PlayerManager.getInstance().getPlayer();
+			String playerClass = "Knight";
+			if(player instanceof Elf)playerClass = "Elf";
+			if(player instanceof Warrior)playerClass = "Warrior";
+			if(player instanceof Magician)playerClass = "Magician";
+			img = ImageIO.read(new File("resource/Fight/"+playerClass+".jpg"));
+			
+			this.playerIcon.setIcon(new ImageIcon(img.getScaledInstance(playerIcon.getWidth(), playerIcon.getHeight(),Image.SCALE_SMOOTH)));
+		} catch (IOException e) {
+		    e.printStackTrace();
+		}
+		
+		
+		
+		
 	}
 
 	public void refresh() 

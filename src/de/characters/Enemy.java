@@ -32,7 +32,7 @@ public class Enemy extends Characters
 		if(dropItems.size()==0)return null;
 		Random random = new Random();
 		int ri = random.nextInt(dropItems.size());
-		return dropItems.get(ri);
+		return dropItems.get(ri).clone();
 	}
 
 	

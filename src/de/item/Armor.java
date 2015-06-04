@@ -83,4 +83,9 @@ public class Armor extends Item {
 		result+="</html>";
 		return result;
 	}
+	
+	public Item clone()
+	{
+		return new Armor(name, classType, equipType, price, meleeGP, rangedGP, magicGP);
+	}
 }

@@ -157,7 +157,10 @@ public class ItemFactory {
 	
 	public Item getItem(String str)
 	{
-		return itemMap.get(str);
+		if(itemMap.containsKey(str))
+			return itemMap.get(str).clone();
+		else
+			return null;
 	}
 
 	

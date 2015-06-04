@@ -61,4 +61,9 @@ public class Item {
 		result += "<br>Á÷¾÷ : "+getClassType().toString();
 		return result;
 	}
+	
+	public Item clone()
+	{
+		return new Item(name,classType,price);
+	}
 }

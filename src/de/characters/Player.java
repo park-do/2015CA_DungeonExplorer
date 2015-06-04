@@ -233,7 +233,7 @@ public class Player extends Characters {
 	public void gainExp(int exp)
 	{
 		this.Exp += exp;
-		if(Exp>=requiredExps[level-1])
+		if((level>=10 && Exp>=level*10) || Exp>=requiredExps[level-1])
 		{
 			levelUp();
 		}
@@ -241,7 +241,7 @@ public class Player extends Characters {
 	
 	protected void levelUp()
 	{
-		Exp-=requiredExps[level-1];
+		Exp-=(level>=10? level*10 : requiredExps[level-1]);
 		level+=1;
 		
 		hp+=HPgrowth;

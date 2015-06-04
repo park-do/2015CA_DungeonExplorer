@@ -68,4 +68,9 @@ public class Weapon extends Item {
 		result+="</html>";
 		return result;
 	}
+	
+	public Item clone()
+	{
+		return new Weapon(name, classType, price, meleeAP, rangedAP, magicAP);
+	}
 }

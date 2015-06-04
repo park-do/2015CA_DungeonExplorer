@@ -141,8 +141,7 @@ public class MapWindow extends JFrame implements Runnable {
 			keyipm.left.force();
 			keyipm.right.force();
 			return true;
-		} else
-			;//System.out.println(false + " : " + m + "," + n);
+		} 
 		return false;
 	}
 
@@ -322,18 +321,28 @@ public class MapWindow extends JFrame implements Runnable {
 			g.drawImage(Player, x, y, this);
 			repaint();
 			if (doorCollide(this.x, this.y) == 1) {
+				xMon = 275;
+				yMon = 225;
 				where = 1;
 			}
 			if (doorCollide(this.x, this.y) == 2) {
+				xMon = 275;
+				yMon = 225;
 				where = 2;
 			}
 			if (doorCollide(this.x, this.y) == 3) {
+				xMon = 275;
+				yMon = 225;
 				where = 3;
 			}
 			if (doorCollide(this.x, this.y) == 4) {
+				xMon = 275;
+				yMon = 225;
 				where = 4;
 			}
 			if (doorCollide(this.x, this.y) == 5) {
+				xMon = 275;
+				yMon = 225;
 				where = 5;
 			}
 			if (shopCollide(this.x, this.y)) {

@@ -1,13 +1,14 @@
 package de.windows;
 
 import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-import java.beans.PropertyChangeEvent;
+import java.util.ArrayList;
 
+import de.item.Armor;
+import de.item.Item;
+import de.item.Item.ClassType;
+import de.item.Weapon;
 import de.manager.PlayerManager;
 import de.manager.WindowManager;
 import de.manager.WindowManager.WindowID;
@@ -126,37 +127,29 @@ public class InventoryWindowT extends javax.swing.JFrame implements MouseListene
         jLabel14.setFont(new java.awt.Font("±¼¸²", 1, 12)); // NOI18N
         jLabel14.setText("Magical Guard");
 
-        jLabel15.setText("11");
+     
+        jLabel15.setText("  ");
         jLabel15.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jLabel15.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
-
-
+    	
         jLabel16.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
-        jLabel16.setText("Warrior");
+        jLabel16.setText("       ");
 
+        jLabel17.setText("    ");
 
-        jLabel17.setText("1100");
+        jLabel18.setText("    ");
 
+        jLabel19.setText("   ");
 
-        jLabel18.setText("1000");
+        jLabel20.setText("   ");
 
+        jLabel21.setText("   ");
 
-        jLabel19.setText("100");
+        jLabel22.setText("   ");
 
+        jLabel23.setText("   ");
 
-        jLabel20.setText("100");
-
-
-        jLabel21.setText("100");
-
-
-        jLabel22.setText("100");
-
-
-        jLabel23.setText("100");
-
-
-        jLabel24.setText("100");
+        jLabel24.setText("   ");
 
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -469,10 +462,10 @@ public class InventoryWindowT extends javax.swing.JFrame implements MouseListene
         jLabel25.setText("Item Name");
 
         jLabel26.setFont(new java.awt.Font("±¼¸²", 1, 12)); // NOI18N
-        jLabel26.setText("Class(job)");
+        jLabel26.setText("Class");
 
         jLabel27.setFont(new java.awt.Font("±¼¸²", 1, 12)); // NOI18N
-        jLabel27.setText("Class(type)");
+        jLabel27.setText("Equip type ");
 
         jLabel28.setFont(new java.awt.Font("±¼¸²", 1, 12)); // NOI18N
         jLabel28.setText("Detail");
@@ -495,48 +488,29 @@ public class InventoryWindowT extends javax.swing.JFrame implements MouseListene
         jLabel34.setFont(new java.awt.Font("±¼¸²", 1, 12)); // NOI18N
         jLabel34.setText("Magical Guard");
 
-        jLabel35.setText("Wand of the Necromancer");
-//        jLabel35.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
-//            public void propertyChange(ActionEvent evt) {
-//                jLabel35PropertyChange(evt);
-//            }
-//
-//			@Override
-//			public void propertyChange(PropertyChangeEvent arg0) {
-//				jLabel35PropertyChange(arg0);
-//				
-//			}
-//        });
-
+        
+        jLabel35.setText("                       ");
         
         jLabel36.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
-        jLabel36.setText("Warrior");
+        jLabel36.setText("       ");
         jLabel36.setToolTipText("");
+       
+        jLabel37.setText("                 ");
 
-        
-        jLabel37.setText("Supplies/Weapon..");
+        jLabel38.setText("explain ");
 
-
-        jLabel38.setText("HP + 30%");
-
-
-        jLabel39.setText("100");
+        jLabel39.setText("   ");
         jLabel39.setToolTipText("");
 
-
-        jLabel40.setText("100");
-
+        jLabel40.setText("   ");
+       
+        jLabel41.setText("   ");
         
-        jLabel41.setText("100");
+        jLabel42.setText("   ");
 
-        
-        jLabel42.setText("100");
-
-
-        jLabel43.setText("100");
-
-        
-        jLabel44.setText("100");
+        jLabel43.setText("   ");
+       
+        jLabel44.setText("   ");
 
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
@@ -696,20 +670,18 @@ public class InventoryWindowT extends javax.swing.JFrame implements MouseListene
     }
 
     private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {
+    	slotItem = PlayerManager.getInstance().getPlayer().getBringItem();
+    	selectedItem = PlayerManager.getInstance().getPlayer().getEquippedItem();
     	if(jToggleButton1.isSelected()){
     		System.out.println("Hello1");
     		System.out.println("O");
     		prevSave();
-        	jLabel35PropertyChange(evt);
-        	jLabel36PropertyChange(evt);
-        	jLabel37PropertyChange(evt);
-        	jLabel38PropertyChange(evt);
-        	jLabel39PropertyChange(evt);
-        	jLabel40PropertyChange(evt);
-        	jLabel41PropertyChange(evt);
-        	jLabel42PropertyChange(evt);
-        	jLabel43PropertyChange(evt);
-        	jLabel44PropertyChange(evt);
+    		if(slotItem.size()>=1){
+    	    	selectedItem.add(slotItem.get(0));
+    	    	PlayerManager.getInstance().getPlayer().setEquippedItem(selectedItem);
+    		}
+    		jLabel15to24PropertyChange(evt);
+    		jLabel35to44PropertyChange(evt,0);
     	}else{
     		System.out.println("Hello1");
     		System.out.println("X");
@@ -718,20 +690,16 @@ public class InventoryWindowT extends javax.swing.JFrame implements MouseListene
     }
     
     private void jToggleButton2ActionPerformed(java.awt.event.ActionEvent evt) {
+    	slotItem = PlayerManager.getInstance().getPlayer().getBringItem();
     	if(jToggleButton2.isSelected()){
         	System.out.println("Hello2");
     		System.out.println("O");
     		prevSave();
-        	jLabel35PropertyChange(evt);
-        	jLabel36PropertyChange(evt);
-        	jLabel37PropertyChange(evt);
-        	jLabel38PropertyChange(evt);
-        	jLabel39PropertyChange(evt);
-        	jLabel40PropertyChange(evt);
-        	jLabel41PropertyChange(evt);
-        	jLabel42PropertyChange(evt);
-        	jLabel43PropertyChange(evt);
-        	jLabel44PropertyChange(evt);
+    		if(slotItem.size()>=2){
+    			selectedItemALMaker(slotItem.get(1));
+    		}
+    		jLabel15to24PropertyChange(evt);
+    		jLabel35to44PropertyChange(evt,1);
     	}else{
         	System.out.println("Hello2");
     		System.out.println("X");
@@ -740,20 +708,16 @@ public class InventoryWindowT extends javax.swing.JFrame implements MouseListene
     }
     
     private void jToggleButton3ActionPerformed(java.awt.event.ActionEvent evt) {
+    	slotItem = PlayerManager.getInstance().getPlayer().getBringItem();
     	if(jToggleButton3.isSelected()){
     		System.out.println("Hello3");
     		System.out.println("O");
     		prevSave();
-        	jLabel35PropertyChange(evt);
-        	jLabel36PropertyChange(evt);
-        	jLabel37PropertyChange(evt);
-        	jLabel38PropertyChange(evt);
-        	jLabel39PropertyChange(evt);
-        	jLabel40PropertyChange(evt);
-        	jLabel41PropertyChange(evt);
-        	jLabel42PropertyChange(evt);
-        	jLabel43PropertyChange(evt);
-        	jLabel44PropertyChange(evt);
+    		if(slotItem.size()>=3){
+    			selectedItemALMaker(slotItem.get(2));
+    		}
+    		jLabel15to24PropertyChange(evt);
+    		jLabel35to44PropertyChange(evt,2);
     	}else{
     		System.out.println("Hello3");
     		System.out.println("X");
@@ -762,20 +726,16 @@ public class InventoryWindowT extends javax.swing.JFrame implements MouseListene
     }
 
     private void jToggleButton4ActionPerformed(java.awt.event.ActionEvent evt) {
+    	slotItem = PlayerManager.getInstance().getPlayer().getBringItem();
     	if(jToggleButton4.isSelected()){
     		System.out.println("Hello4");
     		System.out.println("O");
     		prevSave();
-        	jLabel35PropertyChange(evt);
-        	jLabel36PropertyChange(evt);
-        	jLabel37PropertyChange(evt);
-        	jLabel38PropertyChange(evt);
-        	jLabel39PropertyChange(evt);
-        	jLabel40PropertyChange(evt);
-        	jLabel41PropertyChange(evt);
-        	jLabel42PropertyChange(evt);
-        	jLabel43PropertyChange(evt);
-        	jLabel44PropertyChange(evt);
+    		if(slotItem.size()>=4){
+    			selectedItemALMaker(slotItem.get(3));
+    		}
+    		jLabel15to24PropertyChange(evt);
+    		jLabel35to44PropertyChange(evt,3);
     	}else{
     		System.out.println("Hello4");
     		System.out.println("X");
@@ -784,20 +744,16 @@ public class InventoryWindowT extends javax.swing.JFrame implements MouseListene
     }
 
     private void jToggleButton5ActionPerformed(java.awt.event.ActionEvent evt) {
+    	slotItem = PlayerManager.getInstance().getPlayer().getBringItem();
     	if(jToggleButton5.isSelected()){
     		System.out.println("Hello5");
     		System.out.println("O");
     		prevSave();
-        	jLabel35PropertyChange(evt);
-        	jLabel36PropertyChange(evt);
-        	jLabel37PropertyChange(evt);
-        	jLabel38PropertyChange(evt);
-        	jLabel39PropertyChange(evt);
-        	jLabel40PropertyChange(evt);
-        	jLabel41PropertyChange(evt);
-        	jLabel42PropertyChange(evt);
-        	jLabel43PropertyChange(evt);
-        	jLabel44PropertyChange(evt);
+    		if(slotItem.size()>=5){
+    			selectedItemALMaker(slotItem.get(4));
+    		}
+    		jLabel15to24PropertyChange(evt);
+    		jLabel35to44PropertyChange(evt,4);
     	}else{
     		System.out.println("Hello5");
     		System.out.println("X");
@@ -806,21 +762,16 @@ public class InventoryWindowT extends javax.swing.JFrame implements MouseListene
     }
 
     private void jToggleButton6ActionPerformed(java.awt.event.ActionEvent evt) {
-
+    	slotItem = PlayerManager.getInstance().getPlayer().getBringItem();
     	if(jToggleButton6.isSelected()){
     		System.out.println("Hello6");
     		System.out.println("O");
     		prevSave();
-        	jLabel35PropertyChange(evt);
-        	jLabel36PropertyChange(evt);
-        	jLabel37PropertyChange(evt);
-        	jLabel38PropertyChange(evt);
-        	jLabel39PropertyChange(evt);
-        	jLabel40PropertyChange(evt);
-        	jLabel41PropertyChange(evt);
-        	jLabel42PropertyChange(evt);
-        	jLabel43PropertyChange(evt);
-        	jLabel44PropertyChange(evt);
+    		if(slotItem.size()>=6){
+    			selectedItemALMaker(slotItem.get(5));
+    		}
+    		jLabel15to24PropertyChange(evt);
+    		jLabel35to44PropertyChange(evt,5);
     	}else{
     		System.out.println("Hello6");
     		System.out.println("X");
@@ -829,20 +780,16 @@ public class InventoryWindowT extends javax.swing.JFrame implements MouseListene
     }
 
     private void jToggleButton7ActionPerformed(java.awt.event.ActionEvent evt) {
+    	slotItem = PlayerManager.getInstance().getPlayer().getBringItem();
     	System.out.println("Hello7");
     	if(jToggleButton7.isSelected()){
     		System.out.println("O");
     		prevSave();
-        	jLabel35PropertyChange(evt);
-        	jLabel36PropertyChange(evt);
-        	jLabel37PropertyChange(evt);
-        	jLabel38PropertyChange(evt);
-        	jLabel39PropertyChange(evt);
-        	jLabel40PropertyChange(evt);
-        	jLabel41PropertyChange(evt);
-        	jLabel42PropertyChange(evt);
-        	jLabel43PropertyChange(evt);
-        	jLabel44PropertyChange(evt);
+    		if(slotItem.size()>=7){
+    			selectedItemALMaker(slotItem.get(6));
+    		}
+    		jLabel15to24PropertyChange(evt);
+    		jLabel35to44PropertyChange(evt,6);
     	}else{
     		System.out.println("X");
     		restorePrev();
@@ -850,20 +797,16 @@ public class InventoryWindowT extends javax.swing.JFrame implements MouseListene
     }
 
     private void jToggleButton8ActionPerformed(java.awt.event.ActionEvent evt) {
+    	slotItem = PlayerManager.getInstance().getPlayer().getBringItem();
     	System.out.println("Hello8");
     	if(jToggleButton8.isSelected()){
     		System.out.println("O");
     		prevSave();
-        	jLabel35PropertyChange(evt);
-        	jLabel36PropertyChange(evt);
-        	jLabel37PropertyChange(evt);
-        	jLabel38PropertyChange(evt);
-        	jLabel39PropertyChange(evt);
-        	jLabel40PropertyChange(evt);
-        	jLabel41PropertyChange(evt);
-        	jLabel42PropertyChange(evt);
-        	jLabel43PropertyChange(evt);
-        	jLabel44PropertyChange(evt);
+    		if(slotItem.size()>=8){
+    			selectedItemALMaker(slotItem.get(7));
+    		}
+    		jLabel15to24PropertyChange(evt);
+    		jLabel35to44PropertyChange(evt,7);
     	}else{
     		System.out.println("X");
     		restorePrev();
@@ -871,20 +814,16 @@ public class InventoryWindowT extends javax.swing.JFrame implements MouseListene
     }
 
     private void jToggleButton9ActionPerformed(java.awt.event.ActionEvent evt) {
+    	slotItem = PlayerManager.getInstance().getPlayer().getBringItem();
     	System.out.println("Hello9");
     	if(jToggleButton9.isSelected()){
     		System.out.println("O");
     		prevSave();
-        	jLabel35PropertyChange(evt);
-        	jLabel36PropertyChange(evt);
-        	jLabel37PropertyChange(evt);
-        	jLabel38PropertyChange(evt);
-        	jLabel39PropertyChange(evt);
-        	jLabel40PropertyChange(evt);
-        	jLabel41PropertyChange(evt);
-        	jLabel42PropertyChange(evt);
-        	jLabel43PropertyChange(evt);
-        	jLabel44PropertyChange(evt);
+    		if(slotItem.size()>=9){
+    			selectedItemALMaker(slotItem.get(8));
+    		}
+    		jLabel15to24PropertyChange(evt);
+    		jLabel35to44PropertyChange(evt,8);
     	}else{
     		System.out.println("X");
     		restorePrev();
@@ -892,20 +831,16 @@ public class InventoryWindowT extends javax.swing.JFrame implements MouseListene
     }
 
     private void jToggleButton10ActionPerformed(java.awt.event.ActionEvent evt) {
+    	slotItem = PlayerManager.getInstance().getPlayer().getBringItem();
     	System.out.println("Hello10");
     	if(jToggleButton10.isSelected()){
     		System.out.println("O");
     		prevSave();
-        	jLabel35PropertyChange(evt);
-        	jLabel36PropertyChange(evt);
-        	jLabel37PropertyChange(evt);
-        	jLabel38PropertyChange(evt);
-        	jLabel39PropertyChange(evt);
-        	jLabel40PropertyChange(evt);
-        	jLabel41PropertyChange(evt);
-        	jLabel42PropertyChange(evt);
-        	jLabel43PropertyChange(evt);
-        	jLabel44PropertyChange(evt);
+    		if(slotItem.size()>=10){
+    			selectedItemALMaker(slotItem.get(9));
+    		}
+    		jLabel15to24PropertyChange(evt);
+    		jLabel35to44PropertyChange(evt,9);
     	}else{
     		System.out.println("X");
     		restorePrev();
@@ -913,20 +848,16 @@ public class InventoryWindowT extends javax.swing.JFrame implements MouseListene
     }
 
     private void jToggleButton11ActionPerformed(java.awt.event.ActionEvent evt) {
+    	slotItem = PlayerManager.getInstance().getPlayer().getBringItem();
     	System.out.println("Hello11");
     	if(jToggleButton11.isSelected()){
     		System.out.println("O");
     		prevSave();
-        	jLabel35PropertyChange(evt);
-        	jLabel36PropertyChange(evt);
-        	jLabel37PropertyChange(evt);
-        	jLabel38PropertyChange(evt);
-        	jLabel39PropertyChange(evt);
-        	jLabel40PropertyChange(evt);
-        	jLabel41PropertyChange(evt);
-        	jLabel42PropertyChange(evt);
-        	jLabel43PropertyChange(evt);
-        	jLabel44PropertyChange(evt);
+    		if(slotItem.size()>=11){
+    			selectedItemALMaker(slotItem.get(10));
+    		}
+    		jLabel15to24PropertyChange(evt);
+    		jLabel35to44PropertyChange(evt,10);
     	}else{
     		System.out.println("X");
     		restorePrev();
@@ -934,20 +865,16 @@ public class InventoryWindowT extends javax.swing.JFrame implements MouseListene
     }
 
     private void jToggleButton12ActionPerformed(java.awt.event.ActionEvent evt) {
+    	slotItem = PlayerManager.getInstance().getPlayer().getBringItem();
     	System.out.println("Hello12");
     	if(jToggleButton12.isSelected()){
     		System.out.println("O");
     		prevSave();
-        	jLabel35PropertyChange(evt);
-        	jLabel36PropertyChange(evt);
-        	jLabel37PropertyChange(evt);
-        	jLabel38PropertyChange(evt);
-        	jLabel39PropertyChange(evt);
-        	jLabel40PropertyChange(evt);
-        	jLabel41PropertyChange(evt);
-        	jLabel42PropertyChange(evt);
-        	jLabel43PropertyChange(evt);
-        	jLabel44PropertyChange(evt);
+    		if(slotItem.size()>=12){
+    			selectedItemALMaker(slotItem.get(11));
+    		}
+    		jLabel15to24PropertyChange(evt);
+    		jLabel35to44PropertyChange(evt,11);
     	}else{
     		System.out.println("X");
     		restorePrev();
@@ -955,20 +882,16 @@ public class InventoryWindowT extends javax.swing.JFrame implements MouseListene
     }
 
     private void jToggleButton13ActionPerformed(java.awt.event.ActionEvent evt) {
+    	slotItem = PlayerManager.getInstance().getPlayer().getBringItem();
     	System.out.println("Hello13");
     	if(jToggleButton13.isSelected()){
     		System.out.println("O");
     		prevSave();
-        	jLabel35PropertyChange(evt);
-        	jLabel36PropertyChange(evt);
-        	jLabel37PropertyChange(evt);
-        	jLabel38PropertyChange(evt);
-        	jLabel39PropertyChange(evt);
-        	jLabel40PropertyChange(evt);
-        	jLabel41PropertyChange(evt);
-        	jLabel42PropertyChange(evt);
-        	jLabel43PropertyChange(evt);
-        	jLabel44PropertyChange(evt);
+    		if(slotItem.size()>=13){
+    			selectedItemALMaker(slotItem.get(12));
+    		}
+    		jLabel15to24PropertyChange(evt);
+    		jLabel35to44PropertyChange(evt,12);
     	}else{
     		System.out.println("X");
     		restorePrev();
@@ -976,20 +899,16 @@ public class InventoryWindowT extends javax.swing.JFrame implements MouseListene
     }
 
     private void jToggleButton14ActionPerformed(java.awt.event.ActionEvent evt) {
+    	slotItem = PlayerManager.getInstance().getPlayer().getBringItem();
     	System.out.println("Hello14");
     	if(jToggleButton14.isSelected()){
     		System.out.println("O");
     		prevSave();
-        	jLabel35PropertyChange(evt);
-        	jLabel36PropertyChange(evt);
-        	jLabel37PropertyChange(evt);
-        	jLabel38PropertyChange(evt);
-        	jLabel39PropertyChange(evt);
-        	jLabel40PropertyChange(evt);
-        	jLabel41PropertyChange(evt);
-        	jLabel42PropertyChange(evt);
-        	jLabel43PropertyChange(evt);
-        	jLabel44PropertyChange(evt);
+    		if(slotItem.size()>=14){
+    			selectedItemALMaker(slotItem.get(13));
+    		}
+    		jLabel15to24PropertyChange(evt);
+    		jLabel35to44PropertyChange(evt,13);
     	}else{
     		System.out.println("X");
     		restorePrev();
@@ -997,20 +916,16 @@ public class InventoryWindowT extends javax.swing.JFrame implements MouseListene
     }
 
     private void jToggleButton15ActionPerformed(java.awt.event.ActionEvent evt) {
+    	slotItem = PlayerManager.getInstance().getPlayer().getBringItem();
     	System.out.println("Hello15");
     	if(jToggleButton15.isSelected()){
     		System.out.println("O");
     		prevSave();
-        	jLabel35PropertyChange(evt);
-        	jLabel36PropertyChange(evt);
-        	jLabel37PropertyChange(evt);
-        	jLabel38PropertyChange(evt);
-        	jLabel39PropertyChange(evt);
-        	jLabel40PropertyChange(evt);
-        	jLabel41PropertyChange(evt);
-        	jLabel42PropertyChange(evt);
-        	jLabel43PropertyChange(evt);
-        	jLabel44PropertyChange(evt);
+    		if(slotItem.size()>=15){
+    			selectedItemALMaker(slotItem.get(14));
+    		}
+    		jLabel15to24PropertyChange(evt);
+    		jLabel35to44PropertyChange(evt,14);
     	}else{
     		System.out.println("X");
     		restorePrev();
@@ -1018,20 +933,16 @@ public class InventoryWindowT extends javax.swing.JFrame implements MouseListene
     }
 
     private void jToggleButton16ActionPerformed(java.awt.event.ActionEvent evt) {
+    	slotItem = PlayerManager.getInstance().getPlayer().getBringItem();
     	System.out.println("Hello16");
     	if(jToggleButton16.isSelected()){
     		System.out.println("O");
     		prevSave();
-        	jLabel35PropertyChange(evt);
-        	jLabel36PropertyChange(evt);
-        	jLabel37PropertyChange(evt);
-        	jLabel38PropertyChange(evt);
-        	jLabel39PropertyChange(evt);
-        	jLabel40PropertyChange(evt);
-        	jLabel41PropertyChange(evt);
-        	jLabel42PropertyChange(evt);
-        	jLabel43PropertyChange(evt);
-        	jLabel44PropertyChange(evt);
+    		if(slotItem.size()>=16){
+    			selectedItemALMaker(slotItem.get(15));
+    		}
+    		jLabel15to24PropertyChange(evt);
+    		jLabel35to44PropertyChange(evt,15);
     	}else{
     		System.out.println("X");
     		restorePrev();
@@ -1039,20 +950,16 @@ public class InventoryWindowT extends javax.swing.JFrame implements MouseListene
     }
 
     private void jToggleButton17ActionPerformed(java.awt.event.ActionEvent evt) {
+    	slotItem = PlayerManager.getInstance().getPlayer().getBringItem();
     	System.out.println("Hello17");
     	if(jToggleButton17.isSelected()){
     		System.out.println("O");
     		prevSave();
-        	jLabel35PropertyChange(evt);
-        	jLabel36PropertyChange(evt);
-        	jLabel37PropertyChange(evt);
-        	jLabel38PropertyChange(evt);
-        	jLabel39PropertyChange(evt);
-        	jLabel40PropertyChange(evt);
-        	jLabel41PropertyChange(evt);
-        	jLabel42PropertyChange(evt);
-        	jLabel43PropertyChange(evt);
-        	jLabel44PropertyChange(evt);
+    		if(slotItem.size()>=17){
+    			selectedItemALMaker(slotItem.get(16));
+    		}
+    		jLabel15to24PropertyChange(evt);
+    		jLabel35to44PropertyChange(evt,16);
     	}else{
     		System.out.println("X");
     		restorePrev();
@@ -1060,64 +967,107 @@ public class InventoryWindowT extends javax.swing.JFrame implements MouseListene
     }
 
     private void jToggleButton18ActionPerformed(java.awt.event.ActionEvent evt) {
+    	slotItem = PlayerManager.getInstance().getPlayer().getBringItem();
     	System.out.println("Hello18");
     	if(jToggleButton18.isSelected()){
     		System.out.println("O");
     		prevSave();
-        	jLabel35PropertyChange(evt);
-        	jLabel36PropertyChange(evt);
-        	jLabel37PropertyChange(evt);
-        	jLabel38PropertyChange(evt);
-        	jLabel39PropertyChange(evt);
-        	jLabel40PropertyChange(evt);
-        	jLabel41PropertyChange(evt);
-        	jLabel42PropertyChange(evt);
-        	jLabel43PropertyChange(evt);
-        	jLabel44PropertyChange(evt);
+    		if(slotItem.size()>=18){
+    			selectedItemALMaker(slotItem.get(17));
+    		}
+    		jLabel15to24PropertyChange(evt);
+    		jLabel35to44PropertyChange(evt,17);
     	}else{
     		System.out.println("X");
     		restorePrev();
     	}
     }
 
-    private void jLabel15PropertyChange(ActionEvent evt) {
-        //Level
+    public void selectedItemALMaker(Item item){
+    	//selectedItem.add(item);
+    	item.useItem(PlayerManager.getInstance().getPlayer());
+    	System.out.println(item);
+    	//PlayerManager.getInstance().getPlayer().setEquippedItem(selectedItem);
     }
-
-    private void jLabel16PropertyChange(ActionEvent evt) {
-        //Class
-    }
-
-    private void jLabel17PropertyChange(ActionEvent evt) {
+    
+    private void jLabel15to24PropertyChange(ActionEvent evt){
+    	//Level
+    	Integer inte15 = PlayerManager.getInstance().getPlayer().getLevel();
+        jLabel15.setText(inte15.toString());
+        //ClassType
+        jLabel16.setText(PlayerManager.getInstance().getPlayer().getClassType().toString());
         //HP
+        Integer inte17 = PlayerManager.getInstance().getPlayer().getNowHP();
+    	jLabel17.setText(inte17.toString());
+    	//MP
+    	Integer inte18 = PlayerManager.getInstance().getPlayer().getMp();
+    	jLabel18.setText(inte18.toString());
+    	//short attack, meleeAP
+    	Integer inte19 = PlayerManager.getInstance().getPlayer().getMeleeAP();
+    	jLabel19.setText(inte19.toString());
+    	//long attack, rangedAP
+    	Integer inte20 = PlayerManager.getInstance().getPlayer().getRangedAP();
+    	jLabel20.setText(inte20.toString());
+    	//magical attack, magicAP
+    	Integer inte21= PlayerManager.getInstance().getPlayer().getMagicAP();
+    	jLabel21.setText(inte21.toString());
+    	//short guard, meleeGP
+    	Integer inte22= PlayerManager.getInstance().getPlayer().getMeleeGP();
+    	jLabel22.setText(inte22.toString());
+    	//long guard, rangedGP
+    	Integer inte23 = PlayerManager.getInstance().getPlayer().getRangedGP();
+    	jLabel23.setText(inte23.toString());
+    	//magical guard, magicGP
+    	Integer inte24= PlayerManager.getInstance().getPlayer().getMagicGP();
+    	jLabel24.setText(inte24.toString());
     }
 
-    private void jLabel18PropertyChange(ActionEvent evt) {
-        //MP
-    }
-
-    private void jLabel19PropertyChange(ActionEvent evt) {
-        //short attack
-    }
-
-    private void jLabel20PropertyChange(ActionEvent evt) {
-        //long attack
-    }
-
-    private void jLabel21PropertyChange(ActionEvent evt) {
-       // magical attack
-    }
-
-    private void jLabel22PropertyChange(ActionEvent evt) {
-        //short guard
-    }
-
-    private void jLabel23PropertyChange(ActionEvent evt) {
-        //long guard
-    }
-
-    private void jLabel24PropertyChange(ActionEvent evt) {
-        //magical guard
+    private void jLabel35to44PropertyChange(ActionEvent evt, int itemIndex) {
+    	// Item name
+    	jLabel35.setText(slotItem.get(itemIndex).getName());
+    	//class type
+    	jLabel36.setText(slotItem.get(itemIndex).getClassType().toString());
+    	//equip type
+    	jLabel37.setText("  ");
+    	 //detail
+    	jLabel38.setText("  ");
+    	if(slotItem.get(itemIndex) instanceof Weapon){
+    		//short attack
+    		Integer inte39 = ((Weapon) slotItem.get(itemIndex)).getMeleeAP();
+    		jLabel39.setText(inte39.toString());
+    		//long attack
+    		Integer inte40 = ((Weapon) slotItem.get(itemIndex)).getRangedAP();
+    		jLabel40.setText(inte40.toString());
+    		//magical attack
+    		Integer inte41 = ((Weapon) slotItem.get(itemIndex)).getMagicAP();
+    		jLabel41.setText(inte41.toString());
+    	}else{
+    		//short attack
+    		jLabel39.setText("0");
+    		//long attack
+    		jLabel40.setText("0");
+    		//magical attack
+    		jLabel41.setText("0");
+    	}    	
+    	if(slotItem.get(itemIndex) instanceof Armor){
+    		//short attack
+    		Integer inte42 = ((Armor) slotItem.get(itemIndex)).getMeleeGP();
+    		jLabel42.setText(inte42.toString());
+    		//long attack
+    		Integer inte43 = ((Armor) slotItem.get(itemIndex)).getRangedGP();
+    		jLabel43.setText(inte43.toString());
+    		//magical attack
+    		Integer inte44 = ((Armor) slotItem.get(itemIndex)).getMagicGP();
+    		jLabel44.setText(inte44.toString());
+    	}else{
+        	//short guard
+        	jLabel42.setText("0");
+        	//long guard
+        	jLabel43.setText("0");
+        	//magical guard
+        	jLabel44.setText("0");
+    	}
+    	
     }
 
     
@@ -1158,56 +1108,11 @@ public class InventoryWindowT extends javax.swing.JFrame implements MouseListene
     	jLabel44.setText(jLabel44prev);
     }
     
-    private void jLabel35PropertyChange(ActionEvent evt) {
-        // Item name
-    	jLabel35.setText("Item name change");
-    }
 
-    private void jLabel36PropertyChange(ActionEvent evt) {
-        //class(job)
-    	jLabel36.setText("class(job) change");
-    }
-
-    private void jLabel37PropertyChange(ActionEvent evt) {
-        //class type
-    	jLabel37.setText("class type change");
-    }
-
-    private void jLabel38PropertyChange(ActionEvent evt) {
-        //detail
-    	jLabel38.setText("detail change");
-    }
-
-    private void jLabel39PropertyChange(ActionEvent evt) {
-        //short attack
-    	jLabel39.setText("short attack change");
-    }
-
-    private void jLabel40PropertyChange(ActionEvent evt) {
-        //long attack
-    	jLabel40.setText("long attack change");
-    }
-
-    private void jLabel41PropertyChange(ActionEvent evt) {
-        //magical attack
-    	jLabel41.setText("magical attack change");
-    }
-
-    private void jLabel42PropertyChange(ActionEvent evt) {
-        //short defence
-    	jLabel42.setText("short defence change");
-    }
-
-    private void jLabel43PropertyChange(ActionEvent evt) {
-        //long defence
-    	jLabel43.setText("long defence change");
-    }
-
-    private void jLabel44PropertyChange(ActionEvent evt) {
-        //magical defence
-    	jLabel44.setText("magical defence change");
-    }
-
+    
+    public ArrayList <Item> slotItem;
+    public ArrayList<Item> selectedItem;
+    
     
     public javax.swing.JLabel jLabel1;
     public javax.swing.JLabel jLabel10;

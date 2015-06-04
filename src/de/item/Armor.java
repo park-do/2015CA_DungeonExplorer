@@ -47,6 +47,14 @@ public class Armor extends Item {
 		//Casting 하여 사용
 		Player player = (Player)target;
 		
+		//이미 자신을 착용 중이면
+		if(player.equippedItem.contains(this))
+		{
+			//착용 해제한다
+			player.equippedItem.remove(this);
+			return;
+		}
+		
 		//쭉 돌아서 착용 중인 같은 위치의 방어구가 있다면
 		for(int i=0;i<player.equippedItem.size();i++)
 		{

@@ -1,6 +1,7 @@
 package de.characters;
 
 import de.item.Item.ClassType;
+import de.skills.Skill_BW;
 
 
 public class Knight extends Player {
@@ -18,6 +19,17 @@ public class Knight extends Player {
 				2, 1, 1); //방어력 성장치 (근거리, 원가리, 마법)
 		
 		classType = ClassType.Knight;
+		
+		skillList.add(new Skill_BW());
 	}
 
+	
+	@Override
+	protected void levelUp() {
+		super.levelUp();
+		if(getLevel()==10)
+		{
+			skillList.add(new Skill_BW());
+		}
+	}
 }

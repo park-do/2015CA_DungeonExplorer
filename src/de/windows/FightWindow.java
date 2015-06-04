@@ -47,11 +47,11 @@ public class FightWindow extends JFrame implements ActionListener{
 	 */
 	public FightWindow() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 500, 500);
+		setBounds(100, 100, 500, 800);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(255, 204, 204));
 		setContentPane(contentPane);
-		contentPane.setLayout(new MigLayout("", "[484px,grow]", "[100px,grow][100px,grow][180px,grow][104px]"));
+		contentPane.setLayout(new MigLayout("", "[484px,grow]", "[250px,grow][250px,grow][180px,grow][104px]"));
 		
 		JPanel enemyPanel = new JPanel();
 		enemyPanel.setBackground(new Color(255, 255, 204));
@@ -60,7 +60,7 @@ public class FightWindow extends JFrame implements ActionListener{
 		
 		JPanel panel = new JPanel();
 		panel.setBackground(new Color(255, 255, 204));
-		panel.setBounds(0, 0, 214, 88);
+		panel.setBounds(0, 0, 214, 219);
 		enemyPanel.add(panel);
 		panel.setLayout(new GridLayout(0, 2, 0, 0));
 		
@@ -89,7 +89,7 @@ public class FightWindow extends JFrame implements ActionListener{
 		
 		JPanel playerInfoPanel = new JPanel();
 		playerInfoPanel.setBackground(new Color(255, 255, 204));
-		playerInfoPanel.setBounds(254, 0, 216, 88);
+		playerInfoPanel.setBounds(248, 0, 216, 218);
 		playerPanel.add(playerInfoPanel);
 		playerInfoPanel.setLayout(new GridLayout(0, 2, 0, 0));
 		
@@ -115,6 +115,7 @@ public class FightWindow extends JFrame implements ActionListener{
 		contentPane.add(scrollPane, "cell 0 2,grow");
 		
 		textArea = new JTextArea();
+		textArea.setFont(new Font("함초롬돋움", Font.PLAIN, 18));
 		textArea.setEditable(false);
 		scrollPane.setViewportView(textArea);
 		
@@ -155,7 +156,7 @@ public class FightWindow extends JFrame implements ActionListener{
 	
 	public void AddMessage(String str)
 	{
-		textArea.setText(textArea.getText()+"\n"+str);
+		textArea.setText(textArea.getText()+""+str+"\n");
 	}
 	
 	public void Start()
@@ -201,12 +202,12 @@ public class FightWindow extends JFrame implements ActionListener{
 			
 				if(selectIndex>=0)
 				{
-					AddMessage(skills.toString());
+					FightManager.getInstance().UseSkill(this, selectIndex);
 				}
 			}
 			else
 			{
-				JOptionPane.showConfirmDialog(this, "배운 스킬이 없습니다.","스킬 선택",JOptionPane.YES_OPTION);
+				JOptionPane.showConfirmDialog(this, "배운 스킬이 없습니다.","스킬 선택",JOptionPane.CANCEL_OPTION);
 			}
 		}
 	}

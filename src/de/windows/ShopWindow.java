@@ -7,6 +7,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -22,6 +25,8 @@ import javax.swing.event.ListSelectionListener;
 import de.item.Item;
 import de.manager.ItemFactory;
 import de.manager.PlayerManager;
+import de.manager.WindowManager;
+import de.manager.WindowManager.WindowID;
 
 public class ShopWindow extends JFrame implements ListSelectionListener, ActionListener {
 
@@ -57,7 +62,17 @@ public class ShopWindow extends JFrame implements ListSelectionListener, ActionL
 	 * Create the frame.
 	 */
 	public ShopWindow() {
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		//setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		addWindowListener(new WindowAdapter() {
+			
+			@Override
+			public void windowClosing(WindowEvent e) 
+			{
+				ShopWindow.this.setVisible(false);;
+				WindowManager.getInstance().getFrame(WindowID.MAP).setVisible(true);
+			}
+		});
+		
 		setBounds(100, 100, 450, 450);
 		contentPane = new JPanel();
 		setContentPane(contentPane);

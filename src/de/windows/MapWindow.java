@@ -33,6 +33,14 @@ public class MapWindow extends JFrame implements Runnable {
 	private Graphics dbg;
 	Image Player, Monster;
 	Image Town, Stone, Cemetery, Sky, Desert, Magma;
+	
+	
+	String[][] monsters =
+		{
+			{"·£´ý¸÷","·£´ý¸÷","·£´ý¸÷","¾ÆÀÌ¾ð°ñ·½","µå·¹ÀÌÅ©"},
+		};
+	
+	int[] monsterIndex = {0,0,0,0,0};
 
 	public MapWindow() {
 
@@ -253,7 +261,7 @@ public class MapWindow extends JFrame implements Runnable {
 	}
 
 	public void paintComponent(Graphics g) {
-
+		if(!isVisible())return;
 		if (x > 490) {
 			x = 490;
 		}
@@ -311,7 +319,9 @@ public class MapWindow extends JFrame implements Runnable {
 			g.drawImage(Player, x, y, this);
 			repaint();
 			if (monsterCollide(this.x, this.y)) {
-				FightManager.getInstance().Start(null);
+				FightManager.getInstance().Start(monsters[where-1][monsterIndex[where-1]]);
+				System.out.println(monsters[where-1][monsterIndex[where-1]]);
+				monsterIndex[where-1]+=1;
 				x = 450;
 				y = 250;
 			}

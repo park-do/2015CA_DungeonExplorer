@@ -7,7 +7,7 @@ import de.windows.FightWindow;
 //콜오브네이처: 사용시 현재 체력과 관계없이 최대 체력 상태로 회복한다.
 public class Skill_CON extends ActiveSkill {
 	
-	public void useSkill(Characters user)
+	public void useSkill(Characters user, Characters target)
 	{
 		user.setDamagedhp(0);
 		PrintMessage("자연의 부름에 응하노라! 콜오브네이처!!");

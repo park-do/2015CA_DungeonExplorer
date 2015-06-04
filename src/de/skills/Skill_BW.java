@@ -9,7 +9,12 @@ public class Skill_BW extends ActiveSkill {
 	
 	int count;
 	
-	public void useSkill(Characters user)
+	public String toString()
+	{
+		return "블레스 웨폰";
+	}
+	
+	public void useSkill(Characters user, Characters target)
 	{
 		user.multipleMeleeAPRatio(1.2f);
 		PrintMessage("신의 축복이 나의 날카로움을 더하리라! 블레스 웨폰!!");
@@ -23,6 +28,11 @@ public class Skill_BW extends ActiveSkill {
 		{
 			user.multipleMeleeAPRatio(1/1.2f);
 		}
+	}
+	
+	public void EndEffect(Characters user)
+	{
+		user.multipleMeleeAPRatio(1/1.2f);
 	}
 		
 	

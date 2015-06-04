@@ -5,10 +5,11 @@ import de.characters.Characters;
 
 public class Skill {
 	
+	String name;
 
 	public Skill()
 	{
-		
+		name = "";
 	}
 	
 	

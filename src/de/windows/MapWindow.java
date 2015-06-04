@@ -37,7 +37,7 @@ public class MapWindow extends JFrame implements Runnable {
 	
 	String[][] monsters =
 		{
-			{"罚待各","罚待各","罚待各","酒捞攫榜方","靛饭捞农"},
+			{"罚待各","罚待各","罚待各","酒捞攫 榜方","靛饭捞农"},
 		};
 	
 	int[] monsterIndex = {0,0,0,0,0};

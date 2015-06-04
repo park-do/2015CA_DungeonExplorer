@@ -87,7 +87,7 @@ public class ItemFactory {
 			new Weapon("요정의 활", ClassType.Elf, 500, 0, 50, 0),
 			
 			new Weapon("수정 결정체 지팡이", ClassType.Magician, 50000, 0, 0, 300),
-			new Weapon("타노스의 지팡이", ClassType.Magician, 20000, 0, 0, 220),
+			new Weapon("사신의 지팡이", ClassType.Magician, 20000, 0, 0, 220),
 			new Weapon("네크로맨서의 지팡이", ClassType.Magician, 5000, 0, 0, 150),
 			new Weapon("마법사의 지팡이", ClassType.Magician, 500, 0, 0, 70),
 			new Weapon("대마법사의 오브", ClassType.Magician, 50000, 0, 0, 300),
@@ -135,7 +135,7 @@ public class ItemFactory {
 			new Armor("트롤의 신발", ClassType.Warrior, EquipType.Shoes, 1000, 20, 7, 3),
 			new Armor("데몬의 발톱", ClassType.Knight, EquipType.Shoes, 5000, 20, 10, 10),
 			new Armor("기사단 부츠", ClassType.Knight, EquipType.Shoes, 1000, 10, 7, 7),
-			new Armor("풍령왕의 신속", ClassType.Elf, EquipType.Shoes, 5000, 10, 20, 20),
+			new Armor("풍령의 신속", ClassType.Elf, EquipType.Shoes, 5000, 10, 20, 20),
 			new Armor("난쟁이 신발", ClassType.Elf, EquipType.Shoes, 1000, 7, 10, 10),
 			new Armor("올딘의 발자국", ClassType.Magician, EquipType.Shoes, 5000, 10, 10, 30),
 			new Armor("오크족 덧신", ClassType.Magician, EquipType.Shoes, 1000, 7, 7, 20),
@@ -144,7 +144,7 @@ public class ItemFactory {
 			new Armor("반사 방패", ClassType.Knight, EquipType.Shoes, 1000, 10, 7, 7),
 			new Armor("명궁의 가더", ClassType.Elf, EquipType.Shoes, 3000, 10, 20, 20),
 			new Armor("요정족 가더", ClassType.Elf, EquipType.Shoes, 1000, 7, 10, 10),
-			new Armor("타노스의 심안", ClassType.Magician, EquipType.Shoes, 3000, 10, 10, 30),
+			new Armor("사신의 심안", ClassType.Magician, EquipType.Shoes, 3000, 10, 10, 30),
 			new Armor("마력서", ClassType.Magician, EquipType.Shoes, 1000, 7, 7, 20),			
 						
 		};

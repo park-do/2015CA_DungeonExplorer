@@ -9,6 +9,12 @@ public class Skill_AB extends ActiveSkill {
 	
 	int count;
 	
+	public Skill_AB()
+	{
+		name = "앱솔루트 배리어";
+		usingMP = 300;
+	}
+	
 	public void useSkill(Characters user)
 	{
 		user.multipleRangedGPRatio(3.0f);

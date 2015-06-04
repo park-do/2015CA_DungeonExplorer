@@ -8,7 +8,13 @@ import de.windows.FightWindow;
 public class Skill_ST extends ActiveSkill {
 	
 	int count;
-		
+	
+	public Skill_ST()
+	{
+		name = "스트라이커";
+		usingMP = 50;
+	}
+	
 	public void useSkill(Characters user, Characters target)
 	{
 		user.multipleRangedAPRatio(1.4f);

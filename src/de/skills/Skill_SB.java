@@ -9,6 +9,12 @@ public class Skill_SB extends ActiveSkill {
 	
 	int count;
 	
+	public Skill_SB()
+	{
+		name = "선버스트";
+		usingMP = 200;
+	}
+	
 	public void useSkill(Characters user, Characters target)
 	{
 		user.Attack(target,0,0,user.getMagicAP()*3);

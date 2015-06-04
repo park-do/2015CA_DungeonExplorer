@@ -1,6 +1,8 @@
 package de.characters;
 
 import de.item.Item.ClassType;
+import de.skills.Skill_AG;
+import de.skills.Skill_AV;
 
 
 public class Warrior extends Player {
@@ -19,5 +21,19 @@ public class Warrior extends Player {
 		
 		classType = ClassType.Warrior;
 	}
+	
+	protected void levelUp()
+	{
+		super.levelUp();
+		if(getLevel()==10)
+		{
+			skillList.add(new Skill_AV());
+		}
+		if(getLevel()==30)
+		{
+			skillList.add(new Skill_AG());
+		}
+	}
+	
 
 }

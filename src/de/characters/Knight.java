@@ -2,6 +2,7 @@ package de.characters;
 
 import de.item.Item.ClassType;
 import de.skills.Skill_BW;
+import de.skills.Skill_CB;
 
 
 public class Knight extends Player {
@@ -25,11 +26,16 @@ public class Knight extends Player {
 
 	
 	@Override
-	protected void levelUp() {
+	protected void levelUp()
+	{
 		super.levelUp();
 		if(getLevel()==10)
 		{
 			skillList.add(new Skill_BW());
+		}
+		if(getLevel()==30)
+		{
+			skillList.add(new Skill_CB());
 		}
 	}
 }

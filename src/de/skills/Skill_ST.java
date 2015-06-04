@@ -4,7 +4,7 @@ import de.characters.Characters;
 import de.manager.WindowManager;
 import de.windows.FightWindow;
 
-//스트라이커: 5턴간 원거리 공격력이 140로 증가한다
+//스트라이커: 5턴간 원거리 공격력이 140%로 증가한다.
 public class Skill_ST extends ActiveSkill {
 	
 	int count;

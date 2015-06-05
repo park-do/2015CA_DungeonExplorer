@@ -185,11 +185,13 @@ public class ShopWindow extends JFrame implements ListSelectionListener, ActionL
 	
 	public void InitBuyList()
 	{
+		sellList.setSelectedIndex(0);
 		buyList.setListData(ItemFactory.getInstance().getBuyItems());
 	}
 	
 	public void InitSellList()
 	{
+		sellList.setSelectedIndex(0);
 		sellList.setListData(ItemFactory.getInstance().getSellItems());
 	}
 	
@@ -224,23 +226,25 @@ public class ShopWindow extends JFrame implements ListSelectionListener, ActionL
 			if(PlayerManager.getInstance().getPlayer().getGold() >= item.getPrice())
 			{
 				PlayerManager.getInstance().getPlayer().bringItem.add(item);
-				InitSellList();
 				RefreshGold();
-				JOptionPane.showConfirmDialog(this,item.getName()+" 샀습니다!","상점",JOptionPane.CANCEL_OPTION);
+				JOptionPane.showConfirmDialog(this,item.getName()+" 샀습니다!","상점",JOptionPane.CLOSED_OPTION);
+				InitSellList();
+				
 			}
 			else
 			{
-				JOptionPane.showConfirmDialog(this,"돈이 모자라요","상점",JOptionPane.CANCEL_OPTION);
+				JOptionPane.showConfirmDialog(this,"돈이 모자라요","상점",JOptionPane.CLOSED_OPTION);
 			}
 		}
 		else if(e.getSource()==btnSell)//팔기 버튼 눌렀니
 		{
 			int index = sellList.getSelectedIndex();
 			Item item = ItemFactory.getInstance().getItem(sellList.getSelectedValue());
-			PlayerManager.getInstance().getPlayer().bringItem.remove(index);
 			PlayerManager.getInstance().getPlayer().earnGold(item.getPrice());
-			InitSellList();
+			PlayerManager.getInstance().getPlayer().bringItem.remove(index);
+			JOptionPane.showConfirmDialog(this,item.getName()+" 팔았습니다!","상점",JOptionPane.CLOSED_OPTION);
 			RefreshGold();
+			InitSellList();
 		}
 	}
 }

@@ -33,7 +33,12 @@ public class Skill_BW extends ActiveSkill {
 	
 	public void EndEffect(Characters user)
 	{
-		user.multipleMeleeAPRatio(1/1.2f);
+		if(count>0)
+		{
+			user.multipleMeleeAPRatio(1/1.2f);
+			count=-1;
+		}
+		
 	}
 		
 	

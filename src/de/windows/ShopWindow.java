@@ -205,12 +205,14 @@ public class ShopWindow extends JFrame implements ListSelectionListener, ActionL
 		// TODO Auto-generated method stub
 		if(e.getSource()==buyList)
 		{
+			if(buyList.getSelectedValue()==null)return;
 			Item item = ItemFactory.getInstance().getItem(buyList.getSelectedValue());
 
 			lblItemInfo.setText(item.toString());
 		}
 		else if(e.getSource()==sellList)
 		{
+			if(sellList.getSelectedValue()==null)return;
 			Item item = ItemFactory.getInstance().getItem(sellList.getSelectedValue());
 
 			lblItemInfo_Sell.setText(item.toString());

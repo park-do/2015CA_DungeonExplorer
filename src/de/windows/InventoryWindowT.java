@@ -256,126 +256,126 @@ public class InventoryWindowT extends javax.swing.JFrame implements MouseListene
 		jToggleButton1.setText("Item01");
 		jToggleButton1.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(java.awt.event.ActionEvent evt) {
-				jToggleButton1ActionPerformed(evt);
+				ItemButtonActionPerformed(evt, 1);
 			}
 		});
 
 		jToggleButton2.setText("Item02");
 		jToggleButton2.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(java.awt.event.ActionEvent evt) {
-				jToggleButton2ActionPerformed(evt);
+				ItemButtonActionPerformed(evt, 2);
 			}
 		});
 
 		jToggleButton3.setText("Item03");
 		jToggleButton3.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(java.awt.event.ActionEvent evt) {
-				jToggleButton3ActionPerformed(evt);
+				ItemButtonActionPerformed(evt, 3);
 			}
 		});
 
 		jToggleButton4.setText("Item04");
 		jToggleButton4.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(java.awt.event.ActionEvent evt) {
-				jToggleButton4ActionPerformed(evt);
+				ItemButtonActionPerformed(evt, 4);
 			}
 		});
 
 		jToggleButton5.setText("Item05");
 		jToggleButton5.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(java.awt.event.ActionEvent evt) {
-				jToggleButton5ActionPerformed(evt);
+				ItemButtonActionPerformed(evt, 5);
 			}
 		});
 
 		jToggleButton6.setText("Item06");
 		jToggleButton6.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(java.awt.event.ActionEvent evt) {
-				jToggleButton6ActionPerformed(evt);
+				ItemButtonActionPerformed(evt, 6);
 			}
 		});
 
 		jToggleButton7.setText("Item07");
 		jToggleButton7.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(java.awt.event.ActionEvent evt) {
-				jToggleButton7ActionPerformed(evt);
+				ItemButtonActionPerformed(evt, 7);
 			}
 		});
 
 		jToggleButton8.setText("Item08");
 		jToggleButton8.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(java.awt.event.ActionEvent evt) {
-				jToggleButton8ActionPerformed(evt);
+				ItemButtonActionPerformed(evt, 8);
 			}
 		});
 
 		jToggleButton9.setText("Item09");
 		jToggleButton9.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(java.awt.event.ActionEvent evt) {
-				jToggleButton9ActionPerformed(evt);
+				ItemButtonActionPerformed(evt, 9);
 			}
 		});
 
 		jToggleButton10.setText("Item10");
 		jToggleButton10.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(java.awt.event.ActionEvent evt) {
-				jToggleButton10ActionPerformed(evt);
+				ItemButtonActionPerformed(evt, 10);
 			}
 		});
 
 		jToggleButton11.setText("Item11");
 		jToggleButton11.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(java.awt.event.ActionEvent evt) {
-				jToggleButton11ActionPerformed(evt);
+				ItemButtonActionPerformed(evt, 11);
 			}
 		});
 
 		jToggleButton12.setText("Item12");
 		jToggleButton12.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(java.awt.event.ActionEvent evt) {
-				jToggleButton12ActionPerformed(evt);
+				ItemButtonActionPerformed(evt, 12);
 			}
 		});
 
 		jToggleButton13.setText("Item13");
 		jToggleButton13.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(java.awt.event.ActionEvent evt) {
-				jToggleButton13ActionPerformed(evt);
+				ItemButtonActionPerformed(evt, 13);
 			}
 		});
 
 		jToggleButton14.setText("Item14");
 		jToggleButton14.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(java.awt.event.ActionEvent evt) {
-				jToggleButton14ActionPerformed(evt);
+				ItemButtonActionPerformed(evt, 14);
 			}
 		});
 
 		jToggleButton15.setText("Item15");
 		jToggleButton15.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(java.awt.event.ActionEvent evt) {
-				jToggleButton15ActionPerformed(evt);
+				ItemButtonActionPerformed(evt, 15);
 			}
 		});
 
 		jToggleButton16.setText("Item16");
 		jToggleButton16.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(java.awt.event.ActionEvent evt) {
-				jToggleButton16ActionPerformed(evt);
+				ItemButtonActionPerformed(evt, 16);
 			}
 		});
 
 		jToggleButton17.setText("Item17");
 		jToggleButton17.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(java.awt.event.ActionEvent evt) {
-				jToggleButton17ActionPerformed(evt);
+				ItemButtonActionPerformed(evt, 17);
 			}
 		});
 
 		jToggleButton18.setText("Item18");
 		jToggleButton18.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(java.awt.event.ActionEvent evt) {
-				jToggleButton18ActionPerformed(evt);
+				ItemButtonActionPerformed(evt, 18);
 			}
 		});
 
@@ -709,6 +709,18 @@ public class InventoryWindowT extends javax.swing.JFrame implements MouseListene
 		}
 		
 		jLabel15to24PropertyChange(null);
+	}
+	
+	private void ItemButtonActionPerformed(java.awt.event.ActionEvent evt, int index) {
+		slotItem = PlayerManager.getInstance().getPlayer().getBringItem();
+		selectedItem = PlayerManager.getInstance().getPlayer().getEquippedItem();
+		System.out.println("Hello"+index);
+		//System.out.println("O");
+		if(slotItem.size()>=index){
+			selectedItemALMaker(slotItem.get(index-1));
+		}
+		jLabel15to24PropertyChange(evt);
+		jLabel35to44PropertyChange(evt,index-1);
 	}
 
 	private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {
